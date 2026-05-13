@@ -1,15 +1,15 @@
 import React from 'react'
-import Topbar from './components/layout/Topbar'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
+import Topbar from './components/layout/Topbar'
 
 function App() {
   return (
-    <div>
-      <Topbar />
-      <Header />
-      <Footer></Footer>
-    </div>
+  <>
+  <Topbar/>
+  <Header/>
+  <Footer/>
+  </>
   )
 }
 
