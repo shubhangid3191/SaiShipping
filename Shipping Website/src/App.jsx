@@ -1,9 +1,12 @@
 import React from 'react'
+import Topbar from './components/layout/Topbar'
+import Header from './components/layout/Header'
 
 function App() {
   return (
     <div>
-      <h1>Hii</h1>
+      <Topbar />
+      <Header />
     </div>
   )
 }
