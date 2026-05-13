@@ -52,7 +52,7 @@ function Navbar() {
             },
             width: "100%",
             overflow: "hidden",
-            gap: 1,
+            gap: 4,
           }}
         >
           {/* Mobile Menu Icon */}
@@ -93,9 +93,11 @@ function Navbar() {
               },
               alignItems: "center",
               gap: {
-                md: 3,
-                lg: 5,
+                md: 8,
+                lg: 10,
               },
+              flex: 1,
+              justifyContent: "center",
             }}
           >
             {navItems.map((item) => (
@@ -104,7 +106,10 @@ function Navbar() {
                 sx={{
                   cursor: "pointer",
                   fontWeight: 900,
-                  fontSize: "18px",
+                  fontSize: {
+                    md: "20px",
+                    lg: "24px",
+                  },
                   color: "#eb7e27",
                   transition: "0.3s",
 
@@ -125,6 +130,14 @@ function Navbar() {
                 xs: "none",
                 md: "flex",
               },
+              alignItems: "center",
+
+              gap: {
+                md: 4,
+                lg: 6,
+              },
+              flex: 1,
+              justifyContent: "flex-end",
             }}
           >
           </Box>
