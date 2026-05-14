@@ -17,6 +17,7 @@ import {
   Container,
 } from "@mui/material";
 import logo from "../../assets/images/logo.png";
+import Topbar from "./Topbar";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -24,6 +25,7 @@ function Navbar() {
 
   return (
     <>
+    <Topbar />
       <AppBar
         position="sticky"
         elevation={0}
