@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-  Box,
-  Typography,
-  IconButton,
-} from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -17,12 +13,22 @@ function Topbar() {
     <Box
       sx={{
         backgroundColor: "#EBEBEB",
+
+        // ✅ SAME ALIGNMENT AS NAVBAR
         px: {
           xs: 2,
           md: 5,
           lg: 12,
         },
-        py: 0.5,
+
+        py: {
+          xs: 0.5,
+          md: 0.3,
+          lg: 0.5,
+        },
+
+        fontFamily: '"Times New Roman", serif',
+        fontSize: "14px",
       }}
     >
       <Box
@@ -34,7 +40,7 @@ function Topbar() {
           gap: 2,
         }}
       >
-        {/* Left Side */}
+        {/* LEFT SIDE */}
         <Box
           sx={{
             display: "flex",
@@ -43,11 +49,13 @@ function Topbar() {
             alignItems: "center",
           }}
         >
+          {/* EMAIL */}
           <Box
             sx={{
               display: "flex",
               alignItems: "center",
               gap: 1,
+              ml: 2,
             }}
           >
             <EmailIcon
@@ -59,14 +67,16 @@ function Topbar() {
 
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "14px",
                 color: "#000",
+                fontFamily: '"Times New Roman", serif',
               }}
             >
               info@saishipping.com
             </Typography>
           </Box>
 
+          {/* PHONE */}
           <Box
             sx={{
               display: "flex",
@@ -83,58 +93,66 @@ function Topbar() {
 
             <Typography
               sx={{
-                fontSize: "15px",
+                fontSize: "14px",
                 color: "#000",
+                fontFamily: '"Times New Roman", serif',
               }}
             >
               +91 9876543210
             </Typography>
           </Box>
-
         </Box>
 
-        {/* Right Side */}
+        {/* RIGHT SIDE */}
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             gap: 1,
+            ml: 4,
+            fontFamily: '"Times New Roman", serif',
           }}
         >
-            <Typography>
-                Follow Us:
-            </Typography>
-          <IconButton>
-            <FacebookIcon
-              sx={{
-                color: "#000",
-                "&:hover": {
-                  color: "#ED6637",
-                },
-              }}
-            />
+          <Typography
+            sx={{
+              fontSize: "14px",
+              fontFamily: '"Times New Roman", serif',
+            }}
+          >
+            Follow Us:
+          </Typography>
+
+          <IconButton
+            sx={{
+              color: "#000",
+              "&:hover": {
+                color: "#ED6637",
+              },
+            }}
+          >
+            <FacebookIcon sx={{ fontSize: 18 }} />
           </IconButton>
 
-          <IconButton>
-            <InstagramIcon
-              sx={{
-                color: "#000",
-                "&:hover": {
-                  color: "#ED6637",
-                },
-              }}
-            />
+          <IconButton
+            sx={{
+              color: "#000",
+              "&:hover": {
+                color: "#ED6637",
+              },
+            }}
+          >
+            <InstagramIcon sx={{ fontSize: 18 }} />
           </IconButton>
 
-          <IconButton>
-            <LinkedInIcon
-              sx={{
-                color: "#000",
-                "&:hover": {
-                  color: "#ED6637",
-                },
-              }}
-            />
+          <IconButton
+            sx={{
+              color: "#000",
+              "&:hover": {
+                color: "#ED6637",
+              },
+            }}
+          >
+            <LinkedInIcon sx={{ fontSize: 18 }} />
           </IconButton>
         </Box>
       </Box>

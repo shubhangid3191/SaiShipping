@@ -8,6 +8,10 @@ import {
   Box,
   IconButton,
   Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Container,
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -18,235 +22,290 @@ import logo from "../../assets/images/logo.png";
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const navItems = [
-    "Home",
-    "Company",
-    "Services",
-    "Projects",
-    "Contact",
-  ];
+  const navItems = ["Home", "Company", "Services", "Projects", "Contact"];
 
   return (
     <>
+      {/* NAVBAR */}
       <AppBar
         position="sticky"
+        elevation={0}
         sx={{
           backgroundColor: "#fff",
           boxShadow: "0 -5px 15px rgba(8,106,216,0.12)",
-          px: {
-            xs: 1,
-            md: 6,
-            lg: 4,
+          py: {
+            xs: 2,
+            md: 2,
+            lg: 2.5,
           },
-          py: 3,
         }}
       >
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            minHeight: {
-              xs: "90px",
-              md: "110px",
-            },
-            width: "100%",
-            overflow: "hidden",
-            gap: 4,
-          }}
-        >
-          {/* Mobile Menu Icon */}
-          <IconButton
+        <Container maxWidth="xl">
+          <Toolbar
+            disableGutters
             sx={{
-              display: {
-                xs: "flex",
-                md: "none",
+              minHeight: {
+                xs: "90px",
+                md: "115px",
               },
-              color: "#eb7e27",
-            }}
-            onClick={() => setOpenMenu(true)}
-          >
-            <MenuIcon fontSize="large" />
-          </IconButton>
 
-          {/* Logo */}
-          <Box
-            component="img"
-            src={logo}
-            alt="Sai Shipping Logo"
-            sx={{
-              height: {
-                xs: 90,
-                md: 120,
-              },
-              width: "auto",
-              cursor: "pointer",
-            }}
-          />
-
-          {/* Desktop Navigation */}
-          <Box
-            sx={{
-              display: {
-                xs: "none",
-                md: "flex",
-              },
+              display: "flex",
               alignItems: "center",
-              gap: {
-                md: 8,
-                lg: 10,
-              },
-              flex: 1,
-              justifyContent: "center",
+              justifyContent: "space-between",
             }}
           >
-            {navItems.map((item) => (
-              <Typography
-                key={item}
+            {/* MOBILE MENU */}
+            <IconButton
+              onClick={() => setOpenMenu(true)}
+              sx={{
+                display: {
+                  xs: "flex",
+                  md: "none",
+                },
+                color: "#eb7e27",
+                mr: 1,
+              }}
+            >
+              <MenuIcon fontSize="large" />
+            </IconButton>
+
+            {/* LOGO */}
+            <Box
+              component="img"
+              src={logo}
+              alt="Sai Shipping"
+              sx={{
+                width: {
+                  xs: "140px",  // mobile (small screens)
+                  sm: "120px",
+                  md: "100px",  // desktop smaller if needed
+                },
+                height: "auto",
+                cursor: "pointer",
+                ml: {
+                  xs: 2,
+                  md: 6,
+                  lg: 10,
+                },
+              }}
+            />
+
+            {/* DESKTOP NAVIGATION */}
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "flex",
+                },
+
+                alignItems: "center",
+                gap: {
+                  md: 7,
+                  lg: 9,
+                },
+
+                ml: {
+                  md: 10,
+                  lg: 12,
+                },
+
+                flexGrow: 1,
+              }}
+            >
+              {navItems.map((item) => (
+                <Typography
+                  key={item}
+                  sx={{
+                    position: "relative",
+
+                    color: "#eb7e27",
+
+                    fontWeight: 700,
+
+                    fontSize: {
+                      md: "18px",
+                      lg: "20px",
+                    },
+
+                    cursor: "pointer",
+                    fontFamily: '"Times New Roman", serif',
+
+                    transition: "all 0.3s ease",
+
+                    "&:hover": {
+                      color: "#ff7236",
+                    },
+
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      width: "0%",
+                      height: "2px",
+                      left: 0,
+                      bottom: -6,
+                      backgroundColor: "#ff7236",
+                      transition: "0.3s",
+                    },
+
+                    "&:hover::after": {
+                      width: "100%",
+                    },
+                  }}
+                >
+                  {item}
+                </Typography>
+              ))}
+            </Box>
+
+            {/* RIGHT BUTTON */}
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  md: "flex",
+                },
+                alignItems: "center",
+              }}
+            >
+              <Button
+                variant="contained"
                 sx={{
-                  cursor: "pointer",
-                  fontWeight: 900,
-                  fontSize: {
-                    md: "20px",
-                    lg: "24px",
+                  backgroundColor: "#eb7e27",
+
+                  color: "#fff",
+
+                  borderRadius: "60px",
+
+                  px: {
+                    md: 3,
+                    lg: 4,
                   },
-                  color: "#eb7e27",
-                  transition: "0.3s",
+
+                  py: 1.4,
+
+                  fontSize: {
+                    md: "15px",
+                    lg: "16px",
+                  },
+
+                  fontWeight: 700,
+
+                  textTransform: "capitalize",
+
+                  boxShadow: "none",
 
                   "&:hover": {
-                    textDecoration: "underline",
+                    backgroundColor: "#d86f1f",
+                    boxShadow: "none",
                   },
                 }}
               >
-                {item}
-              </Typography>
-            ))}
-          </Box>
+                Get A Free Quote
+              </Button>
+            </Box>
 
-          {/* Desktop Button */}
-          <Box
-            sx={{
-              display: {
-                xs: "none",
-                md: "flex",
-              },
-              alignItems: "center",
+            {/* MOBILE ROUND BUTTON */}
+            <Button
+              variant="contained"
+              sx={{
+                display: {
+                  xs: "flex",
+                  md: "none",
+                },
 
-              gap: {
-                md: 4,
-                lg: 6,
-              },
-              flex: 1,
-              justifyContent: "flex-end",
-            }}
-          >
-          </Box>
+                backgroundColor: "#eb7e27",
 
-          {/* Mobile Quote Button */}
-          <Button
-            variant="contained"
-            sx={{
-              display: {
-                xs: "90",
-                md: "120",
-              },
+                color: "#fff",
 
-              backgroundColor: "#eb7e27",
-              color: "#fff",
+                borderRadius: "50%",
 
-              borderRadius: "50%",
+                minWidth: "75px",
+                width: "75px",
+                height: "75px",
 
-              minWidth: "90px",
-              width: "90px",
-              height: "90px",
+                fontSize: "10px",
 
-              fontSize: "12px",
-              fontWeight: 700,
+                fontWeight: 700,
 
-              lineHeight: 1.3,
-              textAlign: "center",
+                lineHeight: 1.2,
 
-              textTransform: "uppercase",
+                textAlign: "center",
 
-              "&:hover": {
-                backgroundColor: "#d86f1f",
-              },
-            }}
-          >
-            Get A
-            <br />
-            Free
-            <br />
-            Quote
-          </Button>
-        </Toolbar>
+                textTransform: "uppercase",
+
+                "&:hover": {
+                  backgroundColor: "#d86f1f",
+                },
+              }}
+            >
+              Get A
+              <br />
+              Free
+              <br />
+              Quote
+            </Button>
+          </Toolbar>
+        </Container>
       </AppBar>
 
-      {/* Mobile Drawer */}
-      <Drawer
-        anchor="left"
-        open={openMenu}
-        onClose={() => setOpenMenu(false)}
-      >
+      {/* MOBILE DRAWER */}
+      <Drawer anchor="left" open={openMenu} onClose={() => setOpenMenu(false)}>
         <Box
           sx={{
-            width: 260,
+            width: 300,
             height: "100%",
+            backgroundColor: "#eb7e27",
+            color: "#fff",
             p: 3,
-            display: "flex",
-            flexDirection: "column",
-            gap: 3,
-            backgroundColor: "#fff",
           }}
         >
-          {/* Close Icon */}
+          {/* CLOSE BUTTON */}
           <Box
             sx={{
               display: "flex",
               justifyContent: "flex-end",
+              mb: 5,
             }}
           >
-            <IconButton onClick={() => setOpenMenu(false)}>
+            <IconButton
+              onClick={() => setOpenMenu(false)}
+              sx={{
+                color: "#fff",
+                border: "1px solid #fff",
+              }}
+            >
               <CloseIcon />
             </IconButton>
           </Box>
 
-          {/* Mobile Menu Items */}
-          {navItems.map((item) => (
-            <Typography
-              key={item}
-              sx={{
-                fontSize: "20px",
-                fontWeight: "bold",
-                color: "#eb7e27",
-                cursor: "pointer",
+          {/* MOBILE MENU ITEMS */}
+          <List>
+            {navItems.map((item) => (
+              <ListItem
+                key={item}
+                disablePadding
+                sx={{
+                  mb: 3,
+                }}
+              >
+                <ListItemText
+                  primary={item}
+                  primaryTypographyProps={{
+                    fontSize: "20px",
+                    fontWeight: 600,
 
-                "&:hover": {
-                  textDecoration: "underline",
-                },
-              }}
-            >
-              {item}
-            </Typography>
-          ))}
+                    sx: {
+                      cursor: "pointer",
 
-          {/* Mobile Drawer Button */}
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#eb7e27",
-              borderRadius: "50px",
-              textTransform: "capitalize",
-              mt: 2,
-              py: 0.5,
-
-              "&:hover": {
-                backgroundColor: "#d86f1f",
-              },
-            }}
-          >
-            Get Quote
-          </Button>
+                      "&:hover": {
+                        textDecoration: "underline",
+                      },
+                    },
+                  }}
+                />
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Drawer>
     </>
