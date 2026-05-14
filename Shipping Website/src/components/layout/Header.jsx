@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -16,16 +16,25 @@ import {
   ListItemText,
   Container,
 } from "@mui/material";
-import logo from "../../assets/images/logo.png";
 import Topbar from "./Topbar";
+
+const logo = "https://saishipping.com/images/logo.png";
+
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "Company", path: "/about-us" },
+  { label: "Services", path: "/services" },
+  { label: "Projects", path: "/projects" },
+  { label: "Contact", path: "/contact" },
+];
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const navItems = ["Home", "Company", "Services", "Projects", "Contact"];
+  const location = useLocation();
 
   return (
     <>
-    <Topbar />
+      <Topbar />
       <AppBar
         position="sticky"
         elevation={0}
@@ -59,17 +68,19 @@ function Navbar() {
             </IconButton>
 
             {/* LOGO */}
-            <Box
-              component="img"
-              src={logo}
-              alt="Sai Shipping"
-              sx={{
-                width: { xs: "140px", sm: "120px", md: "180px", lg: "160px" },
-                height: "auto",
-                cursor: "pointer",
-                ml: { xs: 2, md: 6, lg: 10 },
-              }}
-            />
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Box
+                component="img"
+                src={logo}
+                alt="Sai Shipping"
+                sx={{
+                  width: { xs: "140px", sm: "120px", md: "180px", lg: "160px" },
+                  height: "auto",
+                  cursor: "pointer",
+                  ml: { xs: 2, md: 6, lg: 10 },
+                }}
+              />
+            </Link>
 
             {/* DESKTOP NAV ITEMS */}
             <Box
@@ -81,33 +92,41 @@ function Navbar() {
                 flexGrow: 1,
               }}
             >
-              {navItems.map((item) => (
-                <Typography
-                  key={item}
-                  sx={{
-                    position: "relative",
-                    color: "#eb7e27",
-                    fontWeight: 700,
-                    fontSize: { md: "18px", lg: "20px" },
-                    cursor: "pointer",
-                    fontFamily: '"Times New Roman", serif',
-                    "&:hover": { color: "#ff7236" },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      width: "0%",
-                      height: "2px",
-                      left: 0,
-                      bottom: -6,
-                      backgroundColor: "#ff7236",
-                      transition: "0.3s",
-                    },
-                    "&:hover::after": { width: "100%" },
-                  }}
-                >
-                  {item}
-                </Typography>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Typography
+                      sx={{
+                        position: "relative",
+                        color: isActive ? "#ff7236" : "#eb7e27",
+                        fontWeight: 700,
+                        fontSize: { md: "18px", lg: "20px" },
+                        cursor: "pointer",
+                        fontFamily: '"Times New Roman", serif',
+                        "&:hover": { color: "#ff7236" },
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          width: isActive ? "100%" : "0%",
+                          height: "2px",
+                          left: 0,
+                          bottom: -6,
+                          backgroundColor: "#ff7236",
+                          transition: "0.3s",
+                        },
+                        "&:hover::after": { width: "100%" },
+                      }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </Link>
+                );
+              })}
             </Box>
 
             {/* DESKTOP — Get A Quote button */}
@@ -179,7 +198,6 @@ function Navbar() {
                 Quote
               </Button>
             </Link>
-
           </Toolbar>
         </Container>
       </AppBar>
@@ -203,21 +221,31 @@ function Navbar() {
               <CloseIcon />
             </IconButton>
           </Box>
-
           <List>
             {navItems.map((item) => (
-              <ListItem key={item} disablePadding sx={{ mb: 3 }}>
-                <ListItemText
-                  primary={item}
-                  primaryTypographyProps={{
-                    fontSize: "20px",
-                    fontWeight: 600,
-                    sx: {
-                      cursor: "pointer",
-                      "&:hover": { textDecoration: "underline" },
-                    },
-                  }}
-                />
+              <ListItem
+                key={item.label}
+                disablePadding
+                sx={{ mb: 3 }}
+                onClick={() => setOpenMenu(false)}
+              >
+                <Link
+                  to={item.path}
+                  style={{ textDecoration: "none", width: "100%" }}
+                >
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      fontSize: "20px",
+                      fontWeight: 600,
+                      color: "#fff",
+                      sx: {
+                        cursor: "pointer",
+                        "&:hover": { textDecoration: "underline" },
+                      },
+                    }}
+                  />
+                </Link>
               </ListItem>
             ))}
           </List>
