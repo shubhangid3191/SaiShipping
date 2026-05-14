@@ -13,9 +13,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 
-// ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // DATA
-// ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
 
 const branches = [
   {
@@ -53,7 +53,7 @@ const branches = [
     title: "Mundra",
     address: [
       "M-5 Ratnakala Arcade, OPP. Shubham Petroleum,",
-      "Adani Port Road, Mundra, Kutch 370 421, Gujarat",
+      "Adani Port Road, Mundra, Kutch 370421, Gujarat",
     ],
   },
   {
@@ -73,43 +73,40 @@ const branches = [
 ];
 
 const services = [
-  { label: "Freight Forwarding", href: "/" },
-  { label: "Custom Clearance", href: "/" },
-  { label: "Warehouses", href: "/" },
-  { label: "Additional Services", href: "/" },
+  "Freight Forwarding",
+  "Custom Clearance",
+  "Warehouses",
+  "Additional Services",
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "/" },
-  { label: "Industry We Offer", href: "/" },
-  { label: "Clients", href: "/" },
-  { label: "FAQ", href: "/" },
-  { label: "Achievements & Rewards", href: "/" },
-  { label: "Projects", href: "/" },
-  { label: "Contact Us", href: "/" },
+  "About Us",
+  "Industry We Offer",
+  "Clients",
+  "FAQ",
+  "Achievements & Rewards",
+  "Projects",
+  "Contact Us",
 ];
 
 const socials = [
   {
-    icon: <FacebookIcon sx={{ fontSize: 22 }} />,
-    href: "https://facebook.com",
-    label: "Facebook",
+    icon: <FacebookIcon sx={{ fontSize: 20 }} />,
+    link: "#",
   },
   {
-    icon: <XIcon sx={{ fontSize: 22 }} />,
-    href: "https://x.com",
-    label: "X",
+    icon: <XIcon sx={{ fontSize: 20 }} />,
+    link: "#",
   },
   {
-    icon: <InstagramIcon sx={{ fontSize: 22 }} />,
-    href: "https://instagram.com",
-    label: "Instagram",
+    icon: <InstagramIcon sx={{ fontSize: 20 }} />,
+    link: "#",
   },
 ];
 
-// ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
 // FOOTER
-// ─────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────
 
 export default function Footer() {
   return (
@@ -119,12 +116,11 @@ export default function Footer() {
         position: "relative",
         overflow: "hidden",
         background:
-          "linear-gradient(90deg, rgba(2,38,63,0.98) 0%, rgba(1,20,76,0.98) 100%)",
+          "linear-gradient(90deg, rgba(4,44,68,0.98) 0%, rgba(5,18,82,0.98) 100%)",
         color: "#fff",
-        pt: { xs: 7, md: 9 },
       }}
     >
-      {/* Background Image */}
+      {/* Background image */}
       <Box
         sx={{
           position: "absolute",
@@ -137,35 +133,42 @@ export default function Footer() {
         }}
       />
 
+      {/* Main content */}
       <Container
         maxWidth="xl"
         sx={{
           position: "relative",
           zIndex: 2,
-          px: { xs: 3, md: 10 },
+          pt: { xs: 7, md: 10 },
+          px: { xs: 3, sm: 5, md: 8, lg: 12 },
         }}
       >
-        {/* ───────── BRANCHES TITLE ───────── */}
+        {/* Heading */}
         <Typography
           sx={{
-            fontSize: { xs: "48px", md: "64px" },
+            fontSize: { xs: "42px", sm: "52px", md: "66px" },
             fontWeight: 700,
-            mb: 7,
+            mb: { xs: 6, md: 8 },
             fontFamily: "Georgia, serif",
+            lineHeight: 1,
           }}
         >
           Branches
         </Typography>
 
-        {/* ───────── BRANCHES GRID ───────── */}
-        <Grid container spacing={8}>
+        {/* Branches grid */}
+        <Grid
+          container
+          columnSpacing={{ xs: 3, md: 10 }}
+          rowSpacing={{ xs: 5, md: 7 }}
+        >
           {branches.map((branch) => (
             <Grid item xs={12} sm={6} md={4} key={branch.title}>
               <Typography
                 sx={{
-                  fontSize: { xs: "20px", md: "26px" },
+                  fontSize: { xs: "24px", md: "28px" },
                   fontWeight: 700,
-                  mb: 2,
+                  mb: 1.5,
                   fontFamily: "Georgia, serif",
                 }}
               >
@@ -177,8 +180,8 @@ export default function Footer() {
                   key={i}
                   sx={{
                     fontSize: { xs: "17px", md: "18px" },
-                    lineHeight: 1.7,
-                    color: "rgba(255,255,255,0.92)",
+                    color: "rgba(255,255,255,0.95)",
+                    lineHeight: 1.8,
                     fontFamily: "Georgia, serif",
                   }}
                 >
@@ -189,24 +192,22 @@ export default function Footer() {
           ))}
         </Grid>
 
-        {/* ───────────────── SERVICES / COMPANY / CONNECT ───────────────── */}
-
+        {/* Services / Company / Social */}
         <Grid
           container
+          spacing={{ xs: 5, md: 8 }}
           sx={{
-            mt: 8,
-            pb: 6,
-            justifyContent: "space-between",
+            mt: { xs: 6, md: 8 },
+            pb: { xs: 7, md: 8 },
+            alignItems: "flex-start",
           }}
         >
-
-          {/* SERVICES */}
-          <Grid item xs={12} md={3}>
+          {/* Services */}
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{
-                fontSize: "22px",
+                fontSize: "26px",
                 fontWeight: 700,
-                color: "#fff",
                 mb: 3,
                 fontFamily: "Georgia, serif",
               }}
@@ -214,36 +215,36 @@ export default function Footer() {
               Services
             </Typography>
 
-            <Stack spacing={2.5}>
-              {services.map((s) => (
+            <Stack spacing={2.2}>
+              {services.map((item) => (
                 <Link
-                  key={s.label}
-                  href={s.href}
+                  key={item}
+                  href="#"
                   underline="none"
                   sx={{
                     color: "#fff",
                     fontSize: "18px",
-                    lineHeight: 1.5,
                     fontFamily: "Georgia, serif",
                     transition: "0.3s",
+                    width: "fit-content",
                     "&:hover": {
                       color: "#ff7b2f",
+                      transform: "translateX(5px)",
                     },
                   }}
                 >
-                  {s.label}
+                  {item}
                 </Link>
               ))}
             </Stack>
           </Grid>
 
-          {/* COMPANY */}
-          <Grid item xs={12} md={3}>
+          {/* Company */}
+          <Grid item xs={12} sm={6} md={3}>
             <Typography
               sx={{
-                fontSize: "22px",
+                fontSize: "26px",
                 fontWeight: 700,
-                color: "#fff",
                 mb: 3,
                 fontFamily: "Georgia, serif",
               }}
@@ -251,34 +252,35 @@ export default function Footer() {
               Company
             </Typography>
 
-            <Stack spacing={2.5}>
-              {companyLinks.map((c) => (
+            <Stack spacing={2.2}>
+              {companyLinks.map((item) => (
                 <Link
-                  key={c.label}
-                  href={c.href}
+                  key={item}
+                  href="#"
                   underline="none"
                   sx={{
                     color: "#fff",
                     fontSize: "18px",
-                    lineHeight: 1.5,
                     fontFamily: "Georgia, serif",
                     transition: "0.3s",
+                    width: "fit-content",
                     "&:hover": {
                       color: "#ff7b2f",
+                      transform: "translateX(5px)",
                     },
                   }}
                 >
-                  {c.label}
+                  {item}
                 </Link>
               ))}
             </Stack>
           </Grid>
 
-          {/* CONNECT WITH US */}
+          {/* Connect box */}
           <Grid
             item
             xs={12}
-            md={3.3}
+            md={5}
             sx={{
               display: "flex",
               justifyContent: { xs: "flex-start", md: "flex-end" },
@@ -287,19 +289,18 @@ export default function Footer() {
             <Box
               sx={{
                 width: "100%",
-                maxWidth: "380px",
+                maxWidth: "360px",
                 minHeight: "230px",
-                background: "rgba(255,255,255,0.03)",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.04)",
                 backdropFilter: "blur(5px)",
-                border: "1px solid rgba(255,255,255,0.03)",
-                p: 4,
+                p: { xs: 4, md: 5 },
               }}
             >
               <Typography
                 sx={{
-                  fontSize: "24px",
+                  fontSize: { xs: "28px", md: "32px" },
                   fontWeight: 700,
-                  color: "#fff",
                   mb: 4,
                   fontFamily: "Georgia, serif",
                 }}
@@ -308,26 +309,24 @@ export default function Footer() {
               </Typography>
 
               <Stack direction="row" spacing={2}>
-                {socials.map(({ icon, href, label }) => (
+                {socials.map((social, index) => (
                   <IconButton
-                    key={label}
-                    component="a"
-                    href={href}
+                    key={index}
+                    href={social.link}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
                     sx={{
-                      width: 48,
-                      height: 48,
+                      width: 54,
+                      height: 54,
                       bgcolor: "#ff7b2f",
                       color: "#fff",
                       transition: "0.3s",
                       "&:hover": {
                         bgcolor: "#ff934d",
+                        transform: "translateY(-4px)",
                       },
                     }}
                   >
-                    {icon}
+                    {social.icon}
                   </IconButton>
                 ))}
               </Stack>
@@ -342,11 +341,11 @@ export default function Footer() {
         sx={{
           position: "relative",
           borderTop: "1px solid rgba(255,255,255,0.08)",
-          minHeight: "180px",
+          minHeight: { xs: "240px", md: "220px" },
           overflow: "hidden",
         }}
       >
-        {/* Teal Shape */}
+        {/* ORANGE TRIANGLE */}
         <Box
           sx={{
             position: "absolute",
@@ -356,80 +355,126 @@ export default function Footer() {
             height: 0,
             borderStyle: "solid",
             borderWidth: {
-              xs: "0 0 180px 220px",
-              md: "0 0 180px 300px",
-            },
-            borderColor: "transparent transparent #0c4c5f transparent",
-          }}
-        />
-
-        {/* Orange Shape */}
-        <Box
-          sx={{
-            position: "absolute",
-            left: 0,
-            bottom: 0,
-            width: 0,
-            height: 0,
-            borderStyle: "solid",
-            borderWidth: {
-              xs: "0 0 180px 120px",
-              md: "0 0 180px 170px",
+              xs: "0 0 220px 180px",
+              md: "0 0 220px 240px",
             },
             borderColor: "transparent transparent #ff7b2f transparent",
+            zIndex: 1,
           }}
         />
 
+        {/* WHITE LINE */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: 28,
+            bottom: 0,
+            width: "7px",
+            height: "220px",
+            bgcolor: "#fff",
+            transform: "skew(-30deg)",
+            zIndex: 2,
+          }}
+        />
+
+        {/* TEAL SHAPE */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: 75,
+            bottom: 0,
+            width: 0,
+            height: 0,
+            borderStyle: "solid",
+            borderWidth: {
+              xs: "0 0 220px 140px",
+              md: "0 0 220px 180px",
+            },
+            borderColor: "transparent transparent #0d5062 transparent",
+            zIndex: 1,
+          }}
+        />
+
+        {/* Bottom content */}
         <Container
           maxWidth="xl"
           sx={{
             position: "relative",
-            zIndex: 2,
-            px: { xs: 3, md: 10 },
-            minHeight: "180px",
+            zIndex: 5,
+            minHeight: { xs: "240px", md: "220px" },
+            px: { xs: 3, sm: 5, md: 8, lg: 12 },
+            py: { xs: 4, md: 0 },
+
             display: "flex",
-            alignItems: "center",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { xs: "center", md: "center" },
             justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 4,
+            gap: { xs: 5, md: 6 },
           }}
         >
-          {/* LOGO */}
+          {/* Logo */}
           <Box
-            component="img"
-            src="https://saishipping.com/images/logo.png"
-            alt="SSS Sai Shipping"
             sx={{
-              height: { xs: 100, md: 150 },
-              objectFit: "contain",
-              ml: { xs: 1, md: 4 },
-            }}
-          />
-
-          {/* COPYRIGHT */}
-          <Typography
-            sx={{
-              fontSize: { xs: "16px", md: "22px" },
-              color: "#fff",
-              textAlign: { xs: "center", md: "right" },
-              lineHeight: 1.7,
-              fontFamily: "Georgia, serif",
+              position: "relative",
+              width: { xs: "240px", md: "340px" },
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            © 2026{" "}
+            <Box
+              component="img"
+              src="https://saishipping.com/images/logo.png"
+              alt="Sai Shipping"
+              sx={{
+                width: "100%",
+                maxWidth: { xs: "230px", md: "200px" },
+                objectFit: "contain",
+                position: "relative",
+                zIndex: 10,
+              }}
+            />
+          </Box>
+
+          {/* Copyright */}
+          <Typography
+            sx={{
+              flex: 1,
+              textAlign: { xs: "center", md: "right" },
+              fontSize: { xs: "16px", md: "15px" },
+              lineHeight: 1.8,
+              fontFamily: "Georgia, serif",
+              color: "#fff",
+
+              maxWidth: { xs: "100%", md: "900px" },
+
+              display: "flex",
+              justifyContent: { xs: "center", md: "flex-end" },
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "6px",
+            }}
+          >
+            <Box component="span">© 2026</Box>
+
             <Link
               href="https://hitechenterprise.in/"
-              underline="hover"
               target="_blank"
+              underline="hover"
               sx={{
                 color: "#ff7b2f",
                 fontWeight: 700,
+                fontSize: { xs: "16px", md: "21px" },
               }}
             >
               Hi Tech Enterprises
-            </Link>{" "}
-            - Providing solutions for SSS Sai Shipping Services Pvt. Ltd.
-            All rights reserved.
+            </Link>
+
+            <Box component="span">
+              - Providing solutions for SSS Sai Shipping Services Pvt. Ltd.
+              All rights reserved.
+            </Box>
           </Typography>
         </Container>
       </Box>
