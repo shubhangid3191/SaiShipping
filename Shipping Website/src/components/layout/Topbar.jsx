@@ -34,70 +34,33 @@ function Topbar() {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 2,
+          gap: { xs: 0, md: 2 },
         }}
       >
         {/* LEFT SIDE */}
         <Box
           sx={{
             display: "flex",
-            gap: 4,
-            flexWrap: "wrap",
+            gap: { xs: 2, md: 4 },
             alignItems: "center",
+            flexWrap: "wrap",
           }}
         >
           {/* EMAIL */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              ml: 2,
-            }}
-          >
-            <EmailIcon
-              sx={{
-                color: "#ED6637",
-                fontSize: 18,
-              }}
-            />
-
-            <Typography
-              sx={{
-                fontSize: "14px",
-                color: "#000",
-                fontFamily: '"Times New Roman", serif',
-              }}
-            >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <EmailIcon sx={{ color: "#ED6637", fontSize: 18 }} />
+            <Typography sx={{ fontSize: "14px", color: "#000" }}>
               info@saishipping.com
             </Typography>
           </Box>
 
           {/* PHONE */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            <CallIcon
-              sx={{
-                color: "#ED6637",
-                fontSize: 18,
-              }}
-            />
-
-            <Typography
-              sx={{
-                fontSize: "14px",
-                color: "#000",
-                fontFamily: '"Times New Roman", serif',
-              }}
-            >
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <CallIcon sx={{ color: "#ED6637", fontSize: 18 }} />
+            <Typography sx={{ fontSize: "14px", color: "#000" }}>
               +91 9876543210
             </Typography>
           </Box>
@@ -109,49 +72,20 @@ function Topbar() {
             display: "flex",
             alignItems: "center",
             gap: 1,
-            ml: 4,
-            fontFamily: '"Times New Roman", serif',
+            flexWrap: "wrap",
           }}
         >
-          <Typography
-            sx={{
-              fontSize: "14px",
-              fontFamily: '"Times New Roman", serif',
-            }}
-          >
-            Follow Us:
-          </Typography>
+          <Typography sx={{ fontSize: "14px" }}>Follow Us:</Typography>
 
-          <IconButton
-            sx={{
-              color: "#000",
-              "&:hover": {
-                color: "#ED6637",
-              },
-            }}
-          >
+          <IconButton sx={{ color: "#000", "&:hover": { color: "#ED6637" } }}>
             <FacebookIcon sx={{ fontSize: 18 }} />
           </IconButton>
 
-          <IconButton
-            sx={{
-              color: "#000",
-              "&:hover": {
-                color: "#ED6637",
-              },
-            }}
-          >
+          <IconButton sx={{ color: "#000", "&:hover": { color: "#ED6637" } }}>
             <InstagramIcon sx={{ fontSize: 18 }} />
           </IconButton>
 
-          <IconButton
-            sx={{
-              color: "#000",
-              "&:hover": {
-                color: "#ED6637",
-              },
-            }}
-          >
+          <IconButton sx={{ color: "#000", "&:hover": { color: "#ED6637" } }}>
             <LinkedInIcon sx={{ fontSize: 18 }} />
           </IconButton>
         </Box>
