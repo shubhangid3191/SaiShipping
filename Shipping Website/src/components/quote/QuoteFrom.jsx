@@ -4,16 +4,11 @@ import Footer from "../layout/Footer";
 import Button from "@mui/material/Button";
 import "../../styles/GetFreeQuote.css";
 
-
-
-
 const services = [
-  "Air Freight",
-  "Sea Freight",
-  "Road Transport",
-  "Warehousing",
-  "Custom Clearance",
-  "Project Cargo",
+  "FREIGHT FORWARDING",
+  "CUSTOM CLEARANCE",
+  "WAREHOUSES",
+  "ADDITIONAL SERVICES",
 ];
 
 export default function GetFreeQuote() {

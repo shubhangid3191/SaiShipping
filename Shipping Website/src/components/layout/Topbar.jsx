@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Box, Typography, IconButton } from "@mui/material";
-
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -13,38 +11,26 @@ function Topbar() {
     <Box
       sx={{
         backgroundColor: "#EBEBEB",
-
-        // ✅ SAME ALIGNMENT AS NAVBAR
-        px: {
-          xs: 2,
-          md: 5,
-          lg: 12,
-        },
-
-        py: {
-          xs: 0.5,
-          md: 0.3,
-          lg: 0.5,
-        },
-
+        px: { xs: 2, md: 5, lg: 12 },
+        py: { xs: 0.5, md: 0.3, lg: 0.5 },
         fontFamily: '"Times New Roman", serif',
         fontSize: "14px",
       }}
     >
+      {/* Parent flex container: space-between pushes left and right apart */}
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between", // 👈 left content on left, right content on right
           alignItems: "center",
           flexWrap: "wrap",
-          gap: { xs: 0, md: 2 },
         }}
       >
         {/* LEFT SIDE */}
         <Box
           sx={{
             display: "flex",
-            gap: { xs: 2, md: 4 },
+            gap: { xs: 1, md: 3 },
             alignItems: "center",
             flexWrap: "wrap",
           }}
