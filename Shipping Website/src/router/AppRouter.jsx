@@ -8,16 +8,23 @@ import Projects from "../pages/Projects";
 import Home from "../components/home/Home"
 import Contact from "../pages/Contact";
 
+// Company pages
+import AboutUs from "../pages/AboutUs";
+
 export default function AppRouter() {
   return (
     <BrowserRouter>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/" element={<App />} />
         <Route path="/get-a-free-quote" element={<QuoteFrom />} />
         <Route path="/projects" element={<><Projects /></>} />
         <Route path="/contact" element={<><Contact/></>} />
+
+        {/* Company Dropdown */}
+        <Route path="/about-us" element={<AboutUs />} />
+   
+
       </Routes>
       <Footer/>
     </BrowserRouter>
