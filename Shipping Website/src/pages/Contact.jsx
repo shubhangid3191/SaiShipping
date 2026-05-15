@@ -1,7 +1,4 @@
 import React from "react";
-
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import ContactForm from "./ContactForm";
 
 import {
@@ -47,7 +44,6 @@ const contactData = [
 function Contact() {
   return (
     <>
-      <Header />
 
       {/* HERO SECTION */}
       <Box
@@ -280,8 +276,6 @@ function Contact() {
         </Container>
       </Box>
       <ContactForm />
-
-      <Footer />
     </>
   );
 }

@@ -6,8 +6,7 @@ import Topbar from './components/layout/Topbar'
 function App() {
   return (
   <>
-  <Header/>
-  <Footer/>
+
   </>
   )
 }

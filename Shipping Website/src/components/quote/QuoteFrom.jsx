@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -52,7 +50,6 @@ export default function GetFreeQuote() {
 
   return (
     <>
-      <Header />
 
       {/* IMPORTANT FIX */}
       <Box
@@ -164,7 +161,7 @@ export default function GetFreeQuote() {
         </div>
       </Box>
 
-      <Footer />
+
     </>
   );
 }

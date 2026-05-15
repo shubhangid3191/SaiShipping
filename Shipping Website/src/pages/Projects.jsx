@@ -3,27 +3,24 @@ import {
   Box,
   Container,
   Grid,
-  Typography,
   Modal,
-  IconButton,
   Fade,
-  Backdrop,
+ Backdrop,
+  IconButton,
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import Header from "../components/layout/Header";
 
 // ─────────────────────────────────────────────
-// PROJECT DATA
+// PROJECT IMAGES
 // ─────────────────────────────────────────────
 
 const projects = Array.from({ length: 42 }, (_, i) => ({
   id: i + 1,
   src: `https://saishipping.com/images/project${i + 1}.jpg`,
-  alt: `Project ${i + 1}`,
 }));
 
 // ─────────────────────────────────────────────
@@ -58,20 +55,29 @@ function PageBanner() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* WHITE OVERLAY */}
+      {/* SIDE DARK OVERLAY */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
 
-          background:
-            "linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72))",
+          background: `
+            linear-gradient(
+              to right,
+              rgba(0,0,0,0.70) 0%,
+              rgba(0,0,0,0.45) 18%,
+              rgba(0,0,0,0.08) 40%,
+              rgba(0,0,0,0.08) 60%,
+              rgba(0,0,0,0.45) 82%,
+              rgba(0,0,0,0.70) 100%
+            )
+          `,
 
           zIndex: 1,
         }}
       />
 
-      {/* CONTENT */}
+      {/* CENTER CONTENT */}
       <Box
         sx={{
           position: "relative",
@@ -82,11 +88,13 @@ function PageBanner() {
           px: 2,
         }}
       >
-        <Typography
+        <Box
           sx={{
             color: "#e8730d",
 
             fontWeight: 700,
+
+            letterSpacing: "1px",
 
             fontSize: {
               xs: "1rem",
@@ -97,17 +105,19 @@ function PageBanner() {
           }}
         >
           International Logistics
-        </Typography>
+        </Box>
 
-        <Typography
+        <Box
           sx={{
-            color: "#111",
+            color: "#fff",
 
             fontWeight: 900,
 
             fontFamily: "Georgia, serif",
 
             lineHeight: 1.1,
+
+            textShadow: "0 4px 14px rgba(0,0,0,0.45)",
 
             fontSize: {
               xs: "3rem",
@@ -117,106 +127,6 @@ function PageBanner() {
           }}
         >
           Projects
-        </Typography>
-      </Box>
-    </Box>
-  );
-}
-
-// ─────────────────────────────────────────────
-// CTA BANNER
-// ─────────────────────────────────────────────
-
-function CTABanner() {
-  return (
-    <Box
-      sx={{
-        position: "relative",
-        overflow: "hidden",
-
-        bgcolor: "#0b1526",
-
-        py: {
-          xs: 6,
-          md: 7,
-        },
-
-        textAlign: "center",
-
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          inset: 0,
-
-          backgroundImage:
-            "url(https://saishipping.com/images/footer-bg-s2.jpg)",
-
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-
-          opacity: 0.12,
-        },
-      }}
-    >
-      <Box sx={{ position: "relative", zIndex: 2 }}>
-        <Typography
-          sx={{
-            color: "#e8730d",
-            fontWeight: 700,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-
-            fontSize: "0.85rem",
-
-            mb: 1.5,
-          }}
-        >
-          Trusted transport service
-        </Typography>
-
-        <Typography
-          sx={{
-            color: "#fff",
-            fontWeight: 700,
-
-            fontSize: {
-              xs: "1.5rem",
-              md: "2rem",
-            },
-
-            mb: 4,
-          }}
-        >
-          Transport & Logistics projects that we provide
-        </Typography>
-
-        <Box
-          component="a"
-          href="/contact"
-          sx={{
-            display: "inline-block",
-
-            px: 4,
-            py: 1.5,
-
-            bgcolor: "#e8730d",
-            color: "#fff",
-
-            fontWeight: 700,
-
-            borderRadius: "5px",
-
-            textDecoration: "none",
-
-            transition: "0.3s",
-
-            "&:hover": {
-              bgcolor: "#c55e08",
-              transform: "translateY(-3px)",
-            },
-          }}
-        >
-          Contact Support
         </Box>
       </Box>
     </Box>
@@ -262,7 +172,7 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
             },
 
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "center",
             alignItems: "center",
 
             outline: "none",
@@ -278,6 +188,8 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
 
               color: "#fff",
 
+              zIndex: 20,
+
               "&:hover": {
                 color: "#e8730d",
               },
@@ -290,25 +202,16 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
           <Box
             component="img"
             src={projects[index].src}
-            alt={projects[index].alt}
+            alt=""
             sx={{
               width: "100%",
-              maxHeight: "84vh",
+              maxHeight: "85vh",
+
               objectFit: "contain",
-              borderRadius: 3,
+
+              borderRadius: "12px",
             }}
           />
-
-          {/* COUNT */}
-          <Typography
-            sx={{
-              mt: 1.5,
-              color: "rgba(255,255,255,0.65)",
-              fontSize: "0.85rem",
-            }}
-          >
-            {index + 1} / {projects.length}
-          </Typography>
 
           {/* PREV */}
           <IconButton
@@ -317,23 +220,26 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
               position: "absolute",
 
               left: {
-                xs: -20,
+                xs: 10,
                 md: -70,
               },
 
               top: "50%",
+
               transform: "translateY(-50%)",
 
               color: "#fff",
 
-              bgcolor: "rgba(232,115,13,0.8)",
+              bgcolor: "rgba(232,115,13,0.85)",
+
+              zIndex: 20,
 
               "&:hover": {
                 bgcolor: "#e8730d",
               },
             }}
           >
-            <ArrowBackIosNewIcon fontSize="small" />
+            <ArrowBackIosNewIcon />
           </IconButton>
 
           {/* NEXT */}
@@ -343,23 +249,26 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
               position: "absolute",
 
               right: {
-                xs: -20,
+                xs: 10,
                 md: -70,
               },
 
               top: "50%",
+
               transform: "translateY(-50%)",
 
               color: "#fff",
 
-              bgcolor: "rgba(232,115,13,0.8)",
+              bgcolor: "rgba(232,115,13,0.85)",
+
+              zIndex: 20,
 
               "&:hover": {
                 bgcolor: "#e8730d",
               },
             }}
           >
-            <ArrowForwardIosIcon fontSize="small" />
+            <ArrowForwardIosIcon />
           </IconButton>
         </Box>
       </Fade>
@@ -377,134 +286,97 @@ export default function Projects() {
     index: 0,
   });
 
-  const openLightbox = (index) =>
+  const openLightbox = (index) => {
     setLightbox({
       open: true,
       index,
     });
+  };
 
-  const closeLightbox = () =>
-    setLightbox((s) => ({
-      ...s,
+  const closeLightbox = () => {
+    setLightbox((prev) => ({
+      ...prev,
       open: false,
     }));
+  };
 
-  const prevImage = () =>
-    setLightbox((s) => ({
-      ...s,
-      index: (s.index - 1 + projects.length) % projects.length,
+  const prevImage = () => {
+    setLightbox((prev) => ({
+      ...prev,
+      index: (prev.index - 1 + projects.length) % projects.length,
     }));
+  };
 
-  const nextImage = () =>
-    setLightbox((s) => ({
-      ...s,
-      index: (s.index + 1) % projects.length,
+  const nextImage = () => {
+    setLightbox((prev) => ({
+      ...prev,
+      index: (prev.index + 1) % projects.length,
     }));
+  };
 
   return (
     <Box
       sx={{
         bgcolor: "#fff",
         minHeight: "100vh",
+
+        /* IMPORTANT FIX */
+        position: "relative",
+        zIndex: 1,
+        overflow: "hidden",
+
+        /* SPACE BEFORE FOOTER CTA */
+        pb: {
+          xs: "180px",
+          md: "140px",
+        },
       }}
     >
-      <Header />
+
 
       <PageBanner />
 
-      {/* GALLERY */}
+      {/* PROJECT GRID */}
       <Box
         sx={{
           py: {
-            xs: 6,
+            xs: 5,
             md: 8,
           },
 
-          bgcolor: "#f7f7f7",
+          bgcolor: "#fff",
         }}
       >
         <Container maxWidth="xl">
-          {/* HEADING */}
-          <Box
-            sx={{
-              textAlign: "center",
-
-              mb: {
-                xs: 5,
-                md: 7,
-              },
-            }}
-          >
-            <Typography
-              sx={{
-                color: "#e8730d",
-                fontWeight: 700,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-
-                fontSize: "0.85rem",
-
-                mb: 1.2,
-              }}
-            >
-              Work Gallery
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "#1a2535",
-                fontWeight: 700,
-                fontFamily: "Georgia, serif",
-
-                fontSize: {
-                  xs: "1.8rem",
-                  sm: "2.3rem",
-                  md: "2.8rem",
-                },
-              }}
-            >
-              Our Work Gallery That We Do!
-            </Typography>
-
-            <Box
-              sx={{
-                width: 60,
-                height: 4,
-
-                bgcolor: "#e8730d",
-
-                borderRadius: 10,
-
-                mx: "auto",
-                mt: 2,
-              }}
-            />
-          </Box>
-
-          {/* IMAGE CARD GRID */}
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             {projects.map((project, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={project.id}>
                 <Box
                   onClick={() => openLightbox(index)}
                   sx={{
-                    borderRadius: "24px",
+                    position: "relative",
+
+                    width: "100%",
+
+                    height: {
+                      xs: 250,
+                      sm: 260,
+                      md: 280,
+                    },
 
                     overflow: "hidden",
 
-                    backgroundColor: "#fff",
-
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-
-                    transition: "all 0.35s ease",
+                    borderRadius: "20px",
 
                     cursor: "pointer",
 
-                    height: "100%",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+
+                    transition: "all 0.35s ease",
 
                     "&:hover": {
-                      transform: "translateY(-10px)",
-                      boxShadow: "0 22px 45px rgba(0,0,0,0.18)",
+                      transform: "translateY(-8px)",
+                      boxShadow: "0 18px 40px rgba(0,0,0,0.20)",
                     },
 
                     "&:hover img": {
@@ -518,84 +390,38 @@ export default function Projects() {
                 >
                   {/* IMAGE */}
                   <Box
+                    component="img"
+                    src={project.src}
+                    alt={`Project ${project.id}`}
+                    loading="lazy"
                     sx={{
-                      position: "relative",
-
                       width: "100%",
+                      height: "100%",
 
-                      height: {
-                        xs: 260,
-                        sm: 280,
-                        md: 300,
-                      },
+                      objectFit: "cover",
+                      objectPosition: "center",
 
-                      overflow: "hidden",
+                      display: "block",
+
+                      transition: "transform 0.5s ease",
                     }}
-                  >
-                    <Box
-                      component="img"
-                      src={project.src}
-                      alt={project.alt}
-                      loading="lazy"
-                      sx={{
-                        width: "100%",
-                        height: "100%",
+                  />
 
-                        objectFit: "cover",
-                        objectPosition: "center",
-
-                        display: "block",
-
-                        transition: "transform 0.5s ease",
-                      }}
-                    />
-
-                    {/* OVERLAY */}
-                    <Box
-                      className="overlay"
-                      sx={{
-                        position: "absolute",
-                        inset: 0,
-
-                        background:
-                          "linear-gradient(to top, rgba(0,0,0,0.45), transparent)",
-
-                        opacity: 0,
-
-                        transition: "0.35s ease",
-                      }}
-                    />
-                  </Box>
-
-                  {/* CONTENT */}
+                  {/* HOVER OVERLAY */}
                   <Box
+                    className="overlay"
                     sx={{
-                      p: 2.5,
-                      textAlign: "center",
+                      position: "absolute",
+                      inset: 0,
+
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.35), transparent)",
+
+                      opacity: 0,
+
+                      transition: "0.35s ease",
                     }}
-                  >
-                    <Typography
-                      sx={{
-                        fontWeight: 700,
-                        color: "#1a2535",
-
-                        fontSize: "1rem",
-
-                        mb: 0.5,
-                      }}
-                    >
-                      Project {project.id}
-                    </Typography>
-
-                    <Typography
-                      sx={{
-                        color: "#777",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      Logistics & Transport Service
-                    </Typography>
-                  </Box>
+                  />
                 </Box>
               </Grid>
             ))}
@@ -603,8 +429,7 @@ export default function Projects() {
         </Container>
       </Box>
 
-      <CTABanner />
-
+      {/* LIGHTBOX */}
       <Lightbox
         open={lightbox.open}
         index={lightbox.index}
