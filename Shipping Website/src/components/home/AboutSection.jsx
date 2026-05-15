@@ -1,151 +1,282 @@
-import { Box, Container, Grid, Typography, Button, Stack, Divider } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
-import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import React from "react";
+import {
+  Box,
+  Container,
+  Typography,
+  Stack,
+} from "@mui/material";
 
-// DELETE:
-// import about1 from '../../assets/images/about/home02-about-01.png';
-// import about2 from '../../assets/images/about/home02-about-02.png';
+import BoltIcon from "@mui/icons-material/Bolt";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-// ADD:
-const about1 = 'https://placehold.co/480x380/f8f6f2/333?text=SAI+Operations';
-const about2 = 'https://placehold.co/210x210/f8f6f2/333?text=Our+Team';
-
-const highlights = [
-  'ISO Certified Operations',
-  'Pan-India Branch Network',
-  'End-to-End Logistics Management',
-  '24/7 Customer Support',
-];
+const mainImage = "https://saishipping.com/images/shipping.png";
+const smallImage = "https://saishipping.com/images/shipping-1.png";
 
 export default function AboutSection() {
   return (
-    <Box component="section" id="about" sx={{ py: { xs: 8, md: 12 }, bgcolor: '#fff', overflow: 'hidden' }}>
-      <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
+    <Box
+      component="section"
+      sx={{
+        py: { xs: 8, md: 10 },
+        backgroundColor: "#f7f7f5",
+        overflow: "hidden",
+      }}
+    >
+      <Container maxWidth="xl">
 
-          {/* Images */}
-          <Grid item xs={12} md={6}>
-            <Box sx={{ position: 'relative', pl: { md: 3 } }}>
-              {/* BG square */}
-              <Box sx={{ position: 'absolute', top: -20, left: 0, width: 220, height: 220, bgcolor: '#fdf3e3', zIndex: 0 }} />
+        {/* ── FLEX ROW instead of MUI Grid ── */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            gap: { xs: 6, md: 4 },
+          }}
+        >
 
-              {/* Main image */}
-              <Box
-                component="img" src={about1} alt="SAI Shipping operations"
+          {/* ═══════════════════════════════
+              LEFT — IMAGE BLOCK  50%
+          ═══════════════════════════════ */}
+          <Box
+            sx={{
+              flex: "0 0 50%",
+              width: { xs: "100%", md: "50%" },
+              position: "relative",
+              height: { xs: 480, md: 680 },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* Teal chevrons — top left */}
+            <Stack
+              spacing={-2.5}
+              sx={{
+                position: "absolute",
+                top: { xs: 20, md: 40 },
+                left: { xs: 10, md: 20 },
+                zIndex: 10,
+              }}
+            >
+              {[1, 2, 3, 4].map((i) => (
+                <KeyboardDoubleArrowRightIcon
+                  key={i}
+                  sx={{
+                    color: "#008b8b",
+                    fontSize: { xs: 50, md: 62 },
+                    transform: "rotate(90deg)",
+                    display: "block",
+                  }}
+                />
+              ))}
+            </Stack>
+
+            {/* Main image */}
+            <Box
+              component="img"
+              src={mainImage}
+              alt="Shipping crane"
+              sx={{
+                width: "80%",
+                height: { xs: 340, md: 560 },
+                objectFit: "contain",
+                position: "relative",
+                zIndex: 2,
+                ml: { xs: 0, md: 4 },
+              }}
+            />
+
+            {/* Small bottom-right image */}
+            <Box
+              component="img"
+              src={smallImage}
+              alt="Ship worker"
+              sx={{
+                position: "absolute",
+                bottom: { xs: 10, md: 20 },
+                right: { xs: 10, md: 20 },
+                width: { xs: 150, md: 250 },
+                height: { xs: 150, md: 250 },
+                objectFit: "contain",
+                zIndex: 4,
+              }}
+            />
+
+            {/* Orange badge */}
+            <Box
+              sx={{
+                position: "absolute",
+                left: 0,
+                bottom: { xs: 20, md: 40 },
+                backgroundColor: "#f47b14",
+                color: "#fff",
+                zIndex: 5,
+                px: { xs: 3, md: 4 },
+                py: { xs: 2, md: 2.5 },
+                minWidth: { xs: 150, md: 210 },
+              }}
+            >
+              <Typography
                 sx={{
-                  position: 'relative', zIndex: 1,
-                  width: '100%', maxWidth: 480,
-                  height: { xs: 280, md: 380 }, objectFit: 'cover',
-                  display: 'block', boxShadow: '8px 8px 0 #e8a020',
+                  fontSize: { xs: "1.3rem", md: "1.8rem" },
+                  fontWeight: 600,
+                  lineHeight: 1.3,
+                  fontFamily: "Georgia, serif",
                 }}
-              />
-
-              {/* Secondary image */}
-              <Box
-                component="img" src={about2} alt="SAI Shipping team"
+              >
+                Since from
+              </Typography>
+              <Typography
                 sx={{
-                  position: 'absolute',
-                  bottom: { xs: -40, md: -50 }, right: { xs: 0, md: -30 },
-                  width: { xs: 160, md: 210 }, height: { xs: 160, md: 210 },
-                  objectFit: 'cover', border: '6px solid #fff',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.12)', zIndex: 2,
+                  fontSize: { xs: "2.8rem", md: "4.5rem" },
+                  fontWeight: 800,
+                  lineHeight: 1,
+                  fontFamily: "Georgia, serif",
+                  letterSpacing: "-2px",
                 }}
-              />
-
-              {/* Experience badge */}
-              <Box sx={{
-                position: 'absolute', top: { xs: 20, md: 40 }, right: { xs: 0, md: -20 },
-                bgcolor: '#c5351b', color: '#fff', p: 2.5, zIndex: 3,
-                textAlign: 'center', minWidth: 110,
-              }}>
-                <Typography sx={{ fontWeight: 900, fontSize: '2.4rem', lineHeight: 1, fontFamily: '"Barlow Condensed", sans-serif' }}>
-                  20+
-                </Typography>
-                <Typography sx={{ fontSize: '0.7rem', letterSpacing: 1, opacity: 0.9 }}>
-                  YEARS<br />EXPERIENCE
-                </Typography>
-              </Box>
+              >
+                1988
+              </Typography>
             </Box>
-          </Grid>
+          </Box>
 
-          {/* Text */}
-          <Grid item xs={12} md={6} sx={{ pt: { xs: 8, md: 0 } }}>
-            <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 2 }}>
-              <Box sx={{ width: 36, height: 2, bgcolor: '#e8a020' }} />
-              <Typography sx={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: '#e8a020' }}>
-                Who We Are
+          {/* ═══════════════════════════════
+              RIGHT — TEXT BLOCK  50%
+          ═══════════════════════════════ */}
+          <Box
+            sx={{
+              flex: "0 0 50%",
+              width: { xs: "100%", md: "50%" },
+              pl: { xs: 2, md: 5 },
+              pr: { xs: 2, md: 2 },
+              boxSizing: "border-box",
+            }}
+          >
+            {/* About Us label */}
+            <Stack
+              direction="row"
+              spacing={0.5}
+              alignItems="center"
+              sx={{ mb: 2 }}
+            >
+              <BoltIcon sx={{ color: "#f47b14", fontSize: 20 }} />
+              <Typography
+                sx={{
+                  color: "#f47b14",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  fontFamily: "Georgia, serif",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "3px",
+                }}
+              >
+                About Us
               </Typography>
             </Stack>
 
-            <Typography variant="h2" sx={{
-              fontWeight: 800, fontFamily: '"Barlow Condensed", sans-serif',
-              fontSize: { xs: '2.2rem', md: '2.9rem' }, lineHeight: 1.15, color: '#111', mb: 3,
-            }}>
-              India's Trusted{' '}
-              <Box component="span" sx={{ color: '#c5351b' }}>Shipping & Logistics</Box>{' '}
-              Partner
-            </Typography>
-
-            <Typography sx={{ color: '#555', lineHeight: 1.9, mb: 2, fontSize: '0.97rem' }}>
-              SAI Shipping is a comprehensive freight forwarding and customs clearance company with
-              over two decades of industry expertise. We specialize in import/export documentation,
-              sea freight, air freight, and door-to-door logistics solutions across India and globally.
-            </Typography>
-
-            <Typography sx={{ color: '#555', lineHeight: 1.9, mb: 4, fontSize: '0.97rem' }}>
-              With a strong network of branches and a dedicated team of professionals, we ensure your
-              cargo reaches its destination safely, on time, and at competitive rates.
-            </Typography>
-
-            <Grid container spacing={1.5} sx={{ mb: 4 }}>
-              {highlights.map((item) => (
-                <Grid item xs={12} sm={6} key={item}>
-                  <Stack direction="row" alignItems="center" spacing={1.2}>
-                    <CheckCircleOutlineIcon sx={{ color: '#e8a020', fontSize: 20 }} />
-                    <Typography sx={{ fontSize: '0.9rem', color: '#333', fontWeight: 500 }}>{item}</Typography>
-                  </Stack>
-                </Grid>
-              ))}
-            </Grid>
-
-            <Divider sx={{ mb: 4, borderColor: '#f0ece4' }} />
-
-            <Stack direction="row" spacing={4} sx={{ mb: 4 }}>
-              <Box>
-                <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
-                  <EmojiEventsOutlinedIcon sx={{ color: '#e8a020', fontSize: 22 }} />
-                  <Typography sx={{ fontWeight: 800, fontSize: '1.8rem', fontFamily: '"Barlow Condensed", sans-serif', color: '#111' }}>
-                    30+
-                  </Typography>
-                </Stack>
-                <Typography sx={{ fontSize: '0.8rem', color: '#888', letterSpacing: 0.5 }}>Awards & Recognitions</Typography>
-              </Box>
-              <Box>
-                <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
-                  <HandshakeOutlinedIcon sx={{ color: '#e8a020', fontSize: 22 }} />
-                  <Typography sx={{ fontWeight: 800, fontSize: '1.8rem', fontFamily: '"Barlow Condensed", sans-serif', color: '#111' }}>
-                    200+
-                  </Typography>
-                </Stack>
-                <Typography sx={{ fontSize: '0.8rem', color: '#888', letterSpacing: 0.5 }}>Happy Clients</Typography>
-              </Box>
-            </Stack>
-
-            <Button
-              variant="contained" size="large" endIcon={<ArrowForwardIcon />} href="/about-us"
+            {/* Heading */}
+            <Typography
               sx={{
-                bgcolor: '#c5351b', color: '#fff', fontWeight: 700,
-                px: 4, py: 1.6, borderRadius: 0, textTransform: 'uppercase',
-                letterSpacing: 1, fontSize: '0.85rem',
-                '&:hover': { bgcolor: '#a82a14' },
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: {
+                  xs: "2.2rem",
+                  sm: "2.8rem",
+                  md: "3rem",
+                  lg: "3.6rem",
+                },
+                fontWeight: 700,
+                lineHeight: 1.2,
+                color: "#071c3d",
+                mb: 3.5,
               }}
             >
-              Discover Our Story
-            </Button>
-          </Grid>
-        </Grid>
+              Driving Success
+              <br />
+              Beyond Borders With
+              <br />
+              Expert Shipping
+              <br />
+              Solutions
+            </Typography>
+
+            {/* Orange left-border paragraph */}
+            <Box
+              sx={{
+                borderLeft: "3px solid #f47b14",
+                pl: 3,
+                mb: 3.5,
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "#555",
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  lineHeight: 2,
+                  fontFamily: "Georgia, serif",
+                }}
+              >
+                Welcome to SSS Sai Shipping Services Pvt Ltd., where we
+                understand that logistics is the backbone of global trade.
+                With a strong global presence, we provide exceptional
+                shipping services across the world, connecting businesses
+                and driving success beyond borders. Through strategic
+                partnerships and extensive industry knowledge, we offer
+                customized solutions to businesses of all sizes and
+                industries.
+              </Typography>
+            </Box>
+
+            {/* Bullet list */}
+            <Stack spacing={1.5} sx={{ mb: 4 }}>
+              {[
+                "Supply Chain Management with Logistic Solutions",
+                "Efficient Customs Clearance",
+                "Express Delivery Services",
+              ].map((item) => (
+                <Stack
+                  key={item}
+                  direction="row"
+                  spacing={1}
+                  alignItems="center"
+                >
+                  <KeyboardDoubleArrowRightIcon
+                    sx={{
+                      color: "#f47b14",
+                      fontSize: 22,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Typography
+                    sx={{
+                      color: "#f47b14",
+                      fontSize: "1rem",
+                      fontFamily: "Georgia, serif",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                </Stack>
+              ))}
+            </Stack>
+
+            {/* Bottom divider text */}
+            <Box sx={{ borderTop: "1px solid #d8d8d8", pt: 3.5 }}>
+              <Typography
+                sx={{
+                  color: "#555",
+                  fontSize: { xs: "0.97rem", md: "1.05rem" },
+                  lineHeight: 1.9,
+                  fontFamily: "Georgia, serif",
+                }}
+              >
+                SSS Sai Shipping Services Pvt. Ltd. delivers reliable,
+                efficient logistics solutions for businesses worldwide.
+              </Typography>
+            </Box>
+          </Box>
+
+        </Box>
       </Container>
     </Box>
   );

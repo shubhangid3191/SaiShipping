@@ -1,4 +1,4 @@
-// import AboutSection from "./AboutSection";
+import AboutSection from "./AboutSection";
 import ClientLogos from "./ClientLogos";
 import HeroSlider from "./HeroSlider";
 import HowItWorks from "./HowltWorks";
@@ -13,7 +13,7 @@ export default function Home() {
     <>
     <HeroSlider></HeroSlider>
     <ClientLogos></ClientLogos>    
-    {/* <AboutSection></AboutSection> */}
+    <AboutSection></AboutSection>
     <ServicesSection></ServicesSection>
     <HowItWorks></HowItWorks>
     <ProjectsSection></ProjectsSection>
