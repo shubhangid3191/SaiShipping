@@ -5,14 +5,13 @@ import {
   Grid,
   Modal,
   Fade,
- Backdrop,
+  Backdrop,
   IconButton,
 } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
 
 // ─────────────────────────────────────────────
 // PROJECT IMAGES
@@ -32,75 +31,52 @@ function PageBanner() {
     <Box
       sx={{
         position: "relative",
-
         width: "100%",
-
         height: {
           xs: "300px",
           sm: "420px",
           md: "520px",
         },
-
         overflow: "hidden",
-
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-
         backgroundImage:
           "url(https://saishipping.com/images/about-banner.jpg)",
-
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* SIDE DARK OVERLAY */}
+      {/* OVERLAY */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
-
-          background: `
-            linear-gradient(
-              to right,
-              rgba(0,0,0,0.70) 0%,
-              rgba(0,0,0,0.45) 18%,
-              rgba(0,0,0,0.08) 40%,
-              rgba(0,0,0,0.08) 60%,
-              rgba(0,0,0,0.45) 82%,
-              rgba(0,0,0,0.70) 100%
-            )
-          `,
-
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
           zIndex: 1,
         }}
       />
 
-      {/* CENTER CONTENT */}
+      {/* CONTENT */}
       <Box
         sx={{
           position: "relative",
           zIndex: 2,
-
           textAlign: "center",
-
           px: 2,
         }}
       >
         <Box
           sx={{
             color: "#e8730d",
-
             fontWeight: 700,
-
             letterSpacing: "1px",
-
             fontSize: {
               xs: "1rem",
               md: "1.2rem",
             },
-
             mb: 2,
           }}
         >
@@ -109,16 +85,11 @@ function PageBanner() {
 
         <Box
           sx={{
-            color: "#fff",
-
+            color: "#070707",
             fontWeight: 900,
-
             fontFamily: "Georgia, serif",
-
             lineHeight: 1.1,
-
             textShadow: "0 4px 14px rgba(0,0,0,0.45)",
-
             fontSize: {
               xs: "3rem",
               sm: "4rem",
@@ -150,7 +121,7 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
         backdrop: {
           timeout: 300,
           sx: {
-            bgcolor: "rgba(0,0,0,0.94)",
+            bgcolor: "rgba(0,0,0,0.95)",
           },
         },
       }}
@@ -159,10 +130,8 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
         <Box
           sx={{
             position: "absolute",
-
             top: "50%",
             left: "50%",
-
             transform: "translate(-50%, -50%)",
 
             width: {
@@ -178,21 +147,15 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
             outline: "none",
           }}
         >
-          {/* CLOSE */}
+          {/* CLOSE BUTTON */}
           <IconButton
             onClick={onClose}
             sx={{
               position: "absolute",
               top: -50,
               right: 0,
-
               color: "#fff",
-
-              zIndex: 20,
-
-              "&:hover": {
-                color: "#e8730d",
-              },
+              zIndex: 10,
             }}
           >
             <CloseIcon />
@@ -206,33 +169,24 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
             sx={{
               width: "100%",
               maxHeight: "85vh",
-
               objectFit: "contain",
-
-              borderRadius: "12px",
+              borderRadius: "14px",
             }}
           />
 
-          {/* PREV */}
+          {/* PREV BUTTON */}
           <IconButton
             onClick={onPrev}
             sx={{
               position: "absolute",
-
               left: {
                 xs: 10,
                 md: -70,
               },
-
               top: "50%",
-
               transform: "translateY(-50%)",
-
               color: "#fff",
-
-              bgcolor: "rgba(232,115,13,0.85)",
-
-              zIndex: 20,
+              bgcolor: "rgba(232,115,13,0.9)",
 
               "&:hover": {
                 bgcolor: "#e8730d",
@@ -242,26 +196,19 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
             <ArrowBackIosNewIcon />
           </IconButton>
 
-          {/* NEXT */}
+          {/* NEXT BUTTON */}
           <IconButton
             onClick={onNext}
             sx={{
               position: "absolute",
-
               right: {
                 xs: 10,
                 md: -70,
               },
-
               top: "50%",
-
               transform: "translateY(-50%)",
-
               color: "#fff",
-
-              bgcolor: "rgba(232,115,13,0.85)",
-
-              zIndex: 20,
+              bgcolor: "rgba(232,115,13,0.9)",
 
               "&:hover": {
                 bgcolor: "#e8730d",
@@ -277,7 +224,7 @@ function Lightbox({ open, index, onClose, onPrev, onNext }) {
 }
 
 // ─────────────────────────────────────────────
-// MAIN PAGE
+// MAIN COMPONENT
 // ─────────────────────────────────────────────
 
 export default function Projects() {
@@ -319,21 +266,15 @@ export default function Projects() {
       sx={{
         bgcolor: "#fff",
         minHeight: "100vh",
-
-        /* IMPORTANT FIX */
-        position: "relative",
-        zIndex: 1,
         overflow: "hidden",
 
-        /* SPACE BEFORE FOOTER CTA */
         pb: {
-          xs: "180px",
-          md: "140px",
+          xs: "140px",
+          md: "120px",
         },
       }}
     >
-
-
+      {/* BANNER */}
       <PageBanner />
 
       {/* PROJECT GRID */}
@@ -343,40 +284,40 @@ export default function Projects() {
             xs: 5,
             md: 8,
           },
-
-          bgcolor: "#fff",
         }}
       >
         <Container maxWidth="xl">
           <Grid container spacing={3}>
             {projects.map((project, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={project.id}>
+                {/* SAME SHAPE CARD */}
                 <Box
                   onClick={() => openLightbox(index)}
                   sx={{
-                    position: "relative",
-
                     width: "100%",
-
                     height: {
-                      xs: 250,
-                      sm: 260,
-                      md: 280,
+                      xs: 260,
+                      sm: 280,
+                      md: 300,
                     },
+
+                    borderRadius: "24px",
 
                     overflow: "hidden",
 
-                    borderRadius: "20px",
+                    position: "relative",
 
                     cursor: "pointer",
 
+                    backgroundColor: "#f5f5f5",
+
                     boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
 
-                    transition: "all 0.35s ease",
+                    transition: "all 0.4s ease",
 
                     "&:hover": {
                       transform: "translateY(-8px)",
-                      boxShadow: "0 18px 40px rgba(0,0,0,0.20)",
+                      boxShadow: "0 18px 40px rgba(0,0,0,0.2)",
                     },
 
                     "&:hover img": {
@@ -398,16 +339,18 @@ export default function Projects() {
                       width: "100%",
                       height: "100%",
 
+                      /* THIS MAKES ALL IMAGES SAME SIZE */
                       objectFit: "cover",
+
                       objectPosition: "center",
 
-                      display: "block",
-
                       transition: "transform 0.5s ease",
+
+                      display: "block",
                     }}
                   />
 
-                  {/* HOVER OVERLAY */}
+                  {/* OVERLAY */}
                   <Box
                     className="overlay"
                     sx={{
@@ -415,7 +358,7 @@ export default function Projects() {
                       inset: 0,
 
                       background:
-                        "linear-gradient(to top, rgba(0,0,0,0.35), transparent)",
+                        "linear-gradient(to top, rgba(0,0,0,0.4), transparent)",
 
                       opacity: 0,
 

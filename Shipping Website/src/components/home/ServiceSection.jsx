@@ -131,8 +131,7 @@ export default function ServicesSection() {
               fontFamily: `"Times New Roman", serif`,
             }}
           >
-            At SSS Sai Shipping Services Pvt. Ltd., we offer a wide range of
-            logistics solutions tailored to meet your business needs.
+            At SSS Sai Shipping Services Pvt. Ltd., we offer a wide range of logistics solutions tailored to meet your business needs. From intermodal shipping and cold chain logistics to fast-tracked hot shot trucking, we ensure seamless transportation, efficient warehousing, and smooth customs clearance. Our expertise guarantees reliable, cost-effective, and timely deliveries across global markets.At SSS Sai Shipping Services Pvt. Ltd., we offer a wide range of logistics solutions tailored to meet your business needs. From intermodal shipping and cold chain logistics to fast-tracked hot shot trucking, we ensure seamless transportation, efficient warehousing, and smooth customs clearance. Our expertise guarantees reliable, cost-effective, and timely deliveries across global markets.
           </Typography>
         </Box>
 
