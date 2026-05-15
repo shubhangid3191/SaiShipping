@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import {
   AppBar,
@@ -15,7 +16,6 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
   Container,
 } from "@mui/material";
 
@@ -23,16 +23,37 @@ import Topbar from "./Topbar";
 
 const logo = "https://saishipping.com/images/logo.png";
 
+const companyDropdown = [
+  { label: "About", path: "/about-us" },
+  { label: "Industry We Offer", path: "/industry" },
+  { label: "Clients", path: "/clients" },
+  { label: "FAQ", path: "/faq" },
+  { label: "Achievements & Rewards", path: "/achievements" },
+];
+
+const servicesDropdown = [
+  { label: "Freight Forwarding", path: "/freight-forwarding" },
+  { label: "Custom Clearance", path: "/custom-clearance" },
+  { label: "Warehouses", path: "/warehouses" },
+  { label: "Additional Services", path: "/additional-services" },
+];
+
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Company", path: "/about-us" },
-  { label: "Services", path: "/services" },
+  { label: "Company", path: "/about-us", dropdown: companyDropdown },
+  { label: "Services", path: "/services", dropdown: servicesDropdown },
   { label: "Projects", path: "/projects" },
   { label: "Contact", path: "/contact" },
 ];
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [companyHover, setCompanyHover] = useState(false);
+  const [servicesHover, setServicesHover] = useState(false);
+
+  // ✅ Fixed — moved out of map()
+  const [companyMobileOpen, setCompanyMobileOpen] = useState(false);
+  const [servicesMobileOpen, setServicesMobileOpen] = useState(false);
 
   const location = useLocation();
 
@@ -45,12 +66,8 @@ function Navbar() {
         elevation={0}
         sx={{
           backgroundColor: "#fff",
-
           boxShadow: "0 -5px 15px rgba(8,106,216,0.12)",
-
           py: { xs: 2, md: 2, lg: 2.5 },
-
-          /* IMPORTANT FIX */
           zIndex: 1200,
         }}
       >
@@ -59,7 +76,6 @@ function Navbar() {
             disableGutters
             sx={{
               minHeight: { xs: "90px", md: "115px" },
-
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -70,16 +86,10 @@ function Navbar() {
               onClick={() => setOpenMenu(true)}
               sx={{
                 display: { xs: "flex", md: "none" },
-
                 color: "#fff",
-
                 background: "#eb7e27",
-
                 mr: 1,
-
-                "&:hover": {
-                  background: "#d86f1f",
-                },
+                "&:hover": { background: "#d86f1f" },
               }}
             >
               <MenuIcon fontSize="large" />
@@ -92,17 +102,9 @@ function Navbar() {
                 src={logo}
                 alt="Sai Shipping"
                 sx={{
-                  width: {
-                    xs: "140px",
-                    sm: "120px",
-                    md: "180px",
-                    lg: "160px",
-                  },
-
+                  width: { xs: "140px", sm: "120px", md: "180px", lg: "160px" },
                   height: "auto",
-
                   cursor: "pointer",
-
                   ml: { xs: 2, md: 6, lg: 10 },
                 }}
               />
@@ -112,18 +114,121 @@ function Navbar() {
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-
                 alignItems: "center",
-
                 gap: { md: 7, lg: 9 },
-
                 ml: { md: 10, lg: 12 },
-
                 flexGrow: 1,
               }}
             >
               {navItems.map((item) => {
                 const isActive = location.pathname === item.path;
+                const isHovered =
+                  item.label === "Company" ? companyHover : servicesHover;
+                const setHovered =
+                  item.label === "Company" ? setCompanyHover : setServicesHover;
+
+                if (item.dropdown) {
+                  return (
+                    <Box
+                      key={item.label}
+                      onMouseEnter={() => setHovered(true)}
+                      onMouseLeave={() => setHovered(false)}
+                      sx={{ position: "relative" }}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 0.3,
+                          cursor: "pointer",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            position: "relative",
+                            color: isActive || isHovered ? "#ff7236" : "#eb7e27",
+                            fontWeight: 700,
+                            fontSize: { md: "18px", lg: "20px" },
+                            fontFamily: '"Times New Roman", serif',
+                            transition: "0.3s",
+                            "&::after": {
+                              content: '""',
+                              position: "absolute",
+                              width: isActive || isHovered ? "100%" : "0%",
+                              height: "2px",
+                              left: 0,
+                              bottom: -6,
+                              backgroundColor: "#ff7236",
+                              transition: "0.3s",
+                            },
+                          }}
+                        >
+                          {item.label}
+                        </Typography>
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            color: isHovered ? "#ff7236" : "#eb7e27",
+                            fontSize: "20px",
+                            transition: "0.3s",
+                            transform: isHovered ? "rotate(180deg)" : "rotate(0deg)",
+                          }}
+                        />
+                      </Box>
+
+                      {/* Dropdown */}
+                      {isHovered && (
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            top: "100%",        // ← starts right at nav item, no gap
+                            left: 0,
+                            pt: "14px",         // ← padding creates visual gap but mouse stays inside
+                            zIndex: 9999,
+                            minWidth: "220px",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              backgroundColor: "#fff",
+                              boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
+                              borderTop: "3px solid #eb7e27",
+                              borderRadius: "0 0 6px 6px",
+                              py: 1,
+                            }}
+                          >
+                            {item.dropdown.map((drop) => (
+                              <Link
+                                key={drop.label}
+                                to={drop.path}
+                                style={{ textDecoration: "none" }}
+                                onClick={() => setHovered(false)}
+                              >
+                                <Typography
+                                  sx={{
+                                    px: 3,
+                                    py: 1.5,
+                                    fontSize: "16px",
+                                    fontWeight: 500,
+                                    color: "#333",
+                                    fontFamily: '"Times New Roman", serif',
+                                    transition: "0.2s",
+                                    "&:hover": {
+                                      color: "#eb7e27",
+                                      backgroundColor: "#fff8f3",
+                                      pl: 4,
+                                    },
+                                  }}
+                                >
+                                  {drop.label}
+                                </Typography>
+                              </Link>
+                            ))}
+                          </Box>
+                        </Box>
+                      )}
+                    </Box>
+                  );
+                }
 
                 return (
                   <Link
@@ -134,46 +239,24 @@ function Navbar() {
                     <Typography
                       sx={{
                         position: "relative",
-
                         color: isActive ? "#ff7236" : "#eb7e27",
-
                         fontWeight: 700,
-
-                        fontSize: {
-                          md: "18px",
-                          lg: "20px",
-                        },
-
+                        fontSize: { md: "18px", lg: "20px" },
                         cursor: "pointer",
-
                         fontFamily: '"Times New Roman", serif',
-
                         transition: "0.3s",
-
-                        "&:hover": {
-                          color: "#ff7236",
-                        },
-
+                        "&:hover": { color: "#ff7236" },
                         "&::after": {
                           content: '""',
-
                           position: "absolute",
-
                           width: isActive ? "100%" : "0%",
-
                           height: "2px",
-
                           left: 0,
                           bottom: -6,
-
                           backgroundColor: "#ff7236",
-
                           transition: "0.3s",
                         },
-
-                        "&:hover::after": {
-                          width: "100%",
-                        },
+                        "&:hover::after": { width: "100%" },
                       }}
                     >
                       {item.label}
@@ -187,126 +270,69 @@ function Navbar() {
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
-
                 alignItems: "center",
-
                 flexShrink: 0,
               }}
             >
-              <Link
-                to="/get-a-free-quote"
-                style={{ textDecoration: "none" }}
-              >
+              <Link to="/get-a-free-quote" style={{ textDecoration: "none" }}>
                 <Button
                   variant="contained"
                   sx={{
                     backgroundColor: "#eb7e27",
-
                     color: "#fff",
-
                     borderRadius: "50px",
-
                     px: { md: 5, lg: 6 },
-
                     py: 1.8,
-
-                    fontSize: {
-                      md: "16px",
-                      lg: "18px",
-                    },
-
+                    fontSize: { md: "16px", lg: "18px" },
                     fontWeight: 700,
-
                     textTransform: "capitalize",
-
                     boxShadow: "none",
-
                     display: "flex",
-
                     alignItems: "center",
-
                     gap: 2,
-
-                    "&:hover": {
-                      backgroundColor: "#d86f1f",
-
-                      boxShadow: "none",
-                    },
+                    "&:hover": { backgroundColor: "#d86f1f", boxShadow: "none" },
                   }}
                 >
                   Get A Quote
-
                   <Box
                     sx={{
                       border: "2px solid #fff",
-
                       borderRadius: "50%",
-
                       width: 36,
                       height: 36,
-
                       display: "flex",
-
                       alignItems: "center",
-
                       justifyContent: "center",
                     }}
                   >
-                    <ArrowForwardIcon
-                      sx={{
-                        fontSize: 20,
-                        color: "#fff",
-                      }}
-                    />
+                    <ArrowForwardIcon sx={{ fontSize: 20, color: "#fff" }} />
                   </Box>
                 </Button>
               </Link>
             </Box>
 
             {/* MOBILE BUTTON */}
-            <Link
-              to="/get-a-free-quote"
-              style={{ textDecoration: "none" }}
-            >
+            <Link to="/get-a-free-quote" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
                 sx={{
                   display: { xs: "flex", md: "none" },
-
                   backgroundColor: "#eb7e27",
-
                   color: "#fff",
-
                   borderRadius: "50%",
-
                   minWidth: "75px",
-
                   width: "75px",
-
                   height: "75px",
-
                   fontSize: "10px",
-
                   fontWeight: 700,
-
                   lineHeight: 1.2,
-
                   textAlign: "center",
-
                   textTransform: "uppercase",
-
                   flexDirection: "column",
-
-                  "&:hover": {
-                    backgroundColor: "#d86f1f",
-                  },
+                  "&:hover": { backgroundColor: "#d86f1f" },
                 }}
               >
-                Get A
-                <br />
-                Free
-                <br />
-                Quote
+                Get A<br />Free<br />Quote
               </Button>
             </Link>
           </Toolbar>
@@ -314,89 +340,130 @@ function Navbar() {
       </AppBar>
 
       {/* MOBILE DRAWER */}
-      <Drawer
-        anchor="left"
-        open={openMenu}
-        onClose={() => setOpenMenu(false)}
-      >
+      <Drawer anchor="left" open={openMenu} onClose={() => setOpenMenu(false)}>
         <Box
           sx={{
             width: 300,
-
             height: "100%",
-
             backgroundColor: "#eb7e27",
-
             color: "#fff",
-
             p: 3,
+            overflowY: "auto",
           }}
         >
           {/* CLOSE BUTTON */}
-          <Box
-            sx={{
-              display: "flex",
-
-              justifyContent: "flex-end",
-
-              mb: 5,
-            }}
-          >
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 3 }}>
             <IconButton
               onClick={() => setOpenMenu(false)}
               sx={{
                 color: "#fff",
-
                 border: "1px solid #fff",
-
-                "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.15)",
-                },
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.15)" },
               }}
             >
               <CloseIcon />
             </IconButton>
           </Box>
 
-          {/* NAV ITEMS */}
-          <List>
-            {navItems.map((item) => (
-              <ListItem
-                key={item.label}
-                disablePadding
-                sx={{ mb: 3 }}
-                onClick={() => setOpenMenu(false)}
-              >
-                <Link
-                  to={item.path}
-                  style={{
-                    textDecoration: "none",
-                    width: "100%",
-                  }}
-                >
-                  <ListItemText
-                    primary={item.label}
-                    primaryTypographyProps={{
-                      fontSize: "20px",
+          {/* MOBILE NAV ITEMS */}
+          <List disablePadding>
+            {navItems.map((item) => {
+              // ✅ Fixed — use pre-declared states instead of useState inside map
+              const mobileOpen =
+                item.label === "Company" ? companyMobileOpen : servicesMobileOpen;
+              const setMobileOpen =
+                item.label === "Company" ? setCompanyMobileOpen : setServicesMobileOpen;
 
-                      fontWeight: 600,
+              return (
+                <Box key={item.label}>
+                  <ListItem disablePadding sx={{ mb: 1 }}>
+                    {item.dropdown ? (
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          width: "100%",
+                          cursor: "pointer",
+                          py: 1,
+                        }}
+                        onClick={() => setMobileOpen(!mobileOpen)}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            color: "#fff",
+                            fontFamily: '"Times New Roman", serif',
+                          }}
+                        >
+                          {item.label}
+                        </Typography>
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            color: "#fff",
+                            transition: "0.3s",
+                            transform: mobileOpen ? "rotate(180deg)" : "rotate(0deg)",
+                          }}
+                        />
+                      </Box>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        style={{ textDecoration: "none", width: "100%" }}
+                        onClick={() => setOpenMenu(false)}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "20px",
+                            fontWeight: 600,
+                            color: "#fff",
+                            fontFamily: '"Times New Roman", serif',
+                            py: 1,
+                          }}
+                        >
+                          {item.label}
+                        </Typography>
+                      </Link>
+                    )}
+                  </ListItem>
 
-                      color: "#fff",
+                  {/* Dropdown Sub Items */}
+                  {item.dropdown && mobileOpen && (
+                    <Box sx={{ pl: 2, mb: 1 }}>
+                      {item.dropdown.map((drop) => (
+                        <Link
+                          key={drop.label}
+                          to={drop.path}
+                          style={{ textDecoration: "none" }}
+                          onClick={() => setOpenMenu(false)}
+                        >
+                          <Typography
+                            sx={{
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              color: "#fff",
+                              fontFamily: '"Times New Roman", serif',
+                              py: 1,
+                              pl: 1,
+                              borderLeft: "2px solid #fff",
+                              mb: 0.5,
+                              opacity: 0.9,
+                              "&:hover": { opacity: 1 },
+                            }}
+                          >
+                            {drop.label}
+                          </Typography>
+                        </Link>
+                      ))}
+                    </Box>
+                  )}
 
-                      sx: {
-                        cursor: "pointer",
-
-                        transition: "0.3s",
-
-                        "&:hover": {
-                          textDecoration: "underline",
-                        },
-                      },
-                    }}
-                  />
-                </Link>
-              </ListItem>
-            ))}
+                  {/* Divider */}
+                  <Box sx={{ borderBottom: "1px solid rgba(255,255,255,0.2)", mb: 1 }} />
+                </Box>
+              );
+            })}
           </List>
         </Box>
       </Drawer>
