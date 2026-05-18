@@ -13,15 +13,15 @@ const services = [
       "Sea and Air/FCL/LCL Services – SSS Sai Shipping Services Pvt Ltd.",
 
     intro:
-      "At SSS Sai Shipping Services Pvt Ltd., we offer reliable FCL and LCL services to ensure your cargo reaches its destination efficiently and cost-effectively.",
+      "At SSS Sai Shipping Services Pvt Ltd., we offer reliable FCL (Full-Container Load ) and LCL (Less-than-Container Load) services to ensure your cargo reaches its destination efficiently and cost-effectively. Our expertise in containerized freight solutions guarantees secure and timely deliveries, optimizing your supply chain with flexibility and efficiency.",
 
     intro2:
-      "FCL and LCL services provide customized freight solutions based on cargo size and budget.",
+      "FCL and LCL services provide customized freight solutions based on cargo size and budget. With FCL, you get dedicated container space for your shipments, ensuring faster transit and added security. LCL, on the other hand, allows businesses to share container space, reducing shipping costs while maintaining reliability. Whether it’s a small consignment or full-container load, we offer tailored shipping solutions to meet diverse industry needs.",
 
     subHeading: "Tailored Containerized Shipping",
 
     subText:
-      "At SSS Sai Shipping Services Pvt Ltd., we simplify FCL and LCL shipping with end-to-end logistics management.",
+      "At SSS Sai Shipping Services Pvt Ltd., we simplify FCL and LCL shipping with end-to-end logistics management. Our experts handle everything from cargo consolidation to customs documentation, ensuring seamless operations. With advanced tracking technology, we provide real-time shipment updates, enhancing visibility and control. Whether shipping small parcels or bulk cargo, our customized solutions prioritize cost-effectiveness, efficiency, and timely deliveries. Your cargo, our expertise—ensuring seamless shipping solutions.",
 
     bullets: [
       "Optimized Freight Consolidation For Cost Savings",
@@ -35,19 +35,19 @@ const services = [
     faqs: [
       {
         q: "What is the difference between FCL and LCL?",
-        a: "FCL provides dedicated container space while LCL allows shared container shipping.",
+        a: "FCL (Full Container Load ) provides a dedicated container for your cargo, ensuring faster transit and added security. LCL (Less-than-Container Load) consolidates shipments from multiple customers into a shared container, offering a cost-effective shipping option.",
       },
       {
         q: "How do I choose between FCL and LCL shipping?",
-        a: "Choose based on shipment size and urgency.",
+        a: "If you have enough cargo to fill an entire container, FCL is the best choice for quicker and more secure transit. If your shipment is smaller, LCL allows you to share container space, reducing costs while still ensuring efficient delivery.",
       },
       {
         q: "Are LCL shipments secure?",
-        a: "Yes, LCL shipments are securely packed and managed.",
+        a: "Yes, LCL shipments are securely packed and managed with strict handling protocols to prevent damage during transit. Our team ensures proper packaging, documentation, and tracking for each shipment.",
       },
       {
         q: "Can I track my shipment in real time?",
-        a: "Absolutely! We provide real-time tracking.",
+        a: "Absolutely! We provide real-time tracking for both FCL and LCL shipments, allowing you to monitor your cargo’s journey and stay informed at every stage of the shipping process.",
       },
     ],
   },
@@ -62,21 +62,21 @@ const services = [
     heading: "ODC Services – SSS Sai Shipping Services Pvt Ltd.",
 
     intro:
-      "We specialize in handling Over Dimensional Cargo with safe and efficient transportation.",
+      "At SSS Sai Shipping Services Pvt Ltd., we specialize in handling Over Dimensional Cargo (ODC), ensuring safe and efficient transportation of oversized and heavy cargo. With our expertise in freight solutions, we manage complex logistics, ensuring seamless transit for large and unconventional shipments.",
 
     intro2:
-      "ODC transportation requires specialized equipment and route planning.",
+      "ODC transportation requires meticulous planning, specialized equipment, and route optimization. Our team ensures smooth execution by managing permits, escorts, and real-time monitoring. Whether it’s heavy machinery, industrial equipment, or project cargo, we offer customized solutions to meet diverse industry needs.",
 
     subHeading: "Expert Handling for Oversized Shipments",
 
     subText:
-      "We provide end-to-end ODC logistics ensuring secure and timely delivery.",
+      "At SSS Sai Shipping Services Pvt Ltd., we provide end-to-end ODC logistics, ensuring secure and timely delivery. Our team handles cargo planning, loading, and transportation with precision. With advanced tracking systems, we offer real-time updates, enhancing visibility and control. From factory relocation to infrastructure projects, our ODC solutions guarantee reliability and efficiency. Your cargo, our expertise—ensuring seamless heavy-lift transportation.",
 
     bullets: [
-      "Custom Route Planning",
-      "Specialized Equipment",
-      "Real-Time Tracking",
-      "Expert Cargo Support",
+      "Custom Route Planning & Permit Assistance",
+      "Specialized Equipment for Safe Handling",
+      "Real-Time Tracking for Complete Visibility",
+      "Expert Support for Complex Cargo Movements",
     ],
 
     faqTitle: "Helping You Understand ODC Services",
@@ -84,8 +84,20 @@ const services = [
     faqs: [
       {
         q: "What qualifies as ODC?",
-        a: "ODC refers to oversized cargo exceeding standard dimensions.",
+        a: "ODC refers to cargo that exceeds standard shipping dimensions in height, width, or weight. This includes heavy machinery, industrial equipment, wind turbines, and construction materials.",
       },
+      {
+        q:"How do you ensure safe ODC transportation?",
+        a:"We use specialized trailers, cranes, and route planning to ensure safe handling. Our team secures permits and escorts to comply with regulations for smooth transit."
+      },
+      {
+        q:"Do you provide real-time tracking ODC shipments?",
+        a:"Yes, we offer real-time tracking and monitoring, ensuring full transparency and control throughout the transportation process."
+      },
+      {
+        q:"Con you manage international ODC shipments?",
+        a:"Absolutely! We handle both domestic and international ODC logistics, ensuring compliance with all legal and operational requirements."
+      }
     ],
   },
 
@@ -99,30 +111,42 @@ const services = [
     heading: "Break Bulk Shipping Services",
 
     intro:
-      "We provide break bulk shipping solutions for oversized cargo.",
+      "At SSS Sai Shipping Services Pvt Ltd., we provide break bulk shipping solutions to ensure your oversized and non-containerized cargo reaches its destination efficiently, securely, and on time. With our global logistics network and expertise, we manage every aspect of your shipment, from loading to final delivery.",
 
     intro2:
-      "Break bulk shipping is ideal for heavy or irregular cargo.",
+      "Break bulk shipping is ideal for large, heavy, or irregularly shaped cargo that cannot be containerized. Our specialized handling and lifting equipment ensure safe and cost-effective transport. Whether you need cranes, custom lashing, or direct port-to-site delivery, we have the right solution for your logistics needs.",
 
     subHeading: "Reliable Logistics Partner",
 
     subText:
-      "We ensure hassle-free break bulk shipping with real-time tracking.",
+      "At SSS Sai Shipping Services Pvt Ltd., we ensure a hassle-free break bulk shipping experience. From the moment you engage our services, our team manages everything with end-to-end coordination and real-time tracking. Our modern infrastructure and advanced logistics technology allow us to streamline operations, minimize delays, and enhance cost efficiency. We understand that every shipment is crucial, which is why we offer personalized solutions, expert guidance, and 24/7 support. Whether it’s heavy machinery, steel products, or project cargo, we ensure your goods reach their destination safely and on time.",
 
     bullets: [
-      "Global Expertise",
-      "End-to-End Coordination",
-      "Innovative Logistics",
-      "24/7 Support",
+      "Global Expertise, Local Efficiency",
+      "Seamless Coordination from Start to Finish",
+      "Innovative Solutions for Complex Logistics",
+      "Dedicated Support Every Step of the Way",
     ],
 
     faqTitle: "Helping You Understand Break Bulk Services",
 
     faqs: [
       {
-        q: "What is break bulk shipping?",
-        a: "Break bulk shipping transports oversized cargo.",
+        q: "What is break bulk shipping , and shy is it used ?",
+        a: "Break bulk shipping involves transporting oversized or heavy cargo that cannot be containerized. It is used for goods like machinery, steel structures, and construction materials, ensuring secure and efficient transport.",
       },
+      {
+        q:"What types of cargo require break bulk shipping?",
+        a:"Break bulk is ideal for heavy machinery, industrial equipment, steel, pipes, and large construction materials that do not fit into standard containers."
+      },
+      {
+        q:"How do you ensure the security of break bulk shipments?",
+        a:"We use customized lashing, lifting techniques, and specialized equipment to secure cargo during transit, minimizing risk and ensuring safe delivery."
+      },
+      {
+        q:"Can i track my break bulk shipment in real-time?",
+        a:"Absolutely! We provide real-time tracking for all break bulk shipments, allowing you to monitor your cargo’s journey and stay informed at every stage of the shipping process."
+      }
     ],
   },
 
@@ -133,24 +157,24 @@ const services = [
     img2: "https://saishipping.com/images/hazardous-2.jpg",
     img3: "https://saishipping.com/images/hazardous-3.jpg",
 
-    heading: "Hazardous Cargo Shipping",
+    heading: "Hazardous Cargo Shipping – SSS Sai Shipping Services Pvt Ltd.",
 
     intro:
-      "We specialize in safe transportation of hazardous cargo.",
+      "At SSS Sai Shipping Services Pvt Ltd., we specialize in the safe and compliant transportation of hazardous cargo, ensuring your dangerous goods are handled with the highest level of security and care. With our deep industry expertise and adherence to international safety standards, we manage every step of the process, from classification and packaging to final delivery.",
 
     intro2:
-      "Shipping hazardous cargo requires compliance and precision handling.",
+      "Shipping hazardous cargo is more than just transport—it’s about risk management, compliance, and precision handling. Our team ensures your shipments meet all regulatory requirements, minimizing delays and mitigating potential hazards. Whether transporting flammable materials, chemicals, or toxic substances, we provide secure and efficient logistics solutions tailored to your industry’s needs.",
 
-    subHeading: "Safe, Compliant & Reliable",
+    subHeading: "Safe, Compliant, and Reliable Transport",
 
     subText:
-      "We ensure secure handling using international safety standards.",
+      "At SSS Sai Shipping Services Pvt Ltd., we take a meticulous approach to hazardous cargo logistics. From obtaining necessary permits to using specialized containers and protective equipment, we ensure every shipment is secured and compliant. Our real-time tracking and 24/7 support give you full visibility and peace of mind. With advanced handling techniques, trained professionals, and strategic global partnerships, we guarantee seamless operations. Your cargo’s safety is our priority, and we are committed to delivering secure, reliable, and efficient hazardous materials transport.",
 
     bullets: [
-      "Regulatory Compliance",
-      "Advanced Safety Protocols",
-      "Real-Time Tracking",
-      "Specialized Solutions",
+      "Regulatory Compliance at Every Step",
+      "Advanced Safety Protocols for Secure Handling",
+      "End-to-End Visibility and Real-Time Tracking",
+      "Specialized Solutions for Diverse Hazardous Cargo",
     ],
 
     faqTitle: "Helping You Understand Hazardous Services",
@@ -158,8 +182,20 @@ const services = [
     faqs: [
       {
         q: "What is hazardous cargo?",
-        a: "Hazardous cargo includes dangerous goods requiring special handling.",
+        a: "Hazardous cargo shipping involves the transport of goods classified as dangerous, including chemicals, gases, flammable liquids, and toxic substances. Special handling and regulatory compliance ensure safe transportation.",
       },
+      {
+        q:"What types  of goods are considered hazardous cargo?",
+        a:"Hazardous cargo includes explosives, corrosives, flammable materials, radioactive substances, and toxic chemicals that require strict safety measures during shipping."
+      },
+      {
+        q:"How do you ensure the safe transport of hazardous cargo",
+        a:"We follow strict international safety protocols, use specialized containers, and provide proper labeling, documentation, and secure packaging to prevent risks during transit."
+      },
+      {
+        q:"Do you offer real-time tracking for hazardous shipments?",
+        a:"Yes, we provide real-time tracking and monitoring for hazardous shipments, ensuring transparency, safety, and compliance throughout the journey."
+      }
     ],
   },
 ];
@@ -593,9 +629,7 @@ export default function FreightForwarding() {
               <h4>Need Help ?</h4>
 
               <p>
-                Schedule your initial consultation today and
-                start your journey towards seamless,
-                stress-free freight forwarding.
+               Schedule your initial consultation today and start your journey towards seamless, stress-free freight forwarding. Let us handle your logistics with expertise and efficiency. Contact us now!
               </p>
 
               <Link to="/contact" className="nh-btn">

@@ -62,23 +62,67 @@ const warehouseData = {
           "EXPORT OF GOODS FROM THE BONDED WAREHOUSE",
 
         points: [
-          "No Customs Duty On Export",
-          "Refund Of IGST Payable",
+          "No customs duty on goods exported without clearance in India.",
+          "Refund of IGST payable on export can be availed.",
         ],
       },
+      {
+        heading:
+        "LOCAL PURCHASES OF INPUTS AND CAPITAL GOODS",
+
+        points:
+        ["Applicable GST is payable on purchase of local goods."]
+      },
+      {
+        heading:
+        "DOMESTIC CLEARANCE OF GOODS MANUFACTURED / WASTE GENERATED",
+
+        points:
+        ["Applicable Customs duties payable",
+         "Applicable GST is payable"
+        ]
+        },
+        {
+            heading:
+            "BENEFITS OVER OTHER EXISTING DUTY EXEMPTION SCHEMES",
+
+            points:
+            ["Customs Duty deferral resulting in improved cash flows.",
+             "Relevant due to phasing out of other schemes under the FTP.",
+             "Facility to convert the existing facility to a bonded warehouse.",
+             "No time-limit on storage of goods.",
+             "No additional conditions such as fixation of SION, actual user condition, value addition or meeting of export obligations etc.",
+             "Locally procured goods can also be stored",
+            ]
+        },
+             {
+            heading:
+            "WHO SHOULD GO FOR IT",
+
+            points:
+            ["Companies engaged in high-volume imports and availing benefits under complicated existing schemes which are proposed to be phased out.",
+             "Companies engaged in low value added processes.",
+             "Companies engaged in import of inputs used for the manufacture of goods which are exported from India.",
+             "Companies having a high gestation period in terms of imports and actual supply of manufactured goods.",
+             "Deferred Duty Payments",
+             "Re-Exporting Goods",
+            ]
+        }
+
+
     ],
 
     bottomTitle:
       "Efficient and Compliant Storage Solutions",
 
     bottomText:
-      "At SSS Sai Shipping Services Pvt Ltd., we are committed to simplifying bonded warehousing for businesses across industries.",
+      "At SSS Sai Shipping Services Pvt Ltd., we are committed to simplifying bonded warehousing for businesses across industries. From duty suspension benefits to seamless distribution management, our integrated solutions provide a competitive advantage. Our customized warehousing strategies, 24/7 security surveillance, and automated inventory systems help you maximize operational efficiency while ensuring compliance. Whether you need bulk storage, specialized handling, or international transit support, our bonded warehouses offer a trusted and cost-effective solution for your logistics needs.",
 
     bottomPoints: [
-      "Defer Duty Payments",
-      "Inventory Tracking",
-      "Customs Compliance",
-      "Scalable Warehousing",
+      "Defer Duty Payments with Bonded Storage",
+      "Real-Time Tracking for Secure Inventory Management",
+      "Seamless Customs Compliance and Clearance",
+      "Flexible and Scalable Warehousing Solutions",
     ],
 
     bottomImg1:
@@ -93,18 +137,22 @@ const warehouseData = {
     faqs: [
       {
         q: "What is a bonded warehouse and how does it work?",
-        a: "A bonded warehouse is a secure facility where imported goods can be stored without paying customs duty immediately.",
+        a: "A bonded warehouse is a facility where imported goods can be stored without paying duties until they are cleared for sale or export. It allows businesses to defer taxes and manage cash flow efficiently.",
       },
 
       {
         q: "What are the benefits of using a bonded warehouse?",
-        a: "Duty deferment, safe storage, compliance support, and flexible logistics operations.",
+        a: "Bonded warehouses provide duty deferment, enhanced security, and flexible storage solutions. They help businesses optimize costs by delaying tax payments until goods are sold or shipped.",
       },
 
       {
         q: "Can I store all types of goods in a bonded warehouse?",
-        a: "Most imported goods can be stored subject to customs regulations.",
+        a: "Most goods can be stored in a bonded warehouse, including general cargo, electronics, and bulk commodities. However, restricted or perishable items may require additional approvals.",
       },
+      {
+        q:"How long con goods remain in a bonden warehouse?",
+        a:"Goods can typically remain in a bonded warehouse for extended periods, subject to customs regulations. The duration varies by country and trade policies."
+      }
     ],
   },
 
@@ -116,8 +164,7 @@ const warehouseData = {
       "https://saishipping.com/images/general-1.jpg",
 
     heroText:
-      "Reliable and efficient general warehousing solutions for inventory management.",
-
+      "At SSS Sai Shipping Services Pvt Ltd., we offer reliable and efficient general warehousing solutions to keep your inventory secure, organized, and readily accessible. Our strategically located warehouses are designed to support businesses with optimized storage, seamless inventory management, and cost-effective distribution.General warehousing is not just about storage—it’s about maintaining supply chain efficiency, minimizing handling costs, and ensuring smooth inventory flow. Our facilities are equipped to handle diverse goods with precision, whether you require short-term storage, long-term solutions, or specialized handling. We provide a scalable approach tailored to your unique business needs.",
     midTitle: "",
 
     midGroups: [],
@@ -126,13 +173,12 @@ const warehouseData = {
       "A Reliable Storage Solution",
 
     bottomText:
-      "We provide seamless warehousing solutions with advanced infrastructure.",
-
+      "At SSS Sai Shipping Services Pvt Ltd., we are dedicated to providing seamless warehousing solutions that enhance operational efficiency. Our advanced infrastructure, real-time inventory tracking, and professional handling ensure that your goods are always in the best condition. From small shipments to large-scale inventory management, our expert team ensures your supply chain operates smoothly and efficiently. With customized solutions, cutting-edge security, and round-the-clock support, we are your trusted partner for reliable warehousing services.",
     bottomPoints: [
-      "Optimized Storage",
-      "Inventory Management",
-      "Flexible Solutions",
-      "24/7 Monitoring",
+      "Optimized Storage for Maximum Efficiency",
+      "Seamless Inventory Management & Distribution",
+      "Flexible and Scalable Solutions for Businesses",
+      "Advanced Security and 24/7 Monitoring",
     ],
 
     bottomImg1:
@@ -147,8 +193,20 @@ const warehouseData = {
     faqs: [
       {
         q: "What is general warehousing?",
-        a: "General warehousing provides secure storage facilities.",
+        a: "General warehousing provides businesses with secure storage facilities for managing inventory efficiently. It helps reduce storage costs, streamline logistics, and enhance supply chain operations.",
       },
+      {
+        q:"What types of goods can be stored in general warehouses?",
+        a:"General warehouses accommodate various goods, including consumer products, industrial equipment, perishables (with temperature control), and bulk inventory, ensuring flexibility for diverse industries.",
+      },
+      {
+        q:"How dose SSS sai Shipping Services ensure inventory security",
+        a:"We implement 24/7 monitoring, access control systems, and advanced tracking technologies to safeguard stored goods, ensuring complete protection and real-time visibility."
+      },
+      {
+        q:"Can businesses scale their storage needs based on demand?",
+        a:"Yes, our warehousing solutions are designed for flexibility, allowing businesses to expand or reduce storage capacity based on seasonal demands and operational requirements."
+      }
     ],
   },
 
@@ -160,8 +218,7 @@ const warehouseData = {
       "https://saishipping.com/images/FTWZ-1.jpg",
 
     heroText:
-      "Specialized Free Trade Warehousing Zone solutions for global trade.",
-
+      "At SSS Sai Shipping Services Pvt Ltd., we provide specialized Free Trade Warehousing Zone (FTWZ) solutions to streamline global trade operations efficiently, securely, and on time. With our strategic locations and logistics expertise, we manage every aspect of your supply chain, from customs clearance to inventory management.FTWZs are more than just storage facilities—they optimize trade, reduce costs, and improve supply chain efficiency. Our team of experts handles everything from duty-free storage to value-added services, offering customized solutions for businesses across industries. Whether you need warehousing, re-export, or inventory consolidation, we have the right solution for your needs.",
     midTitle: "",
 
     midGroups: [],
@@ -170,13 +227,13 @@ const warehouseData = {
       "A Strategic Trade Hub",
 
     bottomText:
-      "Seamless FTWZ services for hassle-free international trade.",
+      "At SSS Sai Shipping Services Pvt Ltd., we are committed to providing seamless FTWZ services for hassle-free international trade. From the moment your goods arrive, our team ensures smooth operations with real-time tracking and compliance management. Our state-of-the-art infrastructure and advanced technology minimize delays, enhance efficiency, and optimize trade benefits. We understand the importance of flexible trade solutions, which is why we offer personalized warehousing, tax benefits, and 24/7 support. Whether it's bulk storage or distribution, we ensure your cargo moves seamlessly across borders. Your trade, our expertise—delivering beyond expectations.",
 
     bottomPoints: [
-      "Duty-Free Storage",
-      "Global Trade",
-      "Optimized Supply Chain",
-      "Dedicated Support",
+      "Global Trade, Simplified",
+      "Duty-Free Storage & Value-Added Services",
+      "Optimized Supply Chain Solutions",
+      "Dedicated Support for Seamless Operations",
     ],
 
     bottomImg1:
@@ -190,9 +247,54 @@ const warehouseData = {
 
     faqs: [
       {
-        q: "What is FTWZ?",
-        a: "FTWZ is a designated area providing infrastructure for trade.",
+        q: "What is a Free Trade Warehousing Zone (FTWZ)?",
+        a: "FTWZ is a designated area within a country that provides infrastructure and facilities for storing, handling, and distributing goods with ease of customs clearance. It aims to promote international trade and facilitate export-import operations.",
       },
+      {
+        q:"What is the genesis of FTWZ in India?",
+        a:"The concept of FTWZ in India was introduced as part of the Foreign Trade Policy (FTP) to enhance trade competitiveness and attract foreign investment. It is a strategic initiative to boost export-oriented industries and improve India’s position in the global supply chain."
+      },
+      {
+        q:"What is the primary concept behind FTWZ?",
+        a:"The main concept behind FTWZ is to create an integrated facility that offers value-added services, efficient logistics, and customs-related benefits to businesses engaged in international trade. It aims to provide a one-stop solution for trading activities, thereby reducing transaction costs and improving supply chain efficiencies."
+      },
+      {
+        q:"What are the objectives of establishing FTWZ in India?",
+        a:"The key objectives of FTWZ in India include:Promoting and facilitating global tradeAttracting foreign direct investment (FDI)Simplifying customs procedures and reducing bureaucratic hurdlesEnhancing the ease of doing businessEncouraging export-oriented industries and manufacturing activities"
+      },
+      {
+        q:"What are the envisaged benefits of FTWZ for trade in India?",
+        a:"FTWZ offers several benefits, including:Duty deferment and exemption on re-exported goods, promoting export-led growthConsolidation and deconsolidation of cargo, optimizing logistics and reducing costsEfficient customs clearance and reduced documentation requirementsCentralized storage and distribution facilities, improving inventory managementIntegration with global supply chains, increasing India’s competitivenessAttracting foreign investment and boosting economic growth"
+      },
+      {
+        q:"Are there any eligibility criteria for businesses to operate within FTWZ?",
+        a:"Yes, businesses must meet certain criteria to operate within FTWZ. These may include being engaged in export-import activities, complying with customs regulations, and adhering to the guidelines specified by the relevant authorities."
+      },
+      {
+        q:"How does FTWZ contribute to India’s economic growth?",
+        a:"FTWZ plays a crucial role in India’s economic growth by attracting foreign investment, encouraging export-oriented industries, and improving the overall efficiency of international trade. It enhances India’s competitiveness in the global market and strengthens its position in the supply chain."
+      },
+      {
+        q:"Can domestic businesses also benefit from FTWZ facilities?",
+        a:"Yes, domestic businesses can also benefit from FTWZ facilities. They can use FTWZ for storing and processing goods meant for export or import, taking advantage of the customs-related benefits and improved logistics services."
+      },
+      {
+        q:"How does FTWZ contribute to the ease of doing business in India?",
+        a:"FTWZ simplifies customs procedures, reduces paperwork, and offers a single-window clearance system, making it easier for businesses to engage in international trade. This streamlined process contributes to the ease of doing business in India."
+      },
+      {
+        q:"Are there any specific industries that benefit the most from FTWZ?",
+        a:"Various industries can benefit from FTWZ, including manufacturing, pharmaceuticals, textiles, automotive, electronics, and consumer goods. Export-oriented industries that require efficient logistics and customs facilitation can particularly benefit from FTWZ services."
+      },
+      {
+        q:"What role does FTWZ play in promoting India’s exports?",
+        a:"FTWZ plays a significant role in promoting India’s exports by offering duty deferment and exemption on re-exported goods. It enables businesses to optimize their supply chain, reduce costs, and access international markets more effectively."
+      },
+      {
+        q:"How does FTWZ contribute to foreign investment in India?",
+        a:"FTWZ attracts foreign investment by providing a favorable business environment, efficient logistics, and customs facilitation. The seamless integration with global supply chains makes India an attractive destination for foreign companies looking to expand their operations in the region."
+      },
+
     ],
   },
 };

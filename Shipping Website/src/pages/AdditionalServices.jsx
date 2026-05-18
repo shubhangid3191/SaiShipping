@@ -69,13 +69,21 @@ const additionalServicesData = {
     faqs: [
       {
         q: "Why is cargo insurance important?",
-        a: "Cargo insurance protects shipments against loss or damage during transportation.",
+        a: "Cargo insurance protects goods against damage, theft, and other transit-related risks, ensuring businesses avoid financial losses and maintain supply chain stability.",
       },
 
       {
-        q: "Do you provide international coverage?",
-        a: "Yes, we provide global cargo insurance solutions.",
+        q: "What types of shipments can be insured?",
+        a: "We offer insurance coverage for various shipments, including general cargo, fragile items, perishables, high-value goods, and specialized equipment across all transportation modes.",
       },
+      {
+        q:"How does SSS Sai Shipping Services simplify the insurance claim process?",
+        a:"Our team ensures a smooth claims process with transparent documentation, quick assessments, and seamless coordination with insurance providers for timely settlements."
+      },
+      {
+        q:"Can businesses customize their cargo insurance coverage?",
+        a:"Yes, we provide flexible insurance options, allowing businesses to tailor policies based on shipment type, value, and specific risk factors for optimal protection.",
+      }
     ],
   },
 
@@ -122,9 +130,21 @@ const additionalServicesData = {
 
     faqs: [
       {
-        q: "Do you provide export Transport?",
-        a: "Yes, we provide export-standard Transport solutions.",
+        q: "How do you ensure timely deliveries?",
+        a: "We use advanced tracking systems, optimized route planning, and a dedicated logistics team to minimize delays and ensure reliable, on-time deliveries.",
       },
+      {
+        q:"Can you handle large or specialized cargo?",
+        a:"Yes, we offer customized transport solutions for oversized, heavy, fragile, and temperature-sensitive cargo, ensuring safe and compliant transportation."
+      },
+      {
+        q:"How can I track my shipment in real time?",
+        a:"Our tracking system allows you to monitor your shipment’s status in real time, providing updates and ensuring complete visibility throughout the transportation process."
+      },
+      {
+        q:"How do you ensure timely deliveries?",
+        a:"We use advanced tracking systems, optimized route planning, and a dedicated logistics team to minimize delays and ensure reliable, on-time deliveries."
+      }
     ],
   },
 
@@ -173,9 +193,21 @@ const additionalServicesData = {
 
     faqs: [
       {
-        q: "Do you handle customs Consultant?",
-        a: "Yes, we manage all import and export customs Consultant.",
+        q: "What consulting services do you offer?",
+        a: "We offer logistics consulting, supply chain optimization, freight management strategies, and compliance guidance to improve your business operations..",
       },
+      {
+        q:"How can consulting help my business?",
+        a:"Our consulting services help businesses reduce costs, enhance efficiency, streamline logistics, and ensure compliance with global trade regulations."
+      },
+        {
+        q:"Do you provide industry-specific consulting?",
+        a:"Yes, we offer tailored consulting services for various industries, including retail, manufacturing, pharmaceuticals, and automotive logistics."
+      },
+    {
+        q:"How do I get started with your consulting services?",
+        a:"You can contact us to schedule a consultation where we assess your needs and develop a customized logistics strategy for your business."
+      }
     ],
   },
 };

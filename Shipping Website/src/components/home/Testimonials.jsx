@@ -23,6 +23,7 @@ const testimonials = [
     name: 'Robert G. Haver',
     role: 'Freight Manager',
   },
+
   {
     text: `SAI Shipping provided outstanding logistics support and timely delivery.
     Their professional team made our transport process smooth and stress free.`,
@@ -37,11 +38,19 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   const prev = () => {
-    setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setActive(
+      (prev) =>
+        (prev - 1 + testimonials.length) %
+        testimonials.length
+    );
   };
 
   const next = () => {
-    setActive((prev) => (prev + 1) % testimonials.length);
+    setActive(
+      (prev) =>
+        (prev + 1) %
+        testimonials.length
+    );
   };
 
   const t = testimonials[active];
@@ -50,8 +59,23 @@ export default function Testimonials() {
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 12 },
+        py: {
+          xs: 8,
+          md: 12,
+        },
+
+        /* FIX OVERLAP ISSUE */
+        mt: {
+          xs: '140px',
+          md: '220px',
+        },
+
+        position: 'relative',
+        zIndex: 1,
+
         bgcolor: '#f4f4f4',
+
+        overflow: 'hidden',
       }}
     >
       <Container maxWidth="lg">
@@ -65,12 +89,20 @@ export default function Testimonials() {
             <Box
               sx={{
                 position: 'relative',
-                width: { xs: 280, md: 360 },
-                height: { xs: 280, md: 360 },
+                width: {
+                  xs: 280,
+                  md: 360,
+                },
+
+                height: {
+                  xs: 280,
+                  md: 360,
+                },
+
                 mx: 'auto',
               }}
             >
-              {/* Circle Image */}
+              {/* IMAGE */}
               <Box
                 component="img"
                 src={t.image}
@@ -83,16 +115,19 @@ export default function Testimonials() {
                 }}
               />
 
-              {/* Quote Icon */}
+              {/* QUOTE ICON */}
               <Box
                 sx={{
                   position: 'absolute',
                   top: 10,
                   right: 20,
+
                   width: 90,
                   height: 90,
+
                   borderRadius: '50%',
                   bgcolor: '#ff7a2f',
+
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -107,14 +142,16 @@ export default function Testimonials() {
               </Box>
             </Box>
 
-            {/* Stars */}
+            {/* STARS */}
             <Stack
               direction="row"
               spacing={0.5}
               justifyContent="center"
               sx={{ mt: 4 }}
             >
-              {Array.from({ length: 5 }).map((_, i) => (
+              {Array.from({
+                length: 5,
+              }).map((_, i) => (
                 <StarIcon
                   key={i}
                   sx={{
@@ -132,7 +169,8 @@ export default function Testimonials() {
               sx={{
                 color: '#ff7a2f',
                 fontWeight: 700,
-                textTransform: 'uppercase',
+                textTransform:
+                  'uppercase',
                 letterSpacing: 2,
                 fontSize: '0.9rem',
                 mb: 2,
@@ -143,12 +181,19 @@ export default function Testimonials() {
 
             <Typography
               sx={{
-                fontSize: { xs: '2.4rem', md: '4rem' },
+                fontSize: {
+                  xs: '2.4rem',
+                  md: '4rem',
+                },
+
                 fontWeight: 800,
                 lineHeight: 1.1,
                 color: '#071c2c',
+
                 mb: 4,
-                fontFamily: '"Playfair Display", serif',
+
+                fontFamily:
+                  '"Playfair Display", serif',
               }}
             >
               What Our Client’s Says
@@ -157,25 +202,36 @@ export default function Testimonials() {
             <Typography
               sx={{
                 color: '#333',
-                fontSize: '1.2rem',
+
+                fontSize: {
+                  xs: '1rem',
+                  md: '1.2rem',
+                },
+
                 lineHeight: 2,
+
                 maxWidth: 700,
               }}
             >
               {t.text}
             </Typography>
 
-            {/* Author */}
+            {/* AUTHOR */}
             <Stack
               direction="row"
               spacing={1}
               alignItems="center"
+              flexWrap="wrap"
               sx={{ mt: 6 }}
             >
               <Typography
                 sx={{
                   fontFamily: 'cursive',
-                  fontSize: '2rem',
+                  fontSize: {
+                    xs: '1.6rem',
+                    md: '2rem',
+                  },
+
                   color: '#000',
                 }}
               >
@@ -187,14 +243,14 @@ export default function Testimonials() {
                   color: '#ff7a2f',
                   fontStyle: 'italic',
                   fontWeight: 600,
-                  mt: 1,
+                  mt: '4px !important',
                 }}
               >
                 {t.role}
               </Typography>
             </Stack>
 
-            {/* Buttons */}
+            {/* BUTTONS */}
             <Stack
               direction="row"
               spacing={2}
@@ -205,8 +261,12 @@ export default function Testimonials() {
                 sx={{
                   width: 56,
                   height: 56,
+
                   bgcolor: '#0b3a53',
                   color: '#fff',
+
+                  transition: '0.3s',
+
                   '&:hover': {
                     bgcolor: '#ff7a2f',
                   },
@@ -220,8 +280,12 @@ export default function Testimonials() {
                 sx={{
                   width: 56,
                   height: 56,
+
                   bgcolor: '#0b3a53',
                   color: '#fff',
+
+                  transition: '0.3s',
+
                   '&:hover': {
                     bgcolor: '#ff7a2f',
                   },
