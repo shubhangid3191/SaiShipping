@@ -148,7 +148,7 @@ function AboutUs() {
             <Typography
               sx={{
                 fontSize: { xs: "14px", md: "20px" },
-                color: "#ffb347",
+                color: "#ED6637",
                 fontWeight: 700,
                 letterSpacing: 2,
                 textTransform: "capitalize",
