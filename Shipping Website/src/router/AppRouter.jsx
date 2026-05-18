@@ -13,6 +13,7 @@ import Import from "../pages/Import";
 import Export from "../pages/Export";
 import Industry from "../pages/Industry";
 import AdditionalServices from "../pages/AdditionalServices";
+import Clients from "../pages/Clients";
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
@@ -35,6 +36,7 @@ export default function AppRouter() {
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/industry" element={<Industry />} />
+        <Route path="/clients" element={<Clients />} />
 
 
       </Routes>
