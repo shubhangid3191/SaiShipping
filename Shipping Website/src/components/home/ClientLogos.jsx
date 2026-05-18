@@ -1,7 +1,10 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { keyframes } from "@mui/system";
 
+// ─────────────────────────────────────────────
 // CLIENT LOGOS
+// ─────────────────────────────────────────────
+
 const logos = [
   "https://saishipping.com/images/cl-logo-2.png",
   "https://saishipping.com/images/cl-logo-1.png",
@@ -28,7 +31,10 @@ const logos = [
   "https://saishipping.com/images/cl-logo-25.png",
 ];
 
-// SMOOTH MARQUEE
+// ─────────────────────────────────────────────
+// SMOOTH MARQUEE ANIMATION
+// ─────────────────────────────────────────────
+
 const marquee = keyframes`
   0% {
     transform: translateX(0%);
@@ -39,41 +45,36 @@ const marquee = keyframes`
   }
 `;
 
+// ─────────────────────────────────────────────
+// MAIN COMPONENT
+// ─────────────────────────────────────────────
+
 export default function ClientLogos() {
-  // DUPLICATE FOR PERFECT LOOP
+  // DUPLICATE FOR SMOOTH INFINITE LOOP
   const duplicatedLogos = [...logos, ...logos];
 
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        py: {
+          xs: 5,
+          md: 7,
+        },
+
         bgcolor: "#f5f5f5",
+
         overflow: "hidden",
+
         position: "relative",
       }}
     >
-      <Container maxWidth="xl">
-        {/* HEADING */}
-        <Typography
-          sx={{
-            textAlign: "center",
-            mb: 6,
-            fontSize: "0.8rem",
-            fontWeight: 700,
-            letterSpacing: "4px",
-            textTransform: "uppercase",
-            color: "#8a8a8a",
-          }}
-        >
-          Trusted By Leading Companies Across Industries
-        </Typography>
-      </Container>
-
       {/* MAIN SLIDER */}
       <Box
         sx={{
           position: "relative",
+
           overflow: "hidden",
+
           width: "100%",
         }}
       >
@@ -81,13 +82,21 @@ export default function ClientLogos() {
         <Box
           sx={{
             position: "absolute",
+
             left: 0,
             top: 0,
             bottom: 0,
-            width: { xs: 80, md: 180 },
+
+            width: {
+              xs: 70,
+              md: 180,
+            },
+
             zIndex: 5,
+
             background:
               "linear-gradient(to right, #f5f5f5 0%, rgba(245,245,245,0) 100%)",
+
             pointerEvents: "none",
           }}
         />
@@ -96,13 +105,21 @@ export default function ClientLogos() {
         <Box
           sx={{
             position: "absolute",
+
             right: 0,
             top: 0,
             bottom: 0,
-            width: { xs: 80, md: 180 },
+
+            width: {
+              xs: 70,
+              md: 180,
+            },
+
             zIndex: 5,
+
             background:
               "linear-gradient(to left, #f5f5f5 0%, rgba(245,245,245,0) 100%)",
+
             pointerEvents: "none",
           }}
         />
@@ -111,10 +128,19 @@ export default function ClientLogos() {
         <Box
           sx={{
             display: "flex",
+
             alignItems: "center",
+
             width: "max-content",
-            gap: { xs: 8, md: 14 },
+
+            gap: {
+              xs: 6,
+              sm: 8,
+              md: 12,
+            },
+
             animation: `${marquee} 45s linear infinite`,
+
             "&:hover": {
               animationPlayState: "paused",
             },
@@ -128,19 +154,22 @@ export default function ClientLogos() {
               alt={`client-${index}`}
               sx={{
                 width: "auto",
-                height: { xs: 55, sm: 70, md: 90 },
+
+                height: {
+                  xs: 45,
+                  sm: 60,
+                  md: 85,
+                },
+
                 objectFit: "contain",
+
                 flexShrink: 0,
 
-                // CLEAN LOOK LIKE SCREENSHOT
-                filter: "grayscale(100%)",
-                opacity: 0.75,
+                opacity: 1,
 
                 transition: "all 0.4s ease",
 
                 "&:hover": {
-                  filter: "grayscale(0%)",
-                  opacity: 1,
                   transform: "scale(1.08)",
                 },
               }}

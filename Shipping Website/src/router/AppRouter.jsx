@@ -7,6 +7,7 @@ import QuoteFrom from "../components/quote/QuoteFrom";
 import Projects from "../pages/Projects";
 import Home from "../components/home/Home"
 import Contact from "../pages/Contact";
+import Warehouses from "../pages/Warehouses";
 import FreightForwarding from "../pages/FreightForwarding";
 
 // Company pages
@@ -22,6 +23,7 @@ export default function AppRouter() {
         <Route path="/projects" element={<><Projects /></>} />
         <Route path="/freight-forwarding" element={<FreightForwarding />} />
         <Route path="/contact" element={<><Contact/></>} />
+        <Route path="/warehouses" element={<><Warehouses /></>} />
 
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
