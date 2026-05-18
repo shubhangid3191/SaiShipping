@@ -33,7 +33,17 @@ const companyDropdown = [
 
 const servicesDropdown = [
   { label: "Freight Forwarding", path: "/freight-forwarding" },
-  { label: "Custom Clearance", path: "/custom-clearance" },
+
+  // Custom Clearance with submenu
+  {
+    label: "Custom Clearance",
+    path: "/custom-clearance",
+    subMenu: [
+      { label: "Import", path: "/import" },
+      { label: "Export", path: "/export" },
+    ],
+  },
+
   { label: "Warehouses", path: "/warehouses" },
   { label: "Additional Services", path: "/additional-services" },
 ];
@@ -197,32 +207,94 @@ function Navbar() {
                             }}
                           >
                             {item.dropdown.map((drop) => (
-                              <Link
-                                key={drop.label}
-                                to={drop.path}
-                                style={{ textDecoration: "none" }}
-                                onClick={() => setHovered(false)}
-                              >
-                                <Typography
-                                  sx={{
-                                    px: 3,
-                                    py: 1.5,
-                                    fontSize: "16px",
-                                    fontWeight: 500,
-                                    color: "#333",
-                                    fontFamily: '"Times New Roman", serif',
-                                    transition: "0.2s",
-                                    "&:hover": {
-                                      color: "#eb7e27",
-                                      backgroundColor: "#fff8f3",
-                                      pl: 4,
-                                    },
-                                  }}
-                                >
-                                  {drop.label}
-                                </Typography>
-                              </Link>
-                            ))}
+  <Box
+    key={drop.label}
+    sx={{
+      position: "relative",
+      "&:hover .submenu": {
+        display: "block",
+      },
+    }}
+  >
+    {/* Main Item */}
+    <Link
+      to={drop.path}
+      style={{ textDecoration: "none" }}
+      onClick={() => setHovered(false)}
+    >
+      <Typography
+        sx={{
+          px: 3,
+          py: 1.5,
+          fontSize: "16px",
+          fontWeight: 500,
+          color: "#333",
+          fontFamily: '"Times New Roman", serif',
+          transition: "0.2s",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+
+          "&:hover": {
+            color: "#eb7e27",
+            backgroundColor: "#fff8f3",
+          },
+        }}
+      >
+        {drop.label}
+
+        {drop.subMenu && (
+          <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
+        )}
+      </Typography>
+    </Link>
+
+    {/* HOVER SUBMENU */}
+    {drop.subMenu && (
+      <Box
+        className="submenu"
+        sx={{
+          display: "none",
+          position: "absolute",
+          top: 0,
+          left: "100%",
+          minWidth: "180px",
+          backgroundColor: "#fff",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+          borderRadius: "6px",
+          py: 1,
+          zIndex: 999,
+        }}
+      >
+        {drop.subMenu.map((sub) => (
+          <Link
+            key={sub.label}
+            to={sub.path}
+            style={{ textDecoration: "none" }}
+            onClick={() => setHovered(false)}
+          >
+            <Typography
+              sx={{
+                px: 3,
+                py: 1.2,
+                fontSize: "15px",
+                color: "#333",
+                fontFamily: '"Times New Roman", serif',
+
+                "&:hover": {
+                  backgroundColor: "#fff8f3",
+                  color: "#eb7e27",
+                },
+              }}
+            >
+              {sub.label}
+            </Typography>
+          </Link>
+        ))}
+      </Box>
+    )}
+  </Box>
+))}
                           </Box>
                         </Box>
                       )}
