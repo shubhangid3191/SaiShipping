@@ -12,6 +12,7 @@ import FreightForwarding from "../pages/FreightForwarding";
 import Import from "../pages/Import";
 import Export from "../pages/Export";
 import Industry from "../pages/Industry";
+import AdditionalServices from "../pages/AdditionalServices";
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
@@ -29,6 +30,7 @@ export default function AppRouter() {
         <Route path="/warehouses" element={<><Warehouses /></>} />
         <Route path="/import" element={<Import />} />
         <Route path="/export" element={<Export />} />
+        <Route path="/additional-services"element={<AdditionalServices />}/>
 
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
