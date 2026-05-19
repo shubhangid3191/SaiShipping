@@ -15,7 +15,6 @@ import Clients from "../pages/Clients";
 import FAQ from "../pages/FAQ";
 import Import from "../pages/Import";
 import Export from "../pages/Export";
-import Services from "../pages/Services";
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
@@ -42,6 +41,7 @@ export default function AppRouter() {
         <Route path="/industry" element={<Industry />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/achievements" element={<AchievementsRewards />} />
 
       </Routes>
       <Footer />
