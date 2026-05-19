@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   Box,
+  Container,
   Typography,
   Button,
   Stack,
@@ -11,9 +12,17 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
+// ─────────────────────────────────────────────
+// IMAGES
+// ─────────────────────────────────────────────
+
 const slide1 = "https://saishipping.com/images/slide-1.png";
 const slide2 = "https://saishipping.com/images/slide-2.png";
 const slide3 = "https://saishipping.com/images/slide-3.png";
+
+// ─────────────────────────────────────────────
+// SLIDES DATA  — matched exactly to live site screenshots
+// ─────────────────────────────────────────────
 
 const slides = [
   {
@@ -39,6 +48,10 @@ const slides = [
   },
 ];
 
+// ─────────────────────────────────────────────
+// MAIN COMPONENT
+// ─────────────────────────────────────────────
+
 export default function HeroSlider() {
   const [active, setActive] = useState(0);
 
@@ -50,8 +63,7 @@ export default function HeroSlider() {
   }, []);
 
   const nextSlide = () => setActive((prev) => (prev + 1) % slides.length);
-  const prevSlide = () =>
-    setActive((prev) => (prev - 1 + slides.length) % slides.length);
+  const prevSlide = () => setActive((prev) => (prev - 1 + slides.length) % slides.length);
 
   const slide = slides[active];
 
@@ -62,9 +74,10 @@ export default function HeroSlider() {
         minHeight: { xs: "auto", md: "100vh" },
         bgcolor: "#ffffff",
         position: "relative",
-        overflow: "hidden",          // ← clips anything that bleeds out
+        overflow: "hidden",
         display: "flex",
-        alignItems: "stretch",
+        alignItems: "center",
+        py: { xs: 8, sm: 10, md: 0 },
       }}
     >
       {/* ── FULL-WIDTH FLEX ROW ── */}
@@ -73,21 +86,17 @@ export default function HeroSlider() {
           width: "100%",
           display: "flex",
           flexDirection: { xs: "column-reverse", md: "row" },
-          alignItems: "stretch",
+          alignItems: "center",
           minHeight: { md: "100vh" },
         }}
       >
         {/* ── LEFT CONTENT ── */}
         <Box
           sx={{
-            width: { xs: "100%", md: "52%" },
-            flexShrink: 0,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            pl: { xs: 3, sm: 5, md: 8, lg: 10 },
-            pr: { xs: 3, sm: 5, md: 5 },
-            py: { xs: 6, md: 8 },
+            width: { xs: "100%", md: "50%" },
+            pl: { xs: 3, sm: 5, md: 8, lg: 12 },
+            pr: { xs: 3, sm: 5, md: 4 },
+            py: { xs: 6, md: 0 },
             textAlign: { xs: "center", md: "left" },
             zIndex: 2,
           }}
@@ -109,7 +118,7 @@ export default function HeroSlider() {
           {/* MAIN HEADING */}
           <Typography
             sx={{
-              fontSize: { xs: "32px", sm: "44px", md: "48px", lg: "56px" },
+              fontSize: { xs: "32px", sm: "44px", md: "52px", lg: "60px" },
               fontWeight: 700,
               color: "#000",
               lineHeight: 1.15,
@@ -127,7 +136,7 @@ export default function HeroSlider() {
               color: "#333",
               fontSize: { xs: "14px", sm: "15px", md: "16px" },
               lineHeight: { xs: 1.8, md: 1.9 },
-              maxWidth: { xs: "100%", md: "520px" },
+              maxWidth: { xs: "100%", md: "560px" },
               mx: { xs: "auto", md: 0 },
               fontFamily: `"Times New Roman", serif`,
             }}
@@ -143,6 +152,7 @@ export default function HeroSlider() {
             justifyContent={{ xs: "center", md: "flex-start" }}
             sx={{ mt: { xs: 4, md: 5 } }}
           >
+            {/* ALL SERVICES BUTTON */}
             <Button
               variant="contained"
               sx={{
@@ -157,13 +167,18 @@ export default function HeroSlider() {
                 boxShadow: "none",
                 minWidth: { xs: "200px", sm: "210px" },
                 fontFamily: `"Times New Roman", serif`,
-                "&:hover": { bgcolor: "#e85b1f", boxShadow: "none" },
+                "&:hover": {
+                  bgcolor: "#e85b1f",
+                  boxShadow: "none",
+                },
               }}
             >
               ALL SERVICES
             </Button>
 
+            {/* CALL SECTION */}
             <Stack direction="row" spacing={2} alignItems="center">
+              {/* PHONE ICON CIRCLE */}
               <Box
                 sx={{
                   width: { xs: 56, md: 62 },
@@ -176,9 +191,12 @@ export default function HeroSlider() {
                   flexShrink: 0,
                 }}
               >
-                <LocalPhoneIcon sx={{ color: "#fff", fontSize: { xs: 24, md: 28 } }} />
+                <LocalPhoneIcon
+                  sx={{ color: "#fff", fontSize: { xs: 24, md: 28 } }}
+                />
               </Box>
 
+              {/* PHONE TEXT */}
               <Box sx={{ textAlign: "left" }}>
                 <Typography
                   sx={{
@@ -206,14 +224,14 @@ export default function HeroSlider() {
           </Stack>
         </Box>
 
-        {/* ── RIGHT IMAGE ── */}
+        {/* ── RIGHT IMAGE — bleeds to edge ── */}
         <Box
           sx={{
-            width: { xs: "100%", md: "48%" },   // ← fixed share, won't overflow
-            flexShrink: 0,
-            height: { xs: "260px", sm: "360px", md: "auto" },
+            width: { xs: "100%", md: "50%" },
+            height: { xs: "280px", sm: "380px", md: "100vh" },
             position: "relative",
             overflow: "hidden",
+            flexShrink: 0,
           }}
         >
           <Box
@@ -223,7 +241,7 @@ export default function HeroSlider() {
             sx={{
               width: "100%",
               height: "100%",
-              objectFit: "contain",            // ← contain keeps full image visible
+              objectFit: "cover",
               objectPosition: "center center",
               display: "block",
             }}

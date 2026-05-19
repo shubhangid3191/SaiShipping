@@ -70,7 +70,7 @@ export default function HowItWorks() {
               fontSize: {
                 xs: "36px",
                 sm: "52px",
-                md: "72px",
+                md: "70px",
               },
 
               fontWeight: 700,

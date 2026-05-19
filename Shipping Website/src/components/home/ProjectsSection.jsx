@@ -86,7 +86,7 @@ export default function ProjectsSection() {
             <Typography
               sx={{
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8rem' },
                 fontWeight: 700,
                 color: '#0d1e35',
                 lineHeight: 1.2,
