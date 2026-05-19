@@ -15,6 +15,8 @@ import Clients from "../pages/Clients";
 import FAQ from "../pages/FAQ";
 import Import from "../pages/Import";
 import Export from "../pages/Export";
+import Services from "../pages/Services";
+import AchievementsRewards from "../pages/AchievementsRewards";
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
