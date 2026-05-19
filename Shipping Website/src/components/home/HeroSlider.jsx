@@ -1,626 +1,276 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
-  Container,
-  Modal,
-  Fade,
-  Backdrop,
-  IconButton,
   Typography,
+  Button,
+  Stack,
+  IconButton,
 } from "@mui/material";
 
-import CloseIcon from "@mui/icons-material/Close";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-/* ─────────────────────────────────────────────
-   PROJECT IMAGES
-───────────────────────────────────────────── */
+const slide1 = "https://saishipping.com/images/slide-1.png";
+const slide2 = "https://saishipping.com/images/slide-2.png";
+const slide3 = "https://saishipping.com/images/slide-3.png";
 
-const projects = Array.from({ length: 42 }, (_, i) => ({
-  id: i + 1,
-  src: `https://saishipping.com/images/project${i + 1}.jpg`,
-}));
+const slides = [
+  {
+    image: slide3,
+    smallTitle: "Efficient Shipping",
+    heading: "Efficient In Custom\nClearance",
+    description:
+      "We rely on the principle for efficient, reliable, trustworthy and problem free custom clearance processes, with proper hand to hand solutions between the Customs and Importer and Exporters with proper compliance.",
+  },
+  {
+    image: slide2,
+    smallTitle: "Shipping",
+    heading: "Streamlined Logistics Across\nLand, Sea And Air",
+    description:
+      "Leverage the power of intermodal transport to optimize your logistics. Our integrated solutions across land, sea, and rail ensure efficient, cost-effective, and timely delivery, regardless of the distance or complexity of your shipment.",
+  },
+  {
+    image: slide1,
+    smallTitle: "Hot Shot Trucking",
+    heading: "Fast, On-Demand Delivery",
+    description:
+      "When time is critical, our hot shot trucking services provide fast, reliable, and on-demand transportation. We ensure that your urgent shipments are handled with care and delivered to their destination on schedule, no matter the size or urgency.",
+  },
+];
 
-/* ─────────────────────────────────────────────
-   PAGE BANNER
-───────────────────────────────────────────── */
+export default function HeroSlider() {
+  const [active, setActive] = useState(0);
 
-function PageBanner() {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setActive((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
+    setActive((prev) => (prev - 1 + slides.length) % slides.length);
+
+  const slide = slides[active];
+
   return (
     <Box
       sx={{
-        position: "relative",
         width: "100%",
-        height: {
-          xs: "320px",
-          sm: "420px",
-          md: "560px",
-        },
-
-        overflow: "hidden",
-
+        minHeight: { xs: "auto", md: "100vh" },
+        bgcolor: "#ffffff",
+        position: "relative",
+        overflow: "hidden",          // ← clips anything that bleeds out
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-
-        backgroundColor: "#f7f7f7",
+        alignItems: "stretch",
       }}
     >
-      {/* LEFT IMAGE */}
-      <Box
-        component="img"
-        src="https://saishipping.com/images/inner-banner-left.png"
-        alt=""
-        sx={{
-          position: "absolute",
-
-          left: 0,
-          bottom: 0,
-
-          width: {
-            xs: "55%",
-            md: "38%",
-          },
-
-          opacity: 0.95,
-        }}
-      />
-
-      {/* RIGHT IMAGE */}
-      <Box
-        component="img"
-        src="https://saishipping.com/images/inner-banner-right.png"
-        alt=""
-        sx={{
-          position: "absolute",
-
-          right: 0,
-          bottom: 0,
-
-          width: {
-            xs: "55%",
-            md: "38%",
-          },
-
-          opacity: 0.95,
-        }}
-      />
-
-      {/* CENTER TEXT */}
+      {/* ── FULL-WIDTH FLEX ROW ── */}
       <Box
         sx={{
-          position: "relative",
-          zIndex: 2,
-
-          textAlign: "center",
-
-          mt: {
-            xs: 6,
-            md: 8,
-          },
+          width: "100%",
+          display: "flex",
+          flexDirection: { xs: "column-reverse", md: "row" },
+          alignItems: "stretch",
+          minHeight: { md: "100vh" },
         }}
       >
-        <Typography
-          sx={{
-            color: "#eb7a1a",
-
-            fontWeight: 700,
-
-            fontSize: {
-              xs: "18px",
-              md: "20px",
-            },
-
-            mb: 2,
-
-            fontFamily: "Georgia, serif",
-          }}
-        >
-          International Logistics
-        </Typography>
-
-        <Typography
-          sx={{
-            color: "#000",
-
-            fontWeight: 700,
-
-            lineHeight: 1,
-
-            fontFamily: "Georgia, serif",
-
-            fontSize: {
-              xs: "3.4rem",
-              sm: "4.5rem",
-              md: "6.5rem",
-            },
-          }}
-        >
-          Projects
-        </Typography>
-      </Box>
-    </Box>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   LIGHTBOX
-───────────────────────────────────────────── */
-
-function Lightbox({ open, index, onClose, onPrev, onNext }) {
-  return (
-    <Modal
-      open={open}
-      onClose={onClose}
-      closeAfterTransition
-      slots={{ backdrop: Backdrop }}
-      slotProps={{
-        backdrop: {
-          timeout: 300,
-          sx: {
-            bgcolor: "rgba(0,0,0,0.95)",
-          },
-        },
-      }}
-    >
-      <Fade in={open}>
+        {/* ── LEFT CONTENT ── */}
         <Box
           sx={{
-            position: "absolute",
-
-            top: "50%",
-            left: "50%",
-
-            transform: "translate(-50%, -50%)",
-
-            width: {
-              xs: "95vw",
-              sm: "85vw",
-              md: "70vw",
-            },
-
+            width: { xs: "100%", md: "52%" },
+            flexShrink: 0,
             display: "flex",
+            flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-
-            outline: "none",
+            pl: { xs: 3, sm: 5, md: 8, lg: 10 },
+            pr: { xs: 3, sm: 5, md: 5 },
+            py: { xs: 6, md: 8 },
+            textAlign: { xs: "center", md: "left" },
+            zIndex: 2,
           }}
         >
-          {/* CLOSE */}
-          <IconButton
-            onClick={onClose}
+          {/* SMALL TITLE */}
+          <Typography
             sx={{
-              position: "absolute",
-              top: -50,
-              right: 0,
-
-              color: "#fff",
-
-              zIndex: 10,
+              color: "#ff6b2c",
+              fontSize: { xs: "15px", sm: "17px", md: "18px" },
+              mb: { xs: 1.5, md: 2 },
+              fontWeight: 500,
+              fontFamily: `"Times New Roman", serif`,
+              letterSpacing: "0.01em",
             }}
           >
-            <CloseIcon />
-          </IconButton>
+            {slide.smallTitle}
+          </Typography>
 
-          {/* IMAGE */}
-          <Box
-            component="img"
-            src={projects[index]?.src}
-            alt=""
+          {/* MAIN HEADING */}
+          <Typography
             sx={{
-              width: "100%",
-              maxHeight: "85vh",
-
-              objectFit: "contain",
-
-              borderRadius: "14px",
-            }}
-          />
-
-          {/* PREV */}
-          <IconButton
-            onClick={onPrev}
-            sx={{
-              position: "absolute",
-
-              left: {
-                xs: 10,
-                md: -70,
-              },
-
-              top: "50%",
-
-              transform: "translateY(-50%)",
-
-              color: "#fff",
-
-              bgcolor: "rgba(232,115,13,0.9)",
-
-              "&:hover": {
-                bgcolor: "#e8730d",
-              },
+              fontSize: { xs: "32px", sm: "44px", md: "48px", lg: "56px" },
+              fontWeight: 700,
+              color: "#000",
+              lineHeight: 1.15,
+              fontFamily: `"Georgia", "Times New Roman", serif`,
+              whiteSpace: "pre-line",
             }}
           >
-            <ArrowBackIosNewIcon />
-          </IconButton>
+            {slide.heading}
+          </Typography>
 
-          {/* NEXT */}
-          <IconButton
-            onClick={onNext}
+          {/* DESCRIPTION */}
+          <Typography
             sx={{
-              position: "absolute",
-
-              right: {
-                xs: 10,
-                md: -70,
-              },
-
-              top: "50%",
-
-              transform: "translateY(-50%)",
-
-              color: "#fff",
-
-              bgcolor: "rgba(232,115,13,0.9)",
-
-              "&:hover": {
-                bgcolor: "#e8730d",
-              },
+              mt: { xs: 3, md: 4 },
+              color: "#333",
+              fontSize: { xs: "14px", sm: "15px", md: "16px" },
+              lineHeight: { xs: 1.8, md: 1.9 },
+              maxWidth: { xs: "100%", md: "520px" },
+              mx: { xs: "auto", md: 0 },
+              fontFamily: `"Times New Roman", serif`,
             }}
           >
-            <ArrowForwardIosIcon />
-          </IconButton>
-        </Box>
-      </Fade>
-    </Modal>
-  );
-}
+            {slide.description}
+          </Typography>
 
-/* ─────────────────────────────────────────────
-   MAIN COMPONENT
-───────────────────────────────────────────── */
-
-export default function Projects() {
-  const [lightbox, setLightbox] = useState({
-    open: false,
-    index: 0,
-  });
-
-  const openLightbox = (i) =>
-    setLightbox({
-      open: true,
-      index: i,
-    });
-
-  const closeLightbox = () =>
-    setLightbox((p) => ({
-      ...p,
-      open: false,
-    }));
-
-  const prevImage = () =>
-    setLightbox((p) => ({
-      ...p,
-      index:
-        (p.index - 1 + projects.length) %
-        projects.length,
-    }));
-
-  const nextImage = () =>
-    setLightbox((p) => ({
-      ...p,
-      index:
-        (p.index + 1) % projects.length,
-    }));
-
-  return (
-    <Box
-      sx={{
-        bgcolor: "#fff",
-
-        minHeight: "100vh",
-
-        overflow: "hidden",
-      }}
-    >
-      {/* BANNER */}
-      <PageBanner />
-
-      {/* PROJECT GRID */}
-      <Box
-        sx={{
-          py: {
-            xs: 5,
-            md: 8,
-          },
-        }}
-      >
-        <Container maxWidth="xl">
-          <Box
-            sx={{
-              display: "grid",
-
-              gridTemplateColumns: {
-                xs: "1fr",
-                sm: "repeat(2, 1fr)",
-                md: "repeat(3, 1fr)",
-                lg: "repeat(4, 1fr)",
-              },
-
-              gap: {
-                xs: "20px",
-                md: "28px",
-              },
-            }}
+          {/* BUTTONS */}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={3}
+            alignItems="center"
+            justifyContent={{ xs: "center", md: "flex-start" }}
+            sx={{ mt: { xs: 4, md: 5 } }}
           >
-            {projects.map((project, index) => (
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: "#ff6b2c",
+                px: { xs: 4, md: 5 },
+                py: 1.8,
+                borderRadius: 0,
+                fontSize: { xs: "14px", md: "15px" },
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                boxShadow: "none",
+                minWidth: { xs: "200px", sm: "210px" },
+                fontFamily: `"Times New Roman", serif`,
+                "&:hover": { bgcolor: "#e85b1f", boxShadow: "none" },
+              }}
+            >
+              ALL SERVICES
+            </Button>
+
+            <Stack direction="row" spacing={2} alignItems="center">
               <Box
-                key={project.id}
-                onClick={() =>
-                  openLightbox(index)
-                }
                 sx={{
-                  position: "relative",
-
-                  overflow: "hidden",
-
-                  borderRadius: "22px",
-
-                  cursor: "pointer",
-
-                  height: {
-                    xs: 250,
-                    sm: 280,
-                    md: 300,
-                  },
-
-                  backgroundColor: "#ddd",
-
-                  boxShadow:
-                    "0 10px 28px rgba(0,0,0,0.10)",
-
-                  transition:
-                    "all 0.35s ease",
-
-                  "&:hover": {
-                    transform:
-                      "translateY(-8px)",
-
-                    boxShadow:
-                      "0 18px 40px rgba(0,0,0,0.18)",
-                  },
-
-                  "&:hover .proj-img": {
-                    transform: "scale(1.08)",
-                  },
-
-                  "&:hover .proj-overlay": {
-                    opacity: 1,
-                  },
+                  width: { xs: 56, md: 62 },
+                  height: { xs: 56, md: 62 },
+                  borderRadius: "50%",
+                  bgcolor: "#003b49",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
                 }}
               >
-                {/* IMAGE */}
-                <Box
-                  component="img"
-                  className="proj-img"
-                  src={project.src}
-                  alt={`Project ${project.id}`}
-                  loading="lazy"
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-
-                    objectFit: "cover",
-
-                    display: "block",
-
-                    transition:
-                      "transform 0.45s ease",
-                  }}
-                />
-
-                {/* OVERLAY */}
-                <Box
-                  className="proj-overlay"
-                  sx={{
-                    position: "absolute",
-                    inset: 0,
-
-                    opacity: 0,
-
-                    transition:
-                      "opacity 0.35s ease",
-
-                    background:
-                      "linear-gradient(to top, rgba(232,115,13,0.45), transparent 60%)",
-                  }}
-                />
+                <LocalPhoneIcon sx={{ color: "#fff", fontSize: { xs: 24, md: 28 } }} />
               </Box>
-            ))}
-          </Box>
-        </Container>
-      </Box>
 
-      {/* FOOTER BOTTOM */}
-      <Box
-        sx={{
-          background:
-            "linear-gradient(90deg, rgba(4,44,68,1) 0%, rgba(5,18,82,1) 100%)",
+              <Box sx={{ textAlign: "left" }}>
+                <Typography
+                  sx={{
+                    color: "#444",
+                    fontSize: { xs: "14px", md: "15px" },
+                    mb: 0.3,
+                    fontFamily: `"Times New Roman", serif`,
+                  }}
+                >
+                  Call Us Now
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#000",
+                    fontWeight: 700,
+                    fontSize: { xs: "18px", sm: "20px", md: "22px" },
+                    fontFamily: `"Georgia", "Times New Roman", serif`,
+                    lineHeight: 1.2,
+                  }}
+                >
+                  +91 022 42008400
+                </Typography>
+              </Box>
+            </Stack>
+          </Stack>
+        </Box>
 
-          mt: {
-            xs: 8,
-            md: 10,
-          },
-
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-
-          pt: {
-            xs: 4,
-            md: 5,
-          },
-
-          pb: {
-            xs: 4,
-            md: 5,
-          },
-
-          px: {
-            xs: 3,
-            md: 6,
-          },
-
-          display: "flex",
-
-          flexDirection: {
-            xs: "column",
-            md: "row",
-          },
-
-          alignItems: {
-            xs: "flex-start",
-            md: "center",
-          },
-
-          justifyContent: "space-between",
-
-          gap: 4,
-        }}
-      >
-        {/* LEFT SIDE */}
+        {/* ── RIGHT IMAGE ── */}
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-
-            gap: 3,
+            width: { xs: "100%", md: "48%" },   // ← fixed share, won't overflow
+            flexShrink: 0,
+            height: { xs: "260px", sm: "360px", md: "auto" },
+            position: "relative",
+            overflow: "hidden",
           }}
         >
-          {/* DESIGN */}
-          <Box
-            sx={{
-              position: "relative",
-
-              width: "90px",
-              height: "120px",
-
-              display: {
-                xs: "none",
-                md: "block",
-              },
-            }}
-          >
-            {/* WHITE */}
-            <Box
-              sx={{
-                position: "absolute",
-
-                left: 0,
-                top: 0,
-
-                width: "10px",
-                height: "120px",
-
-                bgcolor: "#fff",
-
-                transform: "skew(-30deg)",
-              }}
-            />
-
-            {/* ORANGE */}
-            <Box
-              sx={{
-                position: "absolute",
-
-                left: 20,
-                top: 0,
-
-                width: "32px",
-                height: "60px",
-
-                bgcolor: "#ff7b2f",
-
-                transform: "skew(-30deg)",
-              }}
-            />
-
-            {/* BLUE */}
-            <Box
-              sx={{
-                position: "absolute",
-
-                left: 28,
-                bottom: 0,
-
-                width: "42px",
-                height: "70px",
-
-                bgcolor: "#0f5d73",
-
-                transform: "skew(-30deg)",
-              }}
-            />
-          </Box>
-
-          {/* LOGO */}
           <Box
             component="img"
-            src="https://saishipping.com/images/logo.png"
-            alt="SSS Sai Shipping"
-
+            src={slide.image}
+            alt="shipping"
             sx={{
-              width: {
-                xs: "170px",
-                md: "230px",
-              },
-
-              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",            // ← contain keeps full image visible
+              objectPosition: "center center",
+              display: "block",
             }}
           />
         </Box>
-
-        {/* COPYRIGHT */}
-        <Typography
-          sx={{
-            color: "#fff",
-
-            fontSize: {
-              xs: "14px",
-              md: "18px",
-            },
-
-            fontFamily: "Georgia, serif",
-
-            textAlign: {
-              xs: "left",
-              md: "right",
-            },
-
-            lineHeight: 1.8,
-          }}
-        >
-          © 2026{" "}
-          <Box
-            component="span"
-            sx={{
-              color: "#ff7b2f",
-            }}
-          >
-            Hi Tech Enterprises
-          </Box>{" "}
-          - Providing solutions for SSS Sai Shipping Services Pvt. Ltd.
-          All rights reserved.
-        </Typography>
       </Box>
 
-      {/* LIGHTBOX */}
-      <Lightbox
-        open={lightbox.open}
-        index={lightbox.index}
-        onClose={closeLightbox}
-        onPrev={prevImage}
-        onNext={nextImage}
-      />
+      {/* ── NAVIGATION ARROWS ── */}
+      <Stack
+        direction="row"
+        spacing={1.5}
+        sx={{
+          position: "absolute",
+          bottom: { xs: 16, md: 30 },
+          right: { xs: "50%", md: 36 },
+          transform: { xs: "translateX(50%)", md: "none" },
+          zIndex: 10,
+        }}
+      >
+        <IconButton
+          onClick={prevSlide}
+          sx={{
+            width: { xs: 48, md: 56 },
+            height: { xs: 48, md: 56 },
+            bgcolor: "#ff6b2c",
+            color: "#fff",
+            borderRadius: "50%",
+            "&:hover": { bgcolor: "#e85b1f" },
+          }}
+        >
+          <ArrowBackIosNewIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
+        </IconButton>
+
+        <IconButton
+          onClick={nextSlide}
+          sx={{
+            width: { xs: 48, md: 56 },
+            height: { xs: 48, md: 56 },
+            bgcolor: "#ff6b2c",
+            color: "#fff",
+            borderRadius: "50%",
+            "&:hover": { bgcolor: "#e85b1f" },
+          }}
+        >
+          <ArrowForwardIosIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
+        </IconButton>
+      </Stack>
     </Box>
   );
 }
