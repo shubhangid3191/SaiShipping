@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -296,7 +296,9 @@ function FAQ() {
                     mb: 2,
                   }}
                 >
-                  <AccountTreeIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
+                  <AccountTreeIcon
+                    sx={{ color: "#FF7236", fontSize: "20px" }}
+                  />
                   <Typography
                     sx={{
                       color: "#6B7280",
@@ -310,8 +312,12 @@ function FAQ() {
                   </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <AccountTreeIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
+                <Box
+                  sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+                >
+                  <AccountTreeIcon
+                    sx={{ color: "#FF7236", fontSize: "20px" }}
+                  />
                   <Typography
                     sx={{
                       color: "#6B7280",
@@ -416,7 +422,11 @@ function FAQ() {
                         color: "#fff",
                       }}
                     >
-                      {openIndex === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                      {openIndex === index ? (
+                        <ExpandLessIcon />
+                      ) : (
+                        <ExpandMoreIcon />
+                      )}
                     </Box>
                   </Box>
 
@@ -453,7 +463,11 @@ function FAQ() {
       <div
         style={{
           backgroundColor: "#fff",
-          padding: isMobile ? "40px 20px" : isTablet ? "50px 40px" : "60px 160px",
+          padding: isMobile
+            ? "40px 20px"
+            : isTablet
+              ? "50px 40px"
+              : "60px 160px",
           fontFamily: "serif",
           boxSizing: "border-box",
         }}
@@ -560,7 +574,9 @@ function FAQ() {
             }}
           >
             Send Us Message
-            <ArrowForwardIosIcon sx={{ fontSize: { xs: "14px", md: "18px" } }} />
+            <ArrowForwardIosIcon
+              sx={{ fontSize: { xs: "14px", md: "18px" } }}
+            />
           </Button>
         </div>
       </div>
