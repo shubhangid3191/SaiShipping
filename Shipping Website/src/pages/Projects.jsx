@@ -39,18 +39,13 @@ function PageBanner() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundColor: "#fff",
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2), rgba(0,0,0,0.7))",
-          zIndex: 1,
-        }}
-      />
+      {/* NO dark overlay — screenshot has light/white background */}
+
       <Box sx={{ position: "relative", zIndex: 2, textAlign: "center", px: 2 }}>
+        {/* "International Logistics" — orange */}
         <Box
           sx={{
             color: "#e8730d",
@@ -62,13 +57,14 @@ function PageBanner() {
         >
           International Logistics
         </Box>
+
+        {/* "Projects" — dark black */}
         <Box
           sx={{
-            color: "#fff",
+            color: "#111",
             fontWeight: 900,
             fontFamily: "Georgia, serif",
             lineHeight: 1.1,
-            textShadow: "0 4px 14px rgba(0,0,0,0.45)",
             fontSize: { xs: "3rem", sm: "4rem", md: "6rem" },
           }}
         >
@@ -209,7 +205,7 @@ export default function Projects() {
                 onClick={() => openLightbox(index)}
                 sx={{
                   width: "100%",
-                  height: { xs: 240, sm: 260, md: 280 }, // ← fixed height
+                  height: { xs: 240, sm: 260, md: 280 },
                   borderRadius: "20px",
                   overflow: "hidden",
                   position: "relative",
@@ -225,7 +221,6 @@ export default function Projects() {
                   "&:hover .proj-overlay": { opacity: 1 },
                 }}
               >
-                {/* IMAGE */}
                 <Box
                   component="img"
                   className="proj-img"
@@ -233,16 +228,14 @@ export default function Projects() {
                   alt={`Project ${project.id}`}
                   loading="lazy"
                   sx={{
-                    width: "100%",       // ← fills card width
-                    height: "100%",      // ← fills card height
-                    objectFit: "cover",  // ← crops to fit, no distortion
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                     objectPosition: "center",
                     display: "block",
                     transition: "transform 0.45s ease",
                   }}
                 />
-
-                {/* HOVER OVERLAY */}
                 <Box
                   className="proj-overlay"
                   sx={{

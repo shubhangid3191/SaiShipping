@@ -9,8 +9,10 @@ import {
 import BoltIcon from "@mui/icons-material/Bolt";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-const mainImage = "https://saishipping.com/images/shipping.png";
-const smallImage = "https://saishipping.com/images/shipping-1.png";
+const mainImage    = "https://saishipping.com/images/shipping.png";
+const smallImage   = "https://saishipping.com/images/shipping-1.png";
+const founderPhoto = "https://saishipping.com/images/home-02-author.png";
+const truckImage   = "https://saishipping.com/images/t.png";
 
 export default function AboutSection() {
   return (
@@ -24,7 +26,7 @@ export default function AboutSection() {
     >
       <Container maxWidth="xl">
 
-        {/* ── FLEX ROW instead of MUI Grid ── */}
+        {/* ── FLEX ROW ── */}
         <Box
           sx={{
             display: "flex",
@@ -274,9 +276,115 @@ export default function AboutSection() {
                 efficient logistics solutions for businesses worldwide.
               </Typography>
             </Box>
+
+            {/* ── Founder section ── */}
+            <Stack
+              direction="row"
+              spacing={2}
+              alignItems="center"
+              sx={{ mt: 4 }}
+            >
+              <Box
+                component="img"
+                src={founderPhoto}
+                alt="Mr. Haresh A Dhakan"
+                sx={{
+                  width: { xs: 70, md: 80 },
+                  height: { xs: 70, md: 80 },
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  border: "3px solid #f47b14",
+                  flexShrink: 0,
+                }}
+              />
+              <Box>
+                <Typography
+                  sx={{
+                    color: "#888",
+                    fontSize: "0.85rem",
+                    fontFamily: "Georgia, serif",
+                    mb: 0.3,
+                  }}
+                >
+                  founder , Haresh
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "#071c3d",
+                    fontSize: { xs: "1rem", md: "1.1rem" },
+                    fontWeight: 700,
+                    fontFamily: "Georgia, serif",
+                    mb: 0.5,
+                  }}
+                >
+                  Mr. Haresh A Dhakan
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
+                    fontSize: { xs: "1.6rem", md: "1.9rem" },
+                    color: "#333",
+                    lineHeight: 1,
+                  }}
+                >
+                  Haresh
+                </Typography>
+              </Box>
+            </Stack>
+
+          </Box>
+        </Box>
+
+        {/* ══════════════════════════════════════════════════
+            BOTTOM ROW — star LEFT  |  truck RIGHT (fixed)
+        ══════════════════════════════════════════════════ */}
+        <Box
+          sx={{
+            mt: { xs: 4, md: 2 },
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            pointerEvents: "none",
+            minHeight: { xs: 120, md: 160 },
+          }}
+        >
+          {/* ── Orange asterisk star — LEFT, slow spin ── */}
+          <Box
+            sx={{
+              fontSize: { xs: "5rem", md: "7rem" },
+              color: "#f47b14",
+              lineHeight: 3,
+              userSelect: "none",
+              flexShrink: 0,
+              animation: "starSpin 8s linear infinite",
+              "@keyframes starSpin": {
+                "0%":   { transform: "rotate(0deg)"   },
+                "100%": { transform: "rotate(360deg)" },
+              },
+            }}
+          >
+            ✳
           </Box>
 
+          {/* ── Truck — fixed RIGHT, continuous bounce (driving effect) ── */}
+          <Box
+            component="img"
+            src={truckImage}
+            alt="Truck"
+            sx={{
+              width: { xs: "260px", md: "420px" },
+              objectFit: "contain",
+              flexShrink: 0,
+              animation: "truckBounce 0.5s ease-in-out infinite alternate",
+              "@keyframes truckBounce": {
+                "0%":   { transform: "translateY(0px)"  },
+                "100%": { transform: "translateY(-6px)" },
+              },
+            }}
+          />
         </Box>
+
       </Container>
     </Box>
   );

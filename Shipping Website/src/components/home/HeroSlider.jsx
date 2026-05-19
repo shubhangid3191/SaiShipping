@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Box,
-  Container,
   Typography,
   Button,
   Stack,
@@ -21,7 +20,7 @@ const slide2 = "https://saishipping.com/images/slide-2.png";
 const slide3 = "https://saishipping.com/images/slide-3.png";
 
 // ─────────────────────────────────────────────
-// SLIDES DATA  — matched exactly to live site screenshots
+// SLIDES DATA
 // ─────────────────────────────────────────────
 
 const slides = [
@@ -49,246 +48,307 @@ const slides = [
 ];
 
 // ─────────────────────────────────────────────
+// ANIMATION KEYFRAMES
+// ─────────────────────────────────────────────
+
+const keyframes = `
+  @keyframes imgFadeIn {
+    0%   { opacity: 0; transform: scale(1.06); }
+    100% { opacity: 1; transform: scale(1);    }
+  }
+
+  @keyframes overlayFadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes textSlideUp {
+    0%   { opacity: 0; transform: translateY(36px); }
+    100% { opacity: 1; transform: translateY(0);    }
+  }
+
+  @keyframes smallTitleFade {
+    0%   { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0);     }
+  }
+
+  @keyframes btnFadeIn {
+    0%   { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0);    }
+  }
+`;
+
+// ─────────────────────────────────────────────
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
 
 export default function HeroSlider() {
-  const [active, setActive] = useState(0);
+  const [active, setActive]   = useState(0);
+  const [animKey, setAnimKey] = useState(0);
+  const timerRef              = useRef(null);
+
+  const goTo = (idx) => {
+    setActive(idx);
+    setAnimKey((k) => k + 1);
+  };
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % slides.length);
+    timerRef.current = setInterval(() => {
+      goTo((prev) => (prev + 1) % slides.length);
     }, 6000);
-    return () => clearInterval(timer);
+    return () => clearInterval(timerRef.current);
   }, []);
 
-  const nextSlide = () => setActive((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setActive((prev) => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => {
+    clearInterval(timerRef.current);
+    goTo((active + 1) % slides.length);
+  };
+  const prevSlide = () => {
+    clearInterval(timerRef.current);
+    goTo((active - 1 + slides.length) % slides.length);
+  };
 
   const slide = slides[active];
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        minHeight: { xs: "auto", md: "100vh" },
-        bgcolor: "#ffffff",
-        position: "relative",
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center",
-        py: { xs: 8, sm: 10, md: 0 },
-      }}
-    >
-      {/* ── FULL-WIDTH FLEX ROW ── */}
+    <>
+      <style>{keyframes}</style>
+
       <Box
         sx={{
           width: "100%",
+          minHeight: { xs: "auto", md: "100vh" },
+          position: "relative",
+          overflow: "hidden",
           display: "flex",
-          flexDirection: { xs: "column-reverse", md: "row" },
           alignItems: "center",
-          minHeight: { md: "100vh" },
         }}
       >
-        {/* ── LEFT CONTENT ── */}
+        {/* ── STEP 1: IMAGE — animates first (0s delay) ── */}
         <Box
+          key={`img-${animKey}`}
+          component="img"
+          src={slide.image}
+          alt="shipping background"
           sx={{
-            width: { xs: "100%", md: "50%" },
-            pl: { xs: 3, sm: 5, md: 8, lg: 12 },
-            pr: { xs: 3, sm: 5, md: 4 },
-            py: { xs: 6, md: 0 },
-            textAlign: { xs: "center", md: "left" },
-            zIndex: 2,
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center right",
+            display: "block",
+            zIndex: 0,
+            animation: "imgFadeIn 0.9s ease forwards",
           }}
-        >
-          {/* SMALL TITLE */}
-          <Typography
-            sx={{
-              color: "#ff6b2c",
-              fontSize: { xs: "15px", sm: "17px", md: "18px" },
-              mb: { xs: 1.5, md: 2 },
-              fontWeight: 500,
-              fontFamily: `"Times New Roman", serif`,
-              letterSpacing: "0.01em",
-            }}
-          >
-            {slide.smallTitle}
-          </Typography>
+        />
 
-          {/* MAIN HEADING */}
-          <Typography
-            sx={{
-              fontSize: { xs: "32px", sm: "44px", md: "52px", lg: "60px" },
-              fontWeight: 700,
-              color: "#000",
-              lineHeight: 1.15,
-              fontFamily: `"Georgia", "Times New Roman", serif`,
-              whiteSpace: "pre-line",
-            }}
-          >
-            {slide.heading}
-          </Typography>
+        {/* ── STEP 2: WHITE OVERLAY — fades in at 0.3s ── */}
+        <Box
+          key={`overlay-${animKey}`}
+          sx={{
+            position: "absolute",
+            inset: 0,
+            background: {
+              xs: "rgba(255,255,255,0.82)",
+              md: "linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.88) 40%, rgba(255,255,255,0.4) 65%, rgba(255,255,255,0) 100%)",
+            },
+            zIndex: 1,
+            opacity: 0,
+            animation: "overlayFadeIn 0.7s ease 0.3s forwards",
+          }}
+        />
 
-          {/* DESCRIPTION */}
-          <Typography
-            sx={{
-              mt: { xs: 3, md: 4 },
-              color: "#333",
-              fontSize: { xs: "14px", sm: "15px", md: "16px" },
-              lineHeight: { xs: 1.8, md: 1.9 },
-              maxWidth: { xs: "100%", md: "560px" },
-              mx: { xs: "auto", md: 0 },
-              fontFamily: `"Times New Roman", serif`,
-            }}
-          >
-            {slide.description}
-          </Typography>
-
-          {/* BUTTONS */}
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={3}
-            alignItems="center"
-            justifyContent={{ xs: "center", md: "flex-start" }}
-            sx={{ mt: { xs: 4, md: 5 } }}
-          >
-            {/* ALL SERVICES BUTTON */}
-            <Button
-              variant="contained"
-              sx={{
-                bgcolor: "#ff6b2c",
-                px: { xs: 4, md: 5 },
-                py: 1.8,
-                borderRadius: 0,
-                fontSize: { xs: "14px", md: "15px" },
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                boxShadow: "none",
-                minWidth: { xs: "200px", sm: "210px" },
-                fontFamily: `"Times New Roman", serif`,
-                "&:hover": {
-                  bgcolor: "#e85b1f",
-                  boxShadow: "none",
-                },
-              }}
-            >
-              ALL SERVICES
-            </Button>
-
-            {/* CALL SECTION */}
-            <Stack direction="row" spacing={2} alignItems="center">
-              {/* PHONE ICON CIRCLE */}
-              <Box
-                sx={{
-                  width: { xs: 56, md: 62 },
-                  height: { xs: 56, md: 62 },
-                  borderRadius: "50%",
-                  bgcolor: "#003b49",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}
-              >
-                <LocalPhoneIcon
-                  sx={{ color: "#fff", fontSize: { xs: 24, md: 28 } }}
-                />
-              </Box>
-
-              {/* PHONE TEXT */}
-              <Box sx={{ textAlign: "left" }}>
-                <Typography
-                  sx={{
-                    color: "#444",
-                    fontSize: { xs: "14px", md: "15px" },
-                    mb: 0.3,
-                    fontFamily: `"Times New Roman", serif`,
-                  }}
-                >
-                  Call Us Now
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#000",
-                    fontWeight: 700,
-                    fontSize: { xs: "18px", sm: "20px", md: "22px" },
-                    fontFamily: `"Georgia", "Times New Roman", serif`,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  +91 022 42008400
-                </Typography>
-              </Box>
-            </Stack>
-          </Stack>
-        </Box>
-
-        {/* ── RIGHT IMAGE — bleeds to edge ── */}
+        {/* ── STEP 3: TEXT CONTENT — animates after image ── */}
         <Box
           sx={{
-            width: { xs: "100%", md: "50%" },
-            height: { xs: "280px", sm: "380px", md: "100vh" },
             position: "relative",
-            overflow: "hidden",
-            flexShrink: 0,
+            zIndex: 2,
+            width: "100%",
+            py: { xs: 12, sm: 14, md: 0 },
+            minHeight: { md: "100vh" },
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <Box
-            component="img"
-            src={slide.image}
-            alt="shipping"
             sx={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center center",
-              display: "block",
+              width: { xs: "100%", md: "55%", lg: "50%" },
+              pl: { xs: 3, sm: 5, md: 8, lg: 12 },
+              pr: { xs: 3, sm: 5, md: 4 },
+              textAlign: { xs: "center", md: "left" },
             }}
-          />
+          >
+            {/* SMALL TITLE — delay 0.7s */}
+            <Typography
+              key={`small-${animKey}`}
+              sx={{
+                color: "#ff6b2c",
+                fontSize: { xs: "15px", sm: "17px", md: "18px" },
+                mb: { xs: 1.5, md: 2 },
+                fontWeight: 500,
+                fontFamily: `"Times New Roman", serif`,
+                letterSpacing: "0.01em",
+                opacity: 0,
+                animation: "smallTitleFade 0.6s ease 0.7s forwards",
+              }}
+            >
+              {slide.smallTitle}
+            </Typography>
+
+            {/* HEADING — delay 0.9s */}
+            <Typography
+              key={`heading-${animKey}`}
+              sx={{
+                fontSize: { xs: "32px", sm: "44px", md: "52px", lg: "45px" },
+                fontWeight: 600,
+                color: "#000",
+                lineHeight: 1.15,
+                fontFamily: `"Georgia", "Times New Roman", serif`,
+                whiteSpace: "pre-line",
+                opacity: 0,
+                animation: "textSlideUp 0.7s ease 0.9s forwards",
+              }}
+            >
+              {slide.heading}
+            </Typography>
+
+            {/* DESCRIPTION — delay 1.1s */}
+            <Typography
+              key={`desc-${animKey}`}
+              sx={{
+                mt: { xs: 3, md: 4 },
+                color: "#333",
+                fontSize: { xs: "14px", sm: "15px", md: "16px" },
+                lineHeight: { xs: 1.8, md: 1.9 },
+                maxWidth: { xs: "100%", md: "560px" },
+                mx: { xs: "auto", md: 0 },
+                fontFamily: `"Times New Roman", serif`,
+                opacity: 0,
+                animation: "textSlideUp 0.7s ease 1.1s forwards",
+              }}
+            >
+              {slide.description}
+            </Typography>
+
+            {/* BUTTONS — delay 1.35s */}
+            <Stack
+              key={`btn-${animKey}`}
+              direction={{ xs: "column", sm: "row" }}
+              spacing={3}
+              alignItems="center"
+              justifyContent={{ xs: "center", md: "flex-start" }}
+              sx={{
+                mt: { xs: 4, md: 5 },
+                opacity: 0,
+                animation: "btnFadeIn 0.6s ease 1.35s forwards",
+              }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#ff6b2c",
+                  px: { xs: 4, md: 5 },
+                  py: 1.8,
+                  borderRadius: 0,
+                  fontSize: { xs: "14px", md: "15px" },
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  boxShadow: "none",
+                  minWidth: { xs: "200px", sm: "210px" },
+                  fontFamily: `"Times New Roman", serif`,
+                  "&:hover": { bgcolor: "#e85b1f", boxShadow: "none" },
+                }}
+              >
+                ALL SERVICES
+              </Button>
+
+              <Stack direction="row" spacing={2} alignItems="center">
+                <Box
+                  sx={{
+                    width: { xs: 56, md: 62 },
+                    height: { xs: 56, md: 62 },
+                    borderRadius: "50%",
+                    bgcolor: "#003b49",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <LocalPhoneIcon sx={{ color: "#fff", fontSize: { xs: 24, md: 28 } }} />
+                </Box>
+
+                <Box sx={{ textAlign: "left" }}>
+                  <Typography
+                    sx={{
+                      color: "#444",
+                      fontSize: { xs: "14px", md: "15px" },
+                      mb: 0.3,
+                      fontFamily: `"Times New Roman", serif`,
+                    }}
+                  >
+                    Call Us Now
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontWeight: 700,
+                      fontSize: { xs: "18px", sm: "20px", md: "22px" },
+                      fontFamily: `"Georgia", "Times New Roman", serif`,
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    +91 022 42008400
+                  </Typography>
+                </Box>
+              </Stack>
+            </Stack>
+          </Box>
         </Box>
+
+        {/* ── NAVIGATION ARROWS ── */}
+        <Stack
+          direction="row"
+          spacing={1.5}
+          sx={{
+            position: "absolute",
+            bottom: { xs: 16, md: 30 },
+            right: { xs: "50%", md: 36 },
+            transform: { xs: "translateX(50%)", md: "none" },
+            zIndex: 10,
+          }}
+        >
+          <IconButton
+            onClick={prevSlide}
+            sx={{
+              width: { xs: 48, md: 56 },
+              height: { xs: 48, md: 56 },
+              bgcolor: "#ff6b2c",
+              color: "#fff",
+              borderRadius: "50%",
+              "&:hover": { bgcolor: "#e85b1f" },
+            }}
+          >
+            <ArrowBackIosNewIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
+          </IconButton>
+
+          <IconButton
+            onClick={nextSlide}
+            sx={{
+              width: { xs: 48, md: 56 },
+              height: { xs: 48, md: 56 },
+              bgcolor: "#ff6b2c",
+              color: "#fff",
+              borderRadius: "50%",
+              "&:hover": { bgcolor: "#e85b1f" },
+            }}
+          >
+            <ArrowForwardIosIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
+          </IconButton>
+        </Stack>
       </Box>
-
-      {/* ── NAVIGATION ARROWS ── */}
-      <Stack
-        direction="row"
-        spacing={1.5}
-        sx={{
-          position: "absolute",
-          bottom: { xs: 16, md: 30 },
-          right: { xs: "50%", md: 36 },
-          transform: { xs: "translateX(50%)", md: "none" },
-          zIndex: 10,
-        }}
-      >
-        <IconButton
-          onClick={prevSlide}
-          sx={{
-            width: { xs: 48, md: 56 },
-            height: { xs: 48, md: 56 },
-            bgcolor: "#ff6b2c",
-            color: "#fff",
-            borderRadius: "50%",
-            "&:hover": { bgcolor: "#e85b1f" },
-          }}
-        >
-          <ArrowBackIosNewIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
-        </IconButton>
-
-        <IconButton
-          onClick={nextSlide}
-          sx={{
-            width: { xs: 48, md: 56 },
-            height: { xs: 48, md: 56 },
-            bgcolor: "#ff6b2c",
-            color: "#fff",
-            borderRadius: "50%",
-            "&:hover": { bgcolor: "#e85b1f" },
-          }}
-        >
-          <ArrowForwardIosIcon sx={{ fontSize: { xs: 16, md: 20 } }} />
-        </IconButton>
-      </Stack>
-    </Box>
+    </>
   );
 }
