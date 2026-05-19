@@ -1,83 +1,66 @@
-import { useState, useEffect } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Stack,
-  IconButton,
-} from "@mui/material";
-
+import { useState, useEffect, useRef } from "react";
+import { Box, Typography, Button, Stack, IconButton } from "@mui/material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 // ─────────────────────────────────────────────
-// IMAGES
+// SLIDE IMAGES (direct from live site)
 // ─────────────────────────────────────────────
-
 const slide1 = "https://saishipping.com/images/slide-1.png";
 const slide2 = "https://saishipping.com/images/slide-2.png";
 const slide3 = "https://saishipping.com/images/slide-3.png";
 
 // ─────────────────────────────────────────────
-// SLIDES DATA
+// SLIDES DATA  — matched to live site
 // ─────────────────────────────────────────────
-
 const slides = [
   {
-    image: slide1,
-    smallTitle: "Efficient Shipping",
-    title1: "Efficient In Custom",
-    title2: "Clearance",
+    image: slide2,
+    tag: "Shipping",
+    heading: "Streamlined Logistics Across\nLand, Sea And Air",
+    description:
+      "Leverage the power of intermodal transport to optimize your logistics. Our integrated solutions across land, sea, and rail ensure efficient, cost-effective, and timely delivery, regardless of the distance or complexity of your shipment.",
+  },
+  {
+    image: slide3,
+    tag: "Efficient Shipping",
+    heading: "Efficient In Custom\nClearance",
     description:
       "We rely on the principle for efficient, reliable, trustworthy and problem free custom clearance processes, with proper hand to hand solutions between the Customs and Importer and Exporters with proper compliance.",
   },
-
   {
-    image: slide2,
-    smallTitle: "Fast Logistics",
-    title1: "Reliable Freight",
-    title2: "Forwarding",
+    image: slide1,
+    tag: "Hot Shot Trucking",
+    heading: "Fast, On-Demand\nDelivery",
     description:
-      "We provide trusted freight forwarding solutions through air, sea and road transport with complete logistics management.",
-  },
-
-  {
-    image: slide3,
-    smallTitle: "Global Transport",
-    title1: "Worldwide Cargo",
-    title2: "Solutions",
-    description:
-      "Professional shipping and transportation services with secure handling and on-time delivery across the globe.",
+      "When time is critical, our hot shot trucking services provide fast, reliable, and on-demand transportation. We ensure that your urgent shipments are handled with care and delivered to their destination on schedule, no matter the size or urgency.",
   },
 ];
 
 // ─────────────────────────────────────────────
 // MAIN COMPONENT
 // ─────────────────────────────────────────────
-
 export default function HeroSlider() {
   const [active, setActive] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const timerRef = useRef(null);
 
-  // AUTO SLIDE
+  const goTo = (index) => {
+    if (animating) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setActive((index + slides.length) % slides.length);
+      setAnimating(false);
+    }, 300);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % slides.length);
+    timerRef.current = setInterval(() => {
+      goTo(active + 1);
     }, 6000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // NEXT
-  const nextSlide = () => {
-    setActive((prev) => (prev + 1) % slides.length);
-  };
-
-  // PREVIOUS
-  const prevSlide = () => {
-    setActive((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+    return () => clearInterval(timerRef.current);
+  }, [active]);
 
   const slide = slides[active];
 
@@ -85,461 +68,290 @@ export default function HeroSlider() {
     <Box
       sx={{
         width: "100%",
-        minHeight: {
-          xs: "auto",
-          md: "100vh",
-        },
-
-        bgcolor: "#f7f7f7",
-
+        minHeight: { xs: "auto", md: "100vh" },
+        bgcolor: "#fff",
         position: "relative",
-
         overflow: "hidden",
-
         display: "flex",
-
-        alignItems: "center",
-
-        py: {
-          xs: 8,
-          sm: 10,
-          md: 0,
-        },
+        alignItems: "stretch",
       }}
     >
-      <Container maxWidth="xl">
+      {/* ── MAIN ROW ── */}
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "stretch",
+          minHeight: { md: "100vh" },
+        }}
+      >
+        {/* ══ LEFT: TEXT CONTENT ══ */}
         <Box
           sx={{
+            width: { xs: "100%", md: "50%" },
+            flexShrink: 0,
             display: "flex",
-
-            flexDirection: {
-              xs: "column-reverse",
-              md: "row",
-            },
-
-            alignItems: "center",
-
-            justifyContent: "space-between",
-
-            gap: {
-              xs: 6,
-              md: 2,
-            },
+            flexDirection: "column",
+            justifyContent: "center",
+            pl: { xs: 3, sm: 5, md: 8, lg: 12 },
+            pr: { xs: 3, sm: 5, md: 6 },
+            py: { xs: 6, md: 0 },
+            zIndex: 2,
+            opacity: animating ? 0 : 1,
+            transform: animating ? "translateY(12px)" : "translateY(0)",
+            transition: "opacity 0.3s ease, transform 0.3s ease",
           }}
         >
-          {/* LEFT CONTENT */}
-          <Box
+          {/* TAG LINE */}
+          <Typography
             sx={{
-              width: {
-                xs: "100%",
-                md: "45%",
-              },
-
-              textAlign: {
-                xs: "center",
-                md: "left",
-              },
-
-              pl: {
-                xs: 0,
-                md: 4,
-                lg: 6,
-              },
-
-              zIndex: 2,
+              color: "#e8601c",
+              fontSize: { xs: "15px", sm: "16px", md: "17px" },
+              fontWeight: 500,
+              fontFamily: `"Georgia", serif`,
+              fontStyle: "italic",
+              mb: 1.5,
+              letterSpacing: "0.02em",
             }}
           >
-            {/* SMALL TITLE */}
-            <Typography
+            {slide.tag}
+          </Typography>
+
+          {/* HEADING */}
+          <Typography
+            component="h1"
+            sx={{
+              fontSize: { xs: "30px", sm: "42px", md: "50px", lg: "58px" },
+              fontWeight: 700,
+              color: "#111",
+              lineHeight: 1.12,
+              fontFamily: `"Georgia", "Times New Roman", serif`,
+              whiteSpace: "pre-line",
+              mb: { xs: 3, md: 3.5 },
+            }}
+          >
+            {slide.heading}
+          </Typography>
+
+          {/* ORANGE DIVIDER */}
+          <Box
+            sx={{
+              width: 60,
+              height: 3,
+              bgcolor: "#e8601c",
+              mb: { xs: 3, md: 3.5 },
+              display: { xs: "none", md: "block" },
+            }}
+          />
+
+          {/* DESCRIPTION */}
+          <Typography
+            sx={{
+              color: "#555",
+              fontSize: { xs: "14px", sm: "15px", md: "16px" },
+              lineHeight: 1.85,
+              maxWidth: { xs: "100%", md: "500px" },
+              fontFamily: `"Times New Roman", serif`,
+              mb: { xs: 4, md: 5 },
+            }}
+          >
+            {slide.description}
+          </Typography>
+
+          {/* CTA ROW */}
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={{ xs: 2.5, sm: 3 }}
+            alignItems={{ xs: "flex-start", sm: "center" }}
+          >
+            {/* ALL SERVICES BUTTON */}
+            <Button
+              variant="contained"
+              disableElevation
               sx={{
-                color: "#ff6b2c",
-
-                fontSize: {
-                  xs: "16px",
-                  sm: "20px",
-                  md: "22px",
-                },
-
-                mb: 2,
-
-                fontWeight: 500,
-
-                fontFamily: `"Times New Roman", serif`,
-              }}
-            >
-              {slide.smallTitle}
-            </Typography>
-
-            {/* MAIN TITLE 1 */}
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "38px",
-                  sm: "55px",
-                  md: "72px",
-                  lg: "82px",
-                },
-
+                bgcolor: "#e8601c",
+                color: "#fff",
+                borderRadius: 0,
+                px: { xs: 4, md: 5 },
+                py: 1.75,
+                fontSize: { xs: "13px", md: "14px" },
                 fontWeight: 700,
-
-                color: "#000",
-
-                lineHeight: 1.05,
-
-                fontFamily: `"Playfair Display", serif`,
-              }}
-            >
-              {slide.title1}
-            </Typography>
-
-            {/* MAIN TITLE 2 */}
-            <Typography
-              sx={{
-                fontSize: {
-                  xs: "38px",
-                  sm: "55px",
-                  md: "72px",
-                  lg: "82px",
-                },
-
-                fontWeight: 700,
-
-                color: "#000",
-
-                lineHeight: 1.05,
-
-                mt: 1,
-
-                fontFamily: `"Playfair Display", serif`,
-              }}
-            >
-              {slide.title2}
-            </Typography>
-
-            {/* DESCRIPTION */}
-            <Typography
-              sx={{
-                mt: {
-                  xs: 3,
-                  md: 5,
-                },
-
-                color: "#333",
-
-                fontSize: {
-                  xs: "15px",
-                  sm: "17px",
-                  md: "19px",
-                },
-
-                lineHeight: {
-                  xs: 1.8,
-                  md: 2,
-                },
-
-                maxWidth: {
-                  xs: "100%",
-                  md: "700px",
-                },
-
-                mx: {
-                  xs: "auto",
-                  md: 0,
-                },
-
-                fontFamily: `"Times New Roman", serif`,
-              }}
-            >
-              {slide.description}
-            </Typography>
-
-            {/* BUTTONS */}
-            <Stack
-              direction={{
-                xs: "column",
-                sm: "row",
-              }}
-              spacing={4}
-              alignItems="center"
-              justifyContent={{
-                xs: "center",
-                md: "flex-start",
-              }}
-              sx={{
-                mt: {
-                  xs: 5,
-                  md: 6,
+                fontFamily: `"Georgia", serif`,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                minWidth: 200,
+                border: "2px solid #e8601c",
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  bgcolor: "transparent",
+                  color: "#e8601c",
+                  border: "2px solid #e8601c",
                 },
               }}
             >
-              {/* SERVICES BUTTON */}
-              <Button
-                variant="contained"
+              All Services
+            </Button>
+
+            {/* CALL US */}
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Box
                 sx={{
-                  bgcolor: "#ff6b2c",
-
-                  px: {
-                    xs: 4,
-                    sm: 5,
-                    md: 6,
-                  },
-
-                  py: 2,
-
-                  borderRadius: 0,
-
-                  fontSize: {
-                    xs: "15px",
-                    sm: "16px",
-                    md: "18px",
-                  },
-
-                  fontWeight: 700,
-
-                  textTransform: "uppercase",
-
-                  boxShadow: "none",
-
-                  minWidth: {
-                    xs: "220px",
-                    sm: "240px",
-                  },
-
-                  "&:hover": {
-                    bgcolor: "#e85b1f",
-                    boxShadow: "none",
-                  },
+                  width: { xs: 54, md: 60 },
+                  height: { xs: 54, md: 60 },
+                  borderRadius: "50%",
+                  bgcolor: "#003b49",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  transition: "transform 0.2s ease",
+                  "&:hover": { transform: "scale(1.08)" },
+                  cursor: "pointer",
                 }}
               >
-                ALL SERVICES
-              </Button>
-
-              {/* CALL SECTION */}
-              <Stack
-                direction="row"
-                spacing={2.5}
-                alignItems="center"
-              >
-                {/* PHONE ICON */}
-                <Box
+                <LocalPhoneIcon sx={{ color: "#fff", fontSize: { xs: 22, md: 26 } }} />
+              </Box>
+              <Box>
+                <Typography
                   sx={{
-                    width: {
-                      xs: 64,
-                      md: 74,
-                    },
-
-                    height: {
-                      xs: 64,
-                      md: 74,
-                    },
-
-                    borderRadius: "50%",
-
-                    bgcolor: "#003b49",
-
-                    display: "flex",
-
-                    alignItems: "center",
-
-                    justifyContent: "center",
-
-                    flexShrink: 0,
+                    color: "#888",
+                    fontSize: "13px",
+                    mb: 0.25,
+                    fontFamily: `"Times New Roman", serif`,
                   }}
                 >
-                  <LocalPhoneIcon
-                    sx={{
-                      color: "#fff",
-
-                      fontSize: {
-                        xs: 28,
-                        md: 34,
-                      },
-                    }}
-                  />
-                </Box>
-
-                {/* PHONE TEXT */}
-                <Box
+                  Call Us Now
+                </Typography>
+                <Typography
                   sx={{
-                    textAlign: "left",
+                    color: "#111",
+                    fontWeight: 700,
+                    fontSize: { xs: "17px", sm: "19px", md: "21px" },
+                    fontFamily: `"Georgia", serif`,
+                    lineHeight: 1.1,
+                    letterSpacing: "0.01em",
                   }}
                 >
-                  <Typography
-                    sx={{
-                      color: "#222",
-
-                      fontSize: {
-                        xs: "18px",
-                        md: "22px",
-                      },
-
-                      mb: 0.5,
-
-                      fontFamily: `"Times New Roman", serif`,
-                    }}
-                  >
-                    Call Us Now
-                  </Typography>
-
-                  <Typography
-                    sx={{
-                      color: "#000",
-
-                      fontWeight: 700,
-
-                      fontSize: {
-                        xs: "20px",
-                        sm: "22px",
-                        md: "24px",
-                      },
-
-                      fontFamily: `"Playfair Display", serif`,
-
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    +91 022 42008400
-                  </Typography>
-                </Box>
-              </Stack>
+                  +91 022 42008400
+                </Typography>
+              </Box>
             </Stack>
-          </Box>
-
-          {/* RIGHT IMAGE */}
-          <Box
-            sx={{
-              width: {
-                xs: "100%",
-                md: "55%",
-              },
-
-              display: "flex",
-
-              justifyContent: "center",
-
-              alignItems: "center",
-
-              position: "relative",
-            }}
-          >
-            <Box
-              component="img"
-              src={slide.image}
-              alt="shipping"
-              sx={{
-                width: {
-                  xs: "100%",
-                  sm: "90%",
-                  md: "100%",
-                },
-
-                maxWidth: {
-                  xs: "420px",
-                  sm: "600px",
-                  md: "900px",
-                  lg: "1100px",
-                },
-
-                height: "auto",
-
-                objectFit: "contain",
-
-                display: "block",
-              }}
-            />
-          </Box>
+          </Stack>
         </Box>
-      </Container>
 
-      {/* NAVIGATION BUTTONS */}
+        {/* ══ RIGHT: IMAGE ══ */}
+        <Box
+          sx={{
+            width: { xs: "100%", md: "50%" },
+            flexShrink: 0,
+            height: { xs: "300px", sm: "420px", md: "auto" },
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            overflow: "hidden",
+            // Light grey tint background so sketch images look natural
+            bgcolor: "#f8f7f5",
+          }}
+        >
+          <Box
+            component="img"
+            src={slide.image}
+            alt={slide.tag}
+            sx={{
+              // Contain the full illustration — never crop
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              objectPosition: "center center",
+              display: "block",
+              opacity: animating ? 0 : 1,
+              transform: animating ? "scale(0.97)" : "scale(1)",
+              transition: "opacity 0.35s ease, transform 0.35s ease",
+              // Subtle right padding so image doesn't hug the edge
+              p: { xs: 2, md: 4 },
+            }}
+          />
+        </Box>
+      </Box>
+
+      {/* ── SLIDE DOTS ── */}
       <Stack
         direction="row"
-        spacing={2}
+        spacing={1}
         sx={{
           position: "absolute",
-
-          bottom: {
-            xs: 20,
-            md: 35,
-          },
-
-          right: {
-            xs: "50%",
-            md: 40,
-          },
-
-          transform: {
-            xs: "translateX(50%)",
-            md: "none",
-          },
-
+          bottom: { xs: 72, md: 36 },
+          left: { xs: "50%", md: "25%" },
+          transform: { xs: "translateX(-50%)", md: "translateX(-50%)" },
           zIndex: 10,
         }}
       >
-        {/* PREV */}
+        {slides.map((_, i) => (
+          <Box
+            key={i}
+            onClick={() => goTo(i)}
+            sx={{
+              width: i === active ? 28 : 8,
+              height: 8,
+              borderRadius: 4,
+              bgcolor: i === active ? "#e8601c" : "#ccc",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+          />
+        ))}
+      </Stack>
+
+      {/* ── NAV ARROWS ── */}
+      <Stack
+        direction="row"
+        spacing={1.5}
+        sx={{
+          position: "absolute",
+          bottom: { xs: 16, md: 30 },
+          right: { xs: "50%", md: 40 },
+          transform: { xs: "translateX(50%)", md: "none" },
+          zIndex: 10,
+        }}
+      >
         <IconButton
-          onClick={prevSlide}
+          onClick={() => goTo(active - 1)}
           sx={{
-            width: {
-              xs: 52,
-              md: 70,
-            },
-
-            height: {
-              xs: 52,
-              md: 70,
-            },
-
-            bgcolor: "#ff6b2c",
-
+            width: { xs: 46, md: 52 },
+            height: { xs: 46, md: 52 },
+            bgcolor: "#e8601c",
             color: "#fff",
-
+            borderRadius: "50%",
+            border: "2px solid #e8601c",
+            transition: "all 0.2s ease",
             "&:hover": {
-              bgcolor: "#e85b1f",
+              bgcolor: "transparent",
+              color: "#e8601c",
             },
           }}
         >
-          <ArrowBackIosNewIcon
-            sx={{
-              fontSize: {
-                xs: 18,
-                md: 24,
-              },
-            }}
-          />
+          <ArrowBackIosNewIcon sx={{ fontSize: { xs: 15, md: 18 } }} />
         </IconButton>
 
-        {/* NEXT */}
         <IconButton
-          onClick={nextSlide}
+          onClick={() => goTo(active + 1)}
           sx={{
-            width: {
-              xs: 52,
-              md: 70,
-            },
-
-            height: {
-              xs: 52,
-              md: 70,
-            },
-
-            bgcolor: "#ff6b2c",
-
+            width: { xs: 46, md: 52 },
+            height: { xs: 46, md: 52 },
+            bgcolor: "#e8601c",
             color: "#fff",
-
+            borderRadius: "50%",
+            border: "2px solid #e8601c",
+            transition: "all 0.2s ease",
             "&:hover": {
-              bgcolor: "#e85b1f",
+              bgcolor: "transparent",
+              color: "#e8601c",
             },
           }}
         >
-          <ArrowForwardIosIcon
-            sx={{
-              fontSize: {
-                xs: 18,
-                md: 24,
-              },
-            }}
-          />
+          <ArrowForwardIosIcon sx={{ fontSize: { xs: 15, md: 18 } }} />
         </IconButton>
       </Stack>
     </Box>
