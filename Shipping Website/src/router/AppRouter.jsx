@@ -32,7 +32,7 @@ export default function AppRouter() {
         <Route path="/warehouses" element={<><Warehouses /></>} />
         <Route path="/additional-services"element={<AdditionalServices />}/>
         <Route path="/custom-clearance-import" element={<Import />} />
-<Route path="/custom-clearance-export" element={<Export />} />
+        <Route path="/custom-clearance-export" element={<Export />} />
 
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
