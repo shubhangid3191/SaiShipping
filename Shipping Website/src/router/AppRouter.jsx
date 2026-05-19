@@ -40,7 +40,6 @@ export default function AppRouter() {
         <Route path="/clients" element={<Clients />} />
         <Route path="/faq" element={<FAQ />} />
 
-
       </Routes>
       <Footer />
     </BrowserRouter>
