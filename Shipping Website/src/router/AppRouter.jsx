@@ -14,6 +14,9 @@ import Export from "../pages/Export";
 import Industry from "../pages/Industry";
 import AdditionalServices from "../pages/AdditionalServices";
 import Clients from "../pages/Clients";
+import CustomClearanceExport from "../pages/Export";
+import CustomClearanceImport from "../pages/Import";
+
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
@@ -32,6 +35,8 @@ export default function AppRouter() {
         <Route path="/import" element={<Import />} />
         <Route path="/export" element={<Export />} />
         <Route path="/additional-services"element={<AdditionalServices />}/>
+        <Route path="/custom-clearance-import" element={<CustomClearanceImport />} />
+        <Route path="/custom-clearance-export" element={<CustomClearanceExport />} />
 
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
