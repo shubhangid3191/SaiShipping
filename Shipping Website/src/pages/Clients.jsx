@@ -216,7 +216,7 @@ function Clients() {
         </Box>
       </Box>
 
-      <Container maxWidth="lg" sx={{ py: 5, mb: 20, background: "#fff" }}>
+      <Container maxWidth="lg" sx={{ py: 5, mb: 10, background: "#fff" }}>
         <Box
           sx={{
             display: "grid",
@@ -233,21 +233,36 @@ function Clients() {
           {clients.map((item, index) => (
             <Box
               key={index}
-              component="img"
-              src={item}
-              alt={`client-${index + 1}`}
+              className="brand-box"
               sx={{
                 width: "100%",
-                maxWidth: 180,
+                maxWidth: "190px",
                 height: "auto",
-                objectFit: "contain",
-                transition: "0.5s",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "10px",
+                p: "10px",
+                backgroundColor: "#fff",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+
                 "&:hover": {
-                    background:"#fff",
-                  transform: "scale(1.05)",
+                  transform: "translateY(-5px)",
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
                 },
               }}
-            />
+            >
+              <Box
+                component="img"
+                src={item}
+                alt={`client-${index + 1}`}
+                sx={{
+                  maxWidth: "100%",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
           ))}
         </Box>
       </Container>
