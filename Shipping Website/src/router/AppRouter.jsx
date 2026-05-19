@@ -12,6 +12,9 @@ import FreightForwarding from "../pages/FreightForwarding";
 import Industry from "../pages/Industry";
 import AdditionalServices from "../pages/AdditionalServices";
 import Clients from "../pages/Clients";
+import FAQ from "../pages/FAQ";
+import Import from "../pages/Import";
+import Export from "../pages/Export";
 
 // Company pages
 import AboutUs from "../pages/AboutUs";
@@ -28,8 +31,8 @@ export default function AppRouter() {
         <Route path="/contact" element={<><Contact /></>} />
         <Route path="/warehouses" element={<><Warehouses /></>} />
         <Route path="/additional-services"element={<AdditionalServices />}/>
-        <Route path="/custom-clearance-import" element={<CustomClearanceImport />} />
-        <Route path="/custom-clearance-export" element={<CustomClearanceExport />} />
+        <Route path="/custom-clearance-import" element={<Import />} />
+<Route path="/custom-clearance-export" element={<Export />} />
 
         {/* Company Dropdown */}
         <Route path="/about-us" element={<AboutUs />} />
