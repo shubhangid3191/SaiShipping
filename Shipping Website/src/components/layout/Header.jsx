@@ -60,7 +60,7 @@ function Navbar() {
   const [companyHover, setCompanyHover] = useState(false);
   const [servicesHover, setServicesHover] = useState(false);
 
-  // ✅ Fixed — moved out of map()
+  // Fixed — moved out of map()
   const [companyMobileOpen, setCompanyMobileOpen] = useState(false);
   const [servicesMobileOpen, setServicesMobileOpen] = useState(false);
 
