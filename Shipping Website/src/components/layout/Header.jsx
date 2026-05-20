@@ -33,8 +33,6 @@ const companyDropdown = [
 
 const servicesDropdown = [
   { label: "Freight Forwarding", path: "/freight-forwarding" },
-
-  // Custom Clearance with submenu
   {
     label: "Custom Clearance",
     subMenu: [
@@ -42,7 +40,6 @@ const servicesDropdown = [
       { label: "Export", path: "/export" },
     ],
   },
-
   { label: "Warehouses", path: "/warehouses" },
   { label: "Additional Services", path: "/additional-services" },
 ];
@@ -59,10 +56,12 @@ function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [companyHover, setCompanyHover] = useState(false);
   const [servicesHover, setServicesHover] = useState(false);
-
-  // Fixed — moved out of map()
   const [companyMobileOpen, setCompanyMobileOpen] = useState(false);
   const [servicesMobileOpen, setServicesMobileOpen] = useState(false);
+
+  // Timers to delay dropdown close
+  const companyTimer = React.useRef(null);
+  const servicesTimer = React.useRef(null);
 
   const location = useLocation();
 
@@ -135,13 +134,20 @@ function Navbar() {
                   item.label === "Company" ? companyHover : servicesHover;
                 const setHovered =
                   item.label === "Company" ? setCompanyHover : setServicesHover;
+                const timer =
+                  item.label === "Company" ? companyTimer : servicesTimer;
 
                 if (item.dropdown) {
                   return (
                     <Box
                       key={item.label}
-                      onMouseEnter={() => setHovered(true)}
-                      onMouseLeave={() => setHovered(false)}
+                      onMouseEnter={() => {
+                        if (timer.current) clearTimeout(timer.current);
+                        setHovered(true);
+                      }}
+                      onMouseLeave={() => {
+                        timer.current = setTimeout(() => setHovered(false), 200);
+                      }}
                       sx={{ position: "relative" }}
                     >
                       <Box
@@ -152,13 +158,11 @@ function Navbar() {
                           cursor: "pointer",
                         }}
                       >
-                        {/* CLICKABLE TITLE */}
                         <Link to={item.path} style={{ textDecoration: "none" }}>
                           <Typography
                             sx={{
                               position: "relative",
-                              color:
-                                isActive || isHovered ? "#ff7236" : "#eb7e27",
+                              color: isActive || isHovered ? "#ff7236" : "#eb7e27",
                               fontWeight: 700,
                               fontSize: { md: "18px", lg: "20px" },
                               fontFamily: '"Times New Roman", serif',
@@ -183,9 +187,7 @@ function Navbar() {
                             color: isHovered ? "#ff7236" : "#eb7e27",
                             fontSize: "20px",
                             transition: "0.3s",
-                            transform: isHovered
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
+                            transform: isHovered ? "rotate(180deg)" : "rotate(0deg)",
                           }}
                         />
                       </Box>
@@ -193,11 +195,17 @@ function Navbar() {
                       {/* Dropdown */}
                       {isHovered && (
                         <Box
+                          onMouseEnter={() => {
+                            if (timer.current) clearTimeout(timer.current);
+                          }}
+                          onMouseLeave={() => {
+                            timer.current = setTimeout(() => setHovered(false), 200);
+                          }}
                           sx={{
                             position: "absolute",
-                            top: "100%", // ← starts right at nav item, no gap
+                            top: "100%",
                             left: 0,
-                            pt: "14px", // ← padding creates visual gap but mouse stays inside
+                            pt: "14px",
                             zIndex: 9999,
                             minWidth: "220px",
                           }}
@@ -216,16 +224,13 @@ function Navbar() {
                                 key={drop.label}
                                 sx={{
                                   position: "relative",
-                                  "&:hover .submenu": {
-                                    display: "block",
+                                  "&:hover .inner-submenu": {
+                                    maxHeight: "200px",
+                                    opacity: 1,
                                   },
                                 }}
                               >
-                                {/* Main Item */}
-                                <Link
-                                  to={drop.path}
-                                  style={{ textDecoration: "none" }}
-                                >
+                                {drop.subMenu ? (
                                   <Typography
                                     sx={{
                                       px: 3,
@@ -234,11 +239,11 @@ function Navbar() {
                                       fontWeight: 500,
                                       color: "#333",
                                       fontFamily: '"Times New Roman", serif',
-                                      transition: "0.2s",
                                       display: "flex",
                                       alignItems: "center",
                                       justifyContent: "space-between",
-
+                                      cursor: "pointer",
+                                      transition: "0.3s",
                                       "&:hover": {
                                         color: "#eb7e27",
                                         backgroundColor: "#fff8f3",
@@ -246,30 +251,44 @@ function Navbar() {
                                     }}
                                   >
                                     {drop.label}
-
-                                    {drop.subMenu && (
-                                      <KeyboardArrowDownIcon
-                                        sx={{ fontSize: 18 }}
-                                      />
-                                    )}
+                                    <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
                                   </Typography>
-                                </Link>
+                                ) : (
+                                  <Link
+                                    to={drop.path}
+                                    style={{ textDecoration: "none" }}
+                                    onClick={() => setHovered(false)}
+                                  >
+                                    <Typography
+                                      sx={{
+                                        px: 3,
+                                        py: 1.5,
+                                        fontSize: "16px",
+                                        fontWeight: 500,
+                                        color: "#333",
+                                        fontFamily: '"Times New Roman", serif',
+                                        transition: "0.2s",
+                                        "&:hover": {
+                                          color: "#eb7e27",
+                                          backgroundColor: "#fff8f3",
+                                        },
+                                      }}
+                                    >
+                                      {drop.label}
+                                    </Typography>
+                                  </Link>
+                                )}
 
-                                {/* HOVER SUBMENU */}
+                                {/* SUBMENU */}
                                 {drop.subMenu && (
                                   <Box
-                                    className="submenu"
+                                    className="inner-submenu"
                                     sx={{
-                                      display: "none",
-                                      position: "absolute",
-                                      top: 0,
-                                      left: "100%",
-                                      minWidth: "180px",
-                                      backgroundColor: "#fff",
-                                      boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-                                      borderRadius: "6px",
-                                      py: 1,
-                                      zIndex: 999,
+                                      maxHeight: 0,
+                                      overflow: "hidden",
+                                      opacity: 0,
+                                      transition: "all 0.3s ease",
+                                      backgroundColor: "#fafafa",
                                     }}
                                   >
                                     {drop.subMenu.map((sub) => (
@@ -281,15 +300,13 @@ function Navbar() {
                                       >
                                         <Typography
                                           sx={{
-                                            px: 3,
+                                            px: 5,
                                             py: 1.2,
                                             fontSize: "15px",
-                                            color: "#333",
-                                            fontFamily:
-                                              '"Times New Roman", serif',
-
+                                            color: "#555",
+                                            fontFamily: '"Times New Roman", serif',
                                             "&:hover": {
-                                              backgroundColor: "#fff8f3",
+                                              backgroundColor: "#fff3eb",
                                               color: "#eb7e27",
                                             },
                                           }}
@@ -454,15 +471,10 @@ function Navbar() {
           {/* MOBILE NAV ITEMS */}
           <List disablePadding>
             {navItems.map((item) => {
-              // ✅ Fixed — use pre-declared states instead of useState inside map
               const mobileOpen =
-                item.label === "Company"
-                  ? companyMobileOpen
-                  : servicesMobileOpen;
+                item.label === "Company" ? companyMobileOpen : servicesMobileOpen;
               const setMobileOpen =
-                item.label === "Company"
-                  ? setCompanyMobileOpen
-                  : setServicesMobileOpen;
+                item.label === "Company" ? setCompanyMobileOpen : setServicesMobileOpen;
 
               return (
                 <Box key={item.label}>
@@ -493,9 +505,7 @@ function Navbar() {
                           sx={{
                             color: "#fff",
                             transition: "0.3s",
-                            transform: mobileOpen
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
+                            transform: mobileOpen ? "rotate(180deg)" : "rotate(0deg)",
                           }}
                         />
                       </Box>
