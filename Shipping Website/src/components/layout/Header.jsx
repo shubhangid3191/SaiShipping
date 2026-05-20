@@ -153,33 +153,30 @@ function Navbar() {
                         }}
                       >
                         {/* CLICKABLE TITLE */}
-  <Link
-    to={item.path}
-    style={{ textDecoration: "none" }}
-  >
-                        <Typography
-                          sx={{
-                            position: "relative",
-                            color:
-                              isActive || isHovered ? "#ff7236" : "#eb7e27",
-                            fontWeight: 700,
-                            fontSize: { md: "18px", lg: "20px" },
-                            fontFamily: '"Times New Roman", serif',
-                            transition: "0.3s",
-                            "&::after": {
-                              content: '""',
-                              position: "absolute",
-                              width: isActive || isHovered ? "100%" : "0%",
-                              height: "2px",
-                              left: 0,
-                              bottom: -6,
-                              backgroundColor: "#ff7236",
+                        <Link to={item.path} style={{ textDecoration: "none" }}>
+                          <Typography
+                            sx={{
+                              position: "relative",
+                              color:
+                                isActive || isHovered ? "#ff7236" : "#eb7e27",
+                              fontWeight: 700,
+                              fontSize: { md: "18px", lg: "20px" },
+                              fontFamily: '"Times New Roman", serif',
                               transition: "0.3s",
-                            },
-                          }}
-                        >
-                          {item.label}
-                        </Typography>
+                              "&::after": {
+                                content: '""',
+                                position: "absolute",
+                                width: isActive || isHovered ? "100%" : "0%",
+                                height: "2px",
+                                left: 0,
+                                bottom: -6,
+                                backgroundColor: "#ff7236",
+                                transition: "0.3s",
+                              },
+                            }}
+                          >
+                            {item.label}
+                          </Typography>
                         </Link>
                         <KeyboardArrowDownIcon
                           sx={{
@@ -226,9 +223,9 @@ function Navbar() {
                               >
                                 {/* Main Item */}
                                 <Link
-  to={drop.path}
-  style={{ textDecoration: "none" }}
->
+                                  to={drop.path}
+                                  style={{ textDecoration: "none" }}
+                                >
                                   <Typography
                                     sx={{
                                       px: 3,
@@ -367,6 +364,7 @@ function Navbar() {
                     py: 1.8,
                     fontSize: { md: "16px", lg: "18px" },
                     fontWeight: 700,
+                    fontFamily: "Times New Roman",
                     textTransform: "capitalize",
                     boxShadow: "none",
                     display: "flex",

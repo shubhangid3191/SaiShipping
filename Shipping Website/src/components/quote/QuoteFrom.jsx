@@ -69,7 +69,7 @@ export default function GetFreeQuote() {
       >
         <div className="quote-container">
           {/* Title */}
-          <div className="quote-header">
+          <div className="quote-header" >
             <h1>Get a Free Quote</h1>
 
             <p>
@@ -148,6 +148,9 @@ export default function GetFreeQuote() {
               type="submit"
               onClick={handleSubmit}
               className="theme-btn"
+              sx={{
+                fontFamily: "Times New Roman",
+              }}
             >
               Send Message
             </Button>

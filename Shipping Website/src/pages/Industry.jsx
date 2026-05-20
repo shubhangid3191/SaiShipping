@@ -289,14 +289,14 @@ function Industry() {
       </Container>
 
       {/* INDUSTRY CARDS */}
-      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 },   mb: 20, }}>
+      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 }, mb: 10, }}>
         <Box
           sx={{
             display: "grid",
             gridTemplateColumns: {
               xs: "1fr",
               sm: "1fr 1fr",
-              md: "repeat(3, 400px)", // 👈 fixed small width cards
+              md: "repeat(3, 400px)", // fixed the small width cards all
             },
             justifyContent: "center",
             alignItems: "stretch",
@@ -332,7 +332,7 @@ function Industry() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center", // 👈 IMPORTANT
+                    objectPosition: "center", 
                     display: "block",
                     transition: "transform 0.4s ease",
 
@@ -345,7 +345,7 @@ function Industry() {
               <Box sx={{ p: { xs: 2.5, md: 3 } }}>
                 <Typography
                   sx={{
-                    fontSize: { xs: 22, md: 28 },
+                    fontSize: { xs: 20, md: 24 },
                     fontWeight: 800,
                     color: "#333",
                     mb: 1.5,
@@ -357,7 +357,7 @@ function Industry() {
 
                 <Typography
                   sx={{
-                    fontSize: { xs: 16, md: 20 },
+                    fontSize: { xs: 14, md: 16 },
                     color: "#555",
                     lineHeight: 1.7,
                     textAlign: "justify",
