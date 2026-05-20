@@ -277,7 +277,7 @@ export default function ServicesSection() {
                         fontSize: {
                           xs: "24px",
                           md: "16px",
-                          lg: "15px",
+                          lg: "20px",
                         },
 
                         fontWeight: 700,
@@ -308,7 +308,7 @@ export default function ServicesSection() {
 
                         fontSize: {
                           xs: "15px",
-                          md: "14px",
+                          md: "20px",
                         },
 
                         lineHeight: 1.8,
@@ -350,7 +350,7 @@ export default function ServicesSection() {
                         sx={{
                           fontSize: {
                             xs: "15px",
-                            md: "13px",
+                            md: "18px",
                           },
 
                           fontWeight: 700,

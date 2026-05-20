@@ -126,7 +126,7 @@ function CheckGrid({ points }) {
 
 function PageBanner({ activeTab }) {
   return (
-    <Box sx={{ position: "relative", height: { xs: 320, md: 650 }, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#f7f7f7" }}>
+    <Box sx={{ position: "relative", height: { xs: "300px", sm: "420px", md: "520px" }, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#f7f7f7" }}>
       <Box component="img" src="https://saishipping.com/images/about-banner.jpg" alt="" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
       <Box component="img" src="https://saishipping.com/images/plane-bg.png" alt="" sx={{ position: "absolute", left: 0, bottom: 0, width: { xs: "60%", md: "36%" }, objectFit: "contain" }} />
       <Box component="img" src="https://saishipping.com/images/ship-bg.png" alt="" sx={{ position: "absolute", right: 0, bottom: 0, width: { xs: "60%", md: "36%" }, objectFit: "contain" }} />

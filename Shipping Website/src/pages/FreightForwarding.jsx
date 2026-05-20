@@ -322,6 +322,7 @@ export default function FreightForwarding() {
       .ff-hero{
         position:relative;
         min-height:420px;
+        overflow: "hidden",
         display:flex;
         align-items:center;
         justify-content:center;

@@ -261,10 +261,7 @@ function PageBanner({ activeTab }) {
     <Box
       sx={{
         position: "relative",
-        height: {
-          xs: 320,
-          md: 650,
-        },
+        height: { xs: "300px", sm: "420px", md: "520px" },
         overflow: "hidden",
         display: "flex",
         alignItems: "center",

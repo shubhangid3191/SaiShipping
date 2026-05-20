@@ -50,11 +50,7 @@ function Contact() {
         sx={{
           position: "relative",
           width: "100%",
-          height: {
-            xs: "280px",
-            sm: "350px",
-            md: "500px",
-          },
+          height: { xs: "300px", sm: "420px", md: "520px" },
           overflow: "hidden",
         }}
       >

@@ -8,6 +8,7 @@ import {
   IconButton,
   Button,
 } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
 
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -15,117 +16,184 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import BoltIcon from "@mui/icons-material/Bolt";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SecurityIcon from "@mui/icons-material/Security";
-import BoltIcon from "@mui/icons-material/Bolt";
 
-// ── IMAGES ────────────────────────────────────────────────────────────────────
-const serv1 = "https://saishipping.com/images/serv-1.png";
-const serv2 = "https://saishipping.com/images/serv-2.png";
-const serv3 = "https://saishipping.com/images/serv-3.png";
-const serv4 = "https://saishipping.com/images/serv-4.png";
+// ───────────────── IMAGES ─────────────────
 
-// ── DATA ──────────────────────────────────────────────────────────────────────
+const heroBg =
+  "https://saishipping.com/images/about-banner.jpg";
+
+const airplaneImg =
+  "https://saishipping.com/images/airoplane.png";
+
+const shipImg =
+  "https://saishipping.com/images/ship.png";
+
+const serv1 =
+  "https://saishipping.com/images/serv-1.png";
+
+const serv2 =
+  "https://saishipping.com/images/serv-2.png";
+
+const serv3 =
+  "https://saishipping.com/images/serv-3.png";
+
+const serv4 =
+  "https://saishipping.com/images/serv-4.png";
+
+const portImg =
+  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&q=80";
+
+const deliveryManImg =
+  "https://saishipping.com/images/delivery-man.png";
+
+// ───────────────── SERVICES DATA ─────────────────
+
 const services = [
   {
     title: "FREIGHT FORWARDING",
-    desc: "Freight forwarding services manage the shipment of goods across international borders, handling documentation, customs clearance, and coordinating with carriers to ensure timely and cost-effective delivery.",
     image: serv1,
-    icon: <LocalShippingIcon sx={{ fontSize: 26 }} />,
+    icon: <LocalShippingIcon sx={{ fontSize: 18 }} />,
     path: "/freight-forwarding",
+    desc:
+      "Freight forwarding involves the efficient transportation of goods from one location to another through various modes such as air, sea, and land. A freight forwarder manages logistics, handles documentation, and ensures smooth customs clearance.",
   },
+
   {
     title: "CUSTOM CLEARANCE",
-    desc: "Custom clearance services handle the documentation, tariffs, and regulations required to import or export goods, ensuring compliance with local laws and minimizing delays at borders.",
     image: serv2,
-    icon: <DescriptionIcon sx={{ fontSize: 26 }} />,
+    icon: <DescriptionIcon sx={{ fontSize: 18 }} />,
     path: "/custom-clearance-import",
+    desc:
+      "Customs clearance is the process of preparing and submitting required documents to facilitate the import or export of goods across international borders including duties, taxes and shipment compliance regulations.",
   },
+
   {
     title: "WAREHOUSES",
-    desc: "Warehousing services provide secure storage solutions for goods before distribution. This includes bonded and non-bonded warehouses, temperature-controlled storage, inventory management, order fulfillment, and distribution hubs to streamline supply chain operations.",
     image: serv3,
-    icon: <WarehouseIcon sx={{ fontSize: 26 }} />,
+    icon: <WarehouseIcon sx={{ fontSize: 18 }} />,
     path: "/warehouses",
+    desc:
+      "Warehousing services provide secure storage solutions for goods before distribution including inventory management, order fulfillment and temperature-controlled logistics support.",
   },
+
   {
     title: "ADDITIONAL SERVICES",
-    desc: "Additional services enhance logistics, including cargo insurance, packaging, labeling, and reverse logistics. Door-to-door delivery, project cargo handling, and trade consulting ensure smooth freight management. These services help businesses reduce risks, improve efficiency, and comply with global shipping regulations.",
     image: serv4,
-    icon: <SettingsIcon sx={{ fontSize: 26 }} />,
+    icon: <SettingsIcon sx={{ fontSize: 18 }} />,
     path: "/additional-services",
+    desc:
+      "Additional logistics services include cargo insurance, packaging, labeling, reverse logistics and trade consulting for better freight management and supply chain efficiency.",
   },
 ];
+
+// ───────────────── FEATURES DATA ─────────────────
 
 const features = [
   {
-    icon: <HomeRepairServiceIcon sx={{ fontSize: 34, color: "#ef7f1a" }} />,
+    icon: <HomeRepairServiceIcon sx={{ fontSize: 28, color: "#ef7f1a" }} />,
     title: "Warehouse",
-    desc: "Warehouse: hub for storage, distribution, and logistics.",
+    desc: "Warehouse hub for storage distribution and logistics.",
   },
+
   {
-    icon: <SupportAgentIcon sx={{ fontSize: 34, color: "#ef7f1a" }} />,
+    icon: <SupportAgentIcon sx={{ fontSize: 28, color: "#ef7f1a" }} />,
     title: "Support 24/7",
-    desc: "Warehouse: hub for storage, distribution, and logistics.",
+    desc: "Reliable logistics support available all the time.",
   },
+
   {
-    icon: <SecurityIcon sx={{ fontSize: 34, color: "#ef7f1a" }} />,
+    icon: <SecurityIcon sx={{ fontSize: 28, color: "#ef7f1a" }} />,
     title: "Cargo Insurance",
-    desc: "Warehouse: hub for storage, distribution, and logistics.",
+    desc: "Secure protection for cargo transportation globally.",
   },
 ];
 
-// ── SERVICE CARD ──────────────────────────────────────────────────────────────
+// ───────────────── SERVICE CARD ─────────────────
+
 function ServiceCard({ item }) {
   const navigate = useNavigate();
+
   return (
     <Card
       elevation={0}
       onClick={() => navigate(item.path)}
       sx={{
         width: "100%",
+        maxWidth: 310,
+        mx: "auto",
+
         borderRadius: 0,
-        background: "transparent",
-        overflow: "visible",
-        boxShadow: "none",
+        overflow: "hidden",
+        background: "#fff",
         cursor: "pointer",
-        "&:hover .bottom-card": { backgroundColor: "#ef7f1a" },
-        "&:hover .card-title": { color: "#fff" },
-        "&:hover .card-desc": { color: "rgba(255,255,255,0.92)" },
-        "&:hover .read-more-text": { color: "#fff" },
-        "&:hover .card-line": { backgroundColor: "rgba(255,255,255,0.3)" },
-        "&:hover .arrow-btn": { backgroundColor: "#fff", color: "#ef7f1a" },
+        boxShadow: "none",
+        border: "1px solid #ececec",
+
+        transition: "0.35s ease",
+
+        "&:hover .bottom-card": {
+          backgroundColor: "#ef7f1a",
+        },
+
+        "&:hover .card-title": {
+          color: "#fff",
+        },
+
+        "&:hover .card-desc": {
+          color: "rgba(255,255,255,0.92)",
+        },
+
+        "&:hover .read-more": {
+          color: "#fff",
+        },
+
+        "&:hover .divider": {
+          backgroundColor: "rgba(255,255,255,0.25)",
+        },
+
+        "&:hover .arrow-btn": {
+          backgroundColor: "#fff",
+          color: "#ef7f1a",
+        },
       }}
     >
       {/* IMAGE */}
-      <Box sx={{ position: "relative", zIndex: 5 }}>
+      <Box sx={{ position: "relative" }}>
         <Box
           component="img"
           src={item.image}
-          alt={item.title}
+          alt=""
           sx={{
             width: "100%",
-            height: { xs: 260, md: 310 },
+            height: { xs: 180, md: 200 },
             objectFit: "cover",
+            display: "block",
           }}
         />
-        {/* ICON BADGE */}
+
+        {/* ICON */}
         <Box
           sx={{
             position: "absolute",
-            right: 20,
-            bottom: -30,
-            width: 64,
-            height: 64,
+            right: 14,
+            bottom: -22,
+
+            width: 48,
+            height: 48,
+
             borderRadius: "50%",
             backgroundColor: "#fff",
             border: "4px solid #ef7f1a",
+
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+
             zIndex: 10,
-            color: "#333",
           }}
         >
           {item.icon}
@@ -137,11 +205,15 @@ function ServiceCard({ item }) {
         className="bottom-card"
         sx={{
           backgroundColor: "#fff",
-          px: 3,
-          pt: 6,
-          pb: 3,
-          transition: "background-color 0.35s ease",
-          minHeight: 220,
+
+          pt: 4,
+          pb: 2,
+          px: 2.2,
+
+          transition: "0.35s ease",
+
+          minHeight: 270,
+
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -151,14 +223,13 @@ function ServiceCard({ item }) {
           <Typography
             className="card-title"
             sx={{
-              fontSize: "17px",
+              fontSize: "14px",
               fontWeight: 800,
               color: "#111",
-              lineHeight: 1.3,
-              mb: 2,
-              transition: "color 0.35s ease",
+              mb: 1.2,
+              lineHeight: 1.4,
+              transition: "0.35s",
               fontFamily: `"Playfair Display", serif`,
-              letterSpacing: 0.5,
             }}
           >
             {item.title}
@@ -167,10 +238,10 @@ function ServiceCard({ item }) {
           <Typography
             className="card-desc"
             sx={{
-              color: "#555",
-              fontSize: "14px",
-              lineHeight: 1.85,
-              transition: "color 0.35s ease",
+              fontSize: "13px",
+              color: "#5c6770",
+              lineHeight: 1.8,
+              transition: "0.35s",
               fontFamily: `"Times New Roman", serif`,
             }}
           >
@@ -180,43 +251,51 @@ function ServiceCard({ item }) {
 
         <Box>
           <Box
-            className="card-line"
+            className="divider"
             sx={{
               width: "100%",
               height: "1px",
-              backgroundColor: "#e0e0e0",
-              my: 2.5,
-              transition: "background-color 0.35s ease",
+              backgroundColor: "#ececec",
+              my: 1.8,
+              transition: "0.35s",
             }}
           />
-          <Stack direction="row" alignItems="center" justifyContent="space-between">
+
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Typography
-              className="read-more-text"
+              className="read-more"
               sx={{
-                fontSize: "13px",
+                fontSize: "10px",
                 fontWeight: 700,
-                color: "#111",
-                textTransform: "uppercase",
                 letterSpacing: 1,
-                transition: "color 0.35s ease",
+                transition: "0.35s",
                 fontFamily: `"Playfair Display", serif`,
               }}
             >
               READ MORE
             </Typography>
+
             <IconButton
               className="arrow-btn"
               sx={{
-                width: 36,
-                height: 36,
+                width: 28,
+                height: 28,
                 backgroundColor: "#ef7f1a",
                 color: "#fff",
-                borderRadius: "50%",
-                transition: "all 0.35s ease",
-                "&:hover": { backgroundColor: "#fff", color: "#ef7f1a" },
+
+                transition: "0.35s",
+
+                "&:hover": {
+                  backgroundColor: "#fff",
+                  color: "#ef7f1a",
+                },
               }}
             >
-              <ArrowForwardIcon sx={{ fontSize: 18 }} />
+              <ArrowForwardIcon sx={{ fontSize: 14 }} />
             </IconButton>
           </Stack>
         </Box>
@@ -225,102 +304,74 @@ function ServiceCard({ item }) {
   );
 }
 
-// ── MAIN PAGE ─────────────────────────────────────────────────────────────────
+// ───────────────── MAIN PAGE ─────────────────
+
 export default function Services() {
   const navigate = useNavigate();
 
   return (
     <Box sx={{ backgroundColor: "#fff" }}>
 
-      {/* ══════════════════════════════════════════════
-          SECTION 1 — HERO
-      ══════════════════════════════════════════════ */}
+      {/* HERO SECTION */}
       <Box
         sx={{
           position: "relative",
-          minHeight: { xs: 320, md: 520 },
-          backgroundColor: "#fff",
+          width: "100%",
+          height: { xs: "300px", sm: "420px", md: "520px" },
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+
+          overflow: "hidden",
+
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          overflow: "hidden",
         }}
       >
-        {/* Airplane — left */}
+        {/* AIRPLANE */}
         <Box
           component="img"
-          src="https://saishipping.com/images/about-banner.jpg"
+          src={airplaneImg}
           alt=""
-          onError={(e) => { e.target.style.display = "none"; }}
           sx={{
             position: "absolute",
             left: 0,
             bottom: 0,
-            width: { xs: 160, sm: 260, md: 380 },
-            objectFit: "contain",
-            pointerEvents: "none",
+            width: { xs: 180, sm: 280, md: 450 },
+            zIndex: 2,
           }}
         />
 
-        {/* Ship — right */}
+        {/* SHIP */}
         <Box
           component="img"
-          src="https://saishipping.com/images/ship.png"
+          src={shipImg}
           alt=""
-          onError={(e) => { e.target.style.display = "none"; }}
           sx={{
             position: "absolute",
             right: 0,
             bottom: 0,
-            width: { xs: 180, sm: 280, md: 440 },
-            objectFit: "contain",
-            pointerEvents: "none",
+            width: { xs: 240, sm: 350, md: 560 },
+            zIndex: 2,
           }}
         />
 
-        {/* Get A Quote — top right circle */}
+        {/* TEXT */}
         <Box
-          onClick={() => navigate("/get-free-quote")}
           sx={{
-            position: "absolute",
-            top: { xs: 16, md: 24 },
-            right: { xs: 16, md: 30 },
-            width: { xs: 90, md: 120 },
-            height: { xs: 90, md: 120 },
-            borderRadius: "50%",
-            backgroundColor: "#ef7f1a",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            zIndex: 10,
-            boxShadow: "0 6px 24px rgba(239,127,26,0.45)",
-            transition: "transform 0.2s",
-            "&:hover": { transform: "scale(1.06)" },
+            position: "relative",
+            zIndex: 5,
+            textAlign: "center",
           }}
         >
           <Typography
             sx={{
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: { xs: "12px", md: "15px" },
-              textAlign: "center",
-              lineHeight: 1.3,
-              fontFamily: `"Playfair Display", serif`,
-            }}
-          >
-            Get A<br />Quote
-          </Typography>
-          <ArrowForwardIcon sx={{ color: "#fff", fontSize: { xs: 14, md: 18 }, mt: 0.5 }} />
-        </Box>
-
-        {/* Center text */}
-        <Box sx={{ textAlign: "center", zIndex: 5, px: 2 }}>
-          <Typography
-            sx={{
               color: "#ef7f1a",
-              fontSize: { xs: "14px", md: "18px" },
+              fontSize: { xs: "15px", md: "20px" },
               fontWeight: 600,
               fontStyle: "italic",
               mb: 1,
@@ -329,12 +380,13 @@ export default function Services() {
           >
             International Logistics
           </Typography>
+
           <Typography
             sx={{
-              fontSize: { xs: "56px", sm: "80px", md: "110px" },
+              fontSize: { xs: "62px", sm: "90px", md: "125px" },
               fontWeight: 900,
-              color: "#111",
               lineHeight: 1,
+              color: "#111",
               fontFamily: `"Playfair Display", serif`,
             }}
           >
@@ -343,33 +395,53 @@ export default function Services() {
         </Box>
       </Box>
 
-      {/* ══════════════════════════════════════════════
-          SECTION 2 — SERVICE CARDS
-      ══════════════════════════════════════════════ */}
+      {/* SERVICES SECTION */}
       <Box
         sx={{
-          background: "linear-gradient(to right, #f5ede6 70%, #eacfba 30%)",
-          py: { xs: 8, md: 10 },
           position: "relative",
-          overflow: "hidden",
+          py: { xs: 7, md: 9 },
+
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(242,228,215,0.92)",
+          },
         }}
       >
-        <Container maxWidth="xl">
-          <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
+        <Container
+          maxWidth="lg"
+          sx={{
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          {/* TITLE */}
+          <Box sx={{ textAlign: "center", mb: 6 }}>
             <Stack
               direction="row"
-              alignItems="center"
+              spacing={0.7}
               justifyContent="center"
-              spacing={0.8}
+              alignItems="center"
               sx={{ mb: 1.5 }}
             >
-              <BoltIcon sx={{ color: "#ef7f1a", fontSize: 20 }} />
+              <BoltIcon
+                sx={{
+                  color: "#ef7f1a",
+                  fontSize: 16,
+                }}
+              />
+
               <Typography
                 sx={{
                   color: "#ef7f1a",
-                  fontSize: { xs: "12px", md: "14px" },
+                  fontSize: "12px",
                   fontWeight: 700,
-                  letterSpacing: 2,
+                  letterSpacing: 2.5,
                   textTransform: "uppercase",
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
@@ -382,40 +454,37 @@ export default function Services() {
 
             <Typography
               sx={{
-                fontSize: { xs: "28px", sm: "40px", md: "58px" },
+                fontSize: { xs: "28px", sm: "38px", md: "48px" },
                 fontWeight: 800,
+                lineHeight: 1.18,
                 color: "#111",
-                lineHeight: 1.15,
+                mb: 2,
                 fontFamily: `"Playfair Display", serif`,
-                mb: 3,
               }}
             >
-              Comprehensive Logistics &amp; Transport Solutions
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "#555",
-                fontSize: { xs: "15px", md: "16px" },
-                lineHeight: 1.9,
-                maxWidth: "860px",
-                mx: "auto",
-                fontFamily: `"Times New Roman", serif`,
-              }}
-            >
-              At SSS Sai Shipping Services Pvt. Ltd., we offer a wide range of logistics
-              solutions tailored to meet your business needs. From intermodal shipping and
-              cold chain logistics to fast-tracked hot shot trucking, we ensure seamless
-              transportation, efficient warehousing, and smooth customs clearance. Our
-              expertise guarantees reliable, cost-effective, and timely deliveries across
-              global markets.
+              Logistics Features That
+              <br />
+              We Can Providing
             </Typography>
           </Box>
 
-          {/* 2×2 grid */}
-          <Grid container spacing={3}>
+          {/* CARDS */}
+          <Grid
+            container
+            spacing={{ xs: 2, md: 2.5 }}
+            justifyContent="center"
+          >
             {services.map((item, index) => (
-              <Grid item xs={12} sm={6} key={index} sx={{ display: "flex" }}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                lg={3}
+                key={index}
+                sx={{
+                  display: "flex",
+                }}
+              >
                 <ServiceCard item={item} />
               </Grid>
             ))}
@@ -423,204 +492,344 @@ export default function Services() {
         </Container>
       </Box>
 
-      {/* ══════════════════════════════════════════════
-          SECTION 3 — CASE STUDY
-      ══════════════════════════════════════════════ */}
-      <Box sx={{ backgroundColor: "#fff", py: { xs: 8, md: 10 } }}>
-        <Container maxWidth="xl">
-          <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
-
-            {/* LEFT image */}
+      {/* CASE STUDY SECTION */}
+      <Box
+        sx={{
+          backgroundColor: "#fff",
+          py: { xs: 6, md: 7 },
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <Container
+          maxWidth="xl"
+          sx={{
+            px: { xs: 2, md: 4 },
+          }}
+        >
+          <Grid
+            container
+            spacing={{ xs: 4, md: 4 }}
+            alignItems="center"
+          >
+            {/* LEFT IMAGE */}
             <Grid item xs={12} md={6}>
-              <Box sx={{ position: "relative" }}>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  maxWidth: "680px",
+                  mx: "auto",
+                }}
+              >
                 <Box
                   component="img"
-                  src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80"
-                  alt="Cargo Port"
+                  src={portImg}
+                  alt=""
                   sx={{
                     width: "100%",
-                    height: { xs: 300, md: 500 },
+                    height: {
+                      xs: 320,
+                      md: 500,
+                    },
                     objectFit: "cover",
+                    display: "block",
                   }}
                 />
-                {/* Orange badge */}
+
+                {/* ORANGE BOX */}
                 <Box
                   sx={{
                     position: "absolute",
-                    top: 24,
-                    left: "36%",
+                    top: 0,
+                    left: { xs: "50%", md: "52%" },
+                    transform: "translateX(-50%)",
+
                     backgroundColor: "#ef7f1a",
-                    px: 3,
-                    py: 2.5,
-                    minWidth: 140,
+
+                    px: { xs: 2.2, md: 2.8 },
+                    py: { xs: 1.8, md: 2.2 },
+
+                    width: { xs: 120, md: 150 },
+
                     clipPath:
-                      "polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%)",
+                      "polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 0 100%)",
+
+                    zIndex: 5,
                   }}
                 >
                   <Typography
                     sx={{
                       color: "#fff",
-                      fontWeight: 900,
-                      fontSize: "30px",
+                      fontSize: { xs: "28px", md: "38px" },
+                      fontWeight: 800,
                       lineHeight: 1,
                       fontFamily: `"Playfair Display", serif`,
                     }}
                   >
                     20k+
                   </Typography>
+
                   <Typography
                     sx={{
                       color: "#fff",
-                      fontSize: "14px",
+                      mt: 0.8,
+                      lineHeight: 1.45,
+                      fontSize: { xs: "12px", md: "15px" },
                       fontFamily: `"Times New Roman", serif`,
-                      lineHeight: 1.4,
-                      mt: 0.5,
                     }}
                   >
-                    Disability<br />People
+                    Disability
+                    <br />
+                    People
                   </Typography>
                 </Box>
               </Box>
             </Grid>
 
-            {/* RIGHT text */}
+            {/* RIGHT CONTENT */}
             <Grid item xs={12} md={6}>
-              <Stack direction="row" alignItems="center" spacing={0.8} sx={{ mb: 1.5 }}>
-                <BoltIcon sx={{ color: "#ef7f1a", fontSize: 20 }} />
+              <Box
+                sx={{
+                  maxWidth: "580px",
+                  mx: "auto",
+
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+
+                  height: "100%",
+                }}
+              >
+                <Stack
+                  direction="row"
+                  spacing={0.8}
+                  alignItems="center"
+                  sx={{ mb: 1.5 }}
+                >
+                  <BoltIcon
+                    sx={{
+                      color: "#ef7f1a",
+                      fontSize: 17,
+                    }}
+                  />
+
+                  <Typography
+                    sx={{
+                      color: "#ef7f1a",
+                      fontSize: "12px",
+                      fontWeight: 700,
+                      letterSpacing: 2,
+                      textTransform: "uppercase",
+                      textDecoration: "underline",
+                      textUnderlineOffset: "4px",
+                      fontFamily: `"Times New Roman", serif`,
+                    }}
+                  >
+                    OUR CASE STUDY
+                  </Typography>
+                </Stack>
+
                 <Typography
                   sx={{
-                    color: "#ef7f1a",
-                    fontSize: "14px",
-                    fontWeight: 700,
-                    letterSpacing: 2,
-                    textTransform: "uppercase",
-                    textDecoration: "underline",
-                    textUnderlineOffset: "4px",
+                    fontSize: {
+                      xs: "34px",
+                      sm: "44px",
+                      md: "56px",
+                      lg: "62px",
+                    },
+
+                    fontWeight: 800,
+
+                    lineHeight: {
+                      xs: 1.12,
+                      md: 1.08,
+                    },
+
+                    color: "#111",
+
+                    mb: 2.5,
+
+                    fontFamily: `"Playfair Display", serif`,
+                  }}
+                >
+                  Enhancing Freight
+                  <br />
+                  Efficiency
+                </Typography>
+
+                <Typography
+                  sx={{
+                    color: "#555",
+
+                    lineHeight: 1.95,
+
+                    mb: 2.2,
+
+                    fontSize: {
+                      xs: "14px",
+                      md: "14px",
+                    },
+
+                    textAlign: "justify",
+
                     fontFamily: `"Times New Roman", serif`,
                   }}
                 >
-                  OUR CASE STUDY
+                  A leading manufacturing company was struggling
+                  with inefficiencies in its global shipping
+                  operations. High transit costs, customs delays
+                  and lack of real-time tracking disrupted supply
+                  chain operations and increased delivery delays.
                 </Typography>
-              </Stack>
 
-              <Typography
-                sx={{
-                  fontSize: { xs: "30px", md: "46px" },
-                  fontWeight: 800,
-                  color: "#111",
-                  lineHeight: 1.2,
-                  fontFamily: `"Playfair Display", serif`,
-                  mb: 3,
-                }}
-              >
-                Enhancing Freight<br />Efficiency
-              </Typography>
+                <Typography
+                  sx={{
+                    color: "#555",
 
-              <Typography
-                sx={{
-                  color: "#555",
-                  fontSize: "15px",
-                  lineHeight: 1.95,
-                  fontFamily: `"Times New Roman", serif`,
-                  mb: 2.5,
-                }}
-              >
-                A leading manufacturing company was struggling with inefficiencies in
-                its global shipping operations. High transit costs, frequent customs
-                delays, and a lack of real-time shipment tracking were causing
-                disruptions in the supply chain. These challenges led to increased
-                operational expenses and delays in deliveries, affecting overall
-                business performance.
-              </Typography>
+                    lineHeight: 1.95,
 
-              <Typography
-                sx={{
-                  color: "#555",
-                  fontSize: "15px",
-                  lineHeight: 1.95,
-                  fontFamily: `"Times New Roman", serif`,
-                }}
-              >
-                To overcome these issues, SSS Sai Shipping Services Pvt Ltd. developed
-                a customized logistics solution. By optimizing freight scheduling,
-                streamlining customs clearance procedures, and integrating real-time
-                shipment tracking, we improved visibility and efficiency in their supply
-                chain. Our expertise in global logistics ensured seamless coordination
-                between suppliers, carriers, and regulatory authorities.
-              </Typography>
+                    fontSize: {
+                      xs: "14px",
+                      md: "14px",
+                    },
+
+                    textAlign: "justify",
+
+                    fontFamily: `"Times New Roman", serif`,
+                  }}
+                >
+                  SSS Sai Shipping Services Pvt Ltd. developed
+                  customized logistics solutions improving shipment
+                  visibility, customs clearance and freight
+                  coordination across global supply chains with
+                  better efficiency and seamless transportation.
+                </Typography>
+              </Box>
             </Grid>
-
           </Grid>
         </Container>
+
+        {/* DELIVERY MAN */}
+        <Box
+          component="img"
+          src={deliveryManImg}
+          alt=""
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+
+            height: {
+              xs: 100,
+              sm: 150,
+              md: 220,
+            },
+
+            objectFit: "contain",
+
+            zIndex: 5,
+          }}
+        />
       </Box>
 
-      {/* ══════════════════════════════════════════════
-          SECTION 4 — FEATURES BANNER
-      ══════════════════════════════════════════════ */}
+      {/* FEATURES SECTION */}
       <Box>
-        {/* Banner */}
+        {/* TOP BANNER */}
         <Box
           sx={{
             position: "relative",
-            minHeight: { xs: 200, md: 260 },
+            minHeight: { xs: 220, md: 280 },
+
             display: "flex",
             alignItems: "center",
+
             overflow: "hidden",
-            backgroundColor: "#b85a14",
+
             backgroundImage:
               "url(https://saishipping.com/images/features-bg.jpg)",
+
             backgroundSize: "cover",
             backgroundPosition: "center",
+
             "&::before": {
               content: '""',
               position: "absolute",
               inset: 0,
-              backgroundColor: "rgba(165, 65, 10, 0.80)",
+              backgroundColor: "rgba(139,55,5,0.88)",
             },
           }}
         >
-          <Container maxWidth="xl" sx={{ position: "relative", zIndex: 2 }}>
+          <Container
+            maxWidth="xl"
+            sx={{
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
             <Grid container alignItems="center" spacing={3}>
+              {/* LEFT TEXT */}
               <Grid item xs={12} md={7}>
                 <Typography
                   sx={{
                     color: "rgba(255,255,255,0.6)",
                     fontSize: "12px",
-                    letterSpacing: 2,
+                    letterSpacing: 2.5,
                     textTransform: "uppercase",
-                    mb: 1.2,
+                    mb: 1.5,
                     fontFamily: `"Times New Roman", serif`,
                   }}
                 >
                   ⚡ LOGISTICS SOLUTIONS
                 </Typography>
+
                 <Typography
                   sx={{
-                    fontSize: { xs: "26px", md: "40px" },
+                    fontSize: { xs: "28px", md: "44px" },
                     fontWeight: 800,
                     color: "#fff",
                     lineHeight: 1.25,
                     fontFamily: `"Playfair Display", serif`,
                   }}
                 >
-                  Logistics Features That We<br />Can Providing
+                  Logistics Features That
+                  <br />
+                  We Can Providing
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} md={5} sx={{ textAlign: { md: "right" } }}>
+              {/* BUTTON */}
+              <Grid
+                item
+                xs={12}
+                md={5}
+                sx={{
+                  textAlign: {
+                    xs: "left",
+                    md: "right",
+                  },
+                }}
+              >
                 <Button
                   onClick={() => navigate("/contact")}
                   sx={{
                     backgroundColor: "#ef7f1a",
                     color: "#fff",
-                    px: { xs: 4, md: 6 },
-                    py: 1.8,
+
+                    px: 5,
+                    py: 2,
+
                     borderRadius: 0,
-                    fontWeight: 700,
+
                     fontSize: "13px",
+                    fontWeight: 700,
                     letterSpacing: 2,
+
                     fontFamily: `"Playfair Display", serif`,
-                    "&:hover": { backgroundColor: "#d4700f" },
+
+                    "&:hover": {
+                      backgroundColor: "#d66f0e",
+                    },
                   }}
                 >
                   CONTACT US
@@ -628,67 +837,61 @@ export default function Services() {
               </Grid>
             </Grid>
           </Container>
-
-          {/* Delivery man */}
-          <Box
-            component="img"
-            src="https://saishipping.com/images/delivery-man.png"
-            alt=""
-            onError={(e) => { e.target.style.display = "none"; }}
-            sx={{
-              position: "absolute",
-              right: { xs: 0, md: 100 },
-              bottom: 0,
-              height: { xs: 100, md: 200 },
-              objectFit: "contain",
-              pointerEvents: "none",
-              zIndex: 3,
-            }}
-          />
         </Box>
 
-        {/* 3 feature tiles */}
-        <Box sx={{ backgroundColor: "#fff", py: { xs: 6, md: 8 } }}>
-          <Container maxWidth="xl">
-            <Grid container spacing={4} justifyContent="center">
-              {features.map((f, i) => (
-                <Grid item xs={12} sm={4} key={i}>
-                  <Stack direction="row" spacing={2.5} alignItems="flex-start">
+        {/* FEATURES BOTTOM */}
+        <Box
+          sx={{
+            py: { xs: 6, md: 7 },
+            backgroundColor: "#fff",
+          }}
+        >
+          <Container maxWidth="lg">
+            <Grid container spacing={5}>
+              {features.map((item, index) => (
+                <Grid item xs={12} md={4} key={index}>
+                  <Stack direction="row" spacing={2.2}>
+                    {/* ICON */}
                     <Box
                       sx={{
-                        width: 72,
-                        height: 72,
+                        width: 65,
+                        height: 65,
                         borderRadius: "50%",
-                        backgroundColor: "#fdf0e6",
+                        backgroundColor: "#fff3e9",
+
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+
                         flexShrink: 0,
                       }}
                     >
-                      {f.icon}
+                      {item.icon}
                     </Box>
+
+                    {/* TEXT */}
                     <Box>
                       <Typography
                         sx={{
+                          fontSize: "20px",
                           fontWeight: 700,
-                          fontSize: "18px",
                           color: "#111",
-                          mb: 0.8,
+                          mb: 1,
                           fontFamily: `"Playfair Display", serif`,
                         }}
                       >
-                        {f.title}
+                        {item.title}
                       </Typography>
+
                       <Typography
                         sx={{
                           color: "#666",
+                          lineHeight: 1.9,
                           fontSize: "14px",
-                          lineHeight: 1.75,
                           fontFamily: `"Times New Roman", serif`,
                         }}
                       >
-                        {f.desc}
+                        {item.desc}
                       </Typography>
                     </Box>
                   </Stack>
@@ -698,7 +901,6 @@ export default function Services() {
           </Container>
         </Box>
       </Box>
-
     </Box>
   );
 }

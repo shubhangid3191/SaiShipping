@@ -9,17 +9,17 @@ import {
 import BoltIcon from "@mui/icons-material/Bolt";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-const mainImage    = "https://saishipping.com/images/shipping.png";
-const smallImage   = "https://saishipping.com/images/shipping-1.png";
+const mainImage = "https://saishipping.com/images/shipping.png";
+const smallImage = "https://saishipping.com/images/shipping-1.png";
 const founderPhoto = "https://saishipping.com/images/home-02-author.png";
-const truckImage   = "https://saishipping.com/images/t.png";
+const truckImage = "https://saishipping.com/images/t.png";
 
 export default function AboutSection() {
   return (
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 10 },
+        py: { xs: 8, md: 8 },
         backgroundColor: "#f7f7f5",
         overflow: "hidden",
       }}
@@ -37,20 +37,20 @@ export default function AboutSection() {
         >
 
           {/* ═══════════════════════════════
-              LEFT — IMAGE BLOCK  50%
+              LEFT — IMAGE BLOCK
           ═══════════════════════════════ */}
           <Box
             sx={{
               flex: "0 0 50%",
               width: { xs: "100%", md: "50%" },
               position: "relative",
-              height: { xs: 480, md: 680 },
+              height: { xs: 480, md: 640 },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            {/* Teal chevrons — top left */}
+            {/* Teal chevrons */}
             <Stack
               spacing={-2.5}
               sx={{
@@ -80,7 +80,7 @@ export default function AboutSection() {
               alt="Shipping crane"
               sx={{
                 width: "80%",
-                height: { xs: 340, md: 560 },
+                height: { xs: 340, md: 540 },
                 objectFit: "contain",
                 position: "relative",
                 zIndex: 2,
@@ -88,7 +88,7 @@ export default function AboutSection() {
               }}
             />
 
-            {/* Small bottom-right image */}
+            {/* Small image */}
             <Box
               component="img"
               src={smallImage}
@@ -123,17 +123,18 @@ export default function AboutSection() {
                   fontSize: { xs: "1.3rem", md: "1.8rem" },
                   fontWeight: 600,
                   lineHeight: 1.3,
-                  fontFamily: "Georgia, serif",
+                  fontFamily: `"Georgia", "Times New Roman", serif`,
                 }}
               >
                 Since from
               </Typography>
+
               <Typography
                 sx={{
                   fontSize: { xs: "2.8rem", md: "4.5rem" },
                   fontWeight: 800,
                   lineHeight: 1,
-                  fontFamily: "Georgia, serif",
+                  fontFamily: `"Georgia", "Times New Roman", serif`,
                   letterSpacing: "-2px",
                 }}
               >
@@ -143,7 +144,7 @@ export default function AboutSection() {
           </Box>
 
           {/* ═══════════════════════════════
-              RIGHT — TEXT BLOCK  50%
+              RIGHT — TEXT BLOCK
           ═══════════════════════════════ */}
           <Box
             sx={{
@@ -162,6 +163,7 @@ export default function AboutSection() {
               sx={{ mb: 2 }}
             >
               <BoltIcon sx={{ color: "#f47b14", fontSize: 20 }} />
+
               <Typography
                 sx={{
                   color: "#f47b14",
@@ -179,7 +181,7 @@ export default function AboutSection() {
             {/* Heading */}
             <Typography
               sx={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: `"Georgia", "Times New Roman", serif`,
                 fontSize: {
                   xs: "2.2rem",
                   sm: "2.8rem",
@@ -201,7 +203,7 @@ export default function AboutSection() {
               Solutions
             </Typography>
 
-            {/* Orange left-border paragraph */}
+            {/* Paragraph */}
             <Box
               sx={{
                 borderLeft: "3px solid #f47b14",
@@ -214,17 +216,14 @@ export default function AboutSection() {
                   color: "#555",
                   fontSize: { xs: "0.95rem", md: "1rem" },
                   lineHeight: 2,
-                  fontFamily: "Georgia, serif",
+                  fontFamily: `"Georgia", "Times New Roman", serif`,
                 }}
               >
                 Welcome to SSS Sai Shipping Services Pvt Ltd., where we
                 understand that logistics is the backbone of global trade.
                 With a strong global presence, we provide exceptional
                 shipping services across the world, connecting businesses
-                and driving success beyond borders. Through strategic
-                partnerships and extensive industry knowledge, we offer
-                customized solutions to businesses of all sizes and
-                industries.
+                and driving success beyond borders.
               </Typography>
             </Box>
 
@@ -248,6 +247,7 @@ export default function AboutSection() {
                       flexShrink: 0,
                     }}
                   />
+
                   <Typography
                     sx={{
                       color: "#f47b14",
@@ -262,14 +262,14 @@ export default function AboutSection() {
               ))}
             </Stack>
 
-            {/* Bottom divider text */}
+            {/* Bottom divider */}
             <Box sx={{ borderTop: "1px solid #d8d8d8", pt: 3.5 }}>
               <Typography
                 sx={{
                   color: "#555",
                   fontSize: { xs: "0.97rem", md: "1.05rem" },
                   lineHeight: 1.9,
-                  fontFamily: "Georgia, serif",
+                  fontFamily: `"Georgia", "Times New Roman", serif`,
                 }}
               >
                 SSS Sai Shipping Services Pvt. Ltd. delivers reliable,
@@ -277,7 +277,7 @@ export default function AboutSection() {
               </Typography>
             </Box>
 
-            {/* ── Founder section ── */}
+            {/* Founder */}
             <Stack
               direction="row"
               spacing={2}
@@ -287,7 +287,7 @@ export default function AboutSection() {
               <Box
                 component="img"
                 src={founderPhoto}
-                alt="Mr. Haresh A Dhakan"
+                alt="Founder"
                 sx={{
                   width: { xs: 70, md: 80 },
                   height: { xs: 70, md: 80 },
@@ -298,6 +298,7 @@ export default function AboutSection() {
                   flexShrink: 0,
                 }}
               />
+
               <Box>
                 <Typography
                   sx={{
@@ -309,6 +310,7 @@ export default function AboutSection() {
                 >
                   founder , Haresh
                 </Typography>
+
                 <Typography
                   sx={{
                     color: "#071c3d",
@@ -320,9 +322,11 @@ export default function AboutSection() {
                 >
                   Mr. Haresh A Dhakan
                 </Typography>
+
                 <Typography
                   sx={{
-                    fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
+                    fontFamily:
+                      "'Dancing Script', 'Brush Script MT', cursive",
                     fontSize: { xs: "1.6rem", md: "1.9rem" },
                     color: "#333",
                     lineHeight: 1,
@@ -332,34 +336,36 @@ export default function AboutSection() {
                 </Typography>
               </Box>
             </Stack>
-
           </Box>
         </Box>
 
-        {/* ══════════════════════════════════════════════════
-            BOTTOM ROW — star LEFT  |  truck RIGHT (fixed)
-        ══════════════════════════════════════════════════ */}
+        {/* ═══════════════════════════════════
+            BOTTOM ROW — FIXED EXTRA SPACE
+        ═══════════════════════════════════ */}
         <Box
           sx={{
-            mt: { xs: 4, md: 2 },
+            mt: { xs: 2, md: 1 },
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
             pointerEvents: "none",
-            minHeight: { xs: 120, md: 160 },
+            minHeight: "auto",
+            lineHeight: 0,
           }}
         >
-          {/* ── Orange asterisk star — LEFT, slow spin ── */}
+          {/* Star */}
           <Box
             sx={{
-              fontSize: { xs: "5rem", md: "7rem" },
+              fontSize: { xs: "5rem", md: "8rem" },
               color: "#f47b14",
-              lineHeight: 3,
+              lineHeight: 1,
               userSelect: "none",
               flexShrink: 0,
+
               animation: "starSpin 8s linear infinite",
+
               "@keyframes starSpin": {
-                "0%":   { transform: "rotate(0deg)"   },
+                "0%": { transform: "rotate(0deg)" },
                 "100%": { transform: "rotate(360deg)" },
               },
             }}
@@ -367,18 +373,22 @@ export default function AboutSection() {
             ✳
           </Box>
 
-          {/* ── Truck — fixed RIGHT, continuous bounce (driving effect) ── */}
+          {/* Truck */}
           <Box
             component="img"
             src={truckImage}
             alt="Truck"
             sx={{
-              width: { xs: "260px", md: "420px" },
+              width: { xs: "220px", md: "380px" },
               objectFit: "contain",
               flexShrink: 0,
-              animation: "truckBounce 0.5s ease-in-out infinite alternate",
+              display: "block",
+
+              animation:
+                "truckBounce 0.5s ease-in-out infinite alternate",
+
               "@keyframes truckBounce": {
-                "0%":   { transform: "translateY(0px)"  },
+                "0%": { transform: "translateY(0px)" },
                 "100%": { transform: "translateY(-6px)" },
               },
             }}

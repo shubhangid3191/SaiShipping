@@ -50,7 +50,8 @@ const marquee = keyframes`
 // ─────────────────────────────────────────────
 
 export default function ClientLogos() {
-  // DUPLICATE FOR SMOOTH INFINITE LOOP
+
+  // DUPLICATE FOR SMOOTH LOOP
   const duplicatedLogos = [...logos, ...logos];
 
   return (
@@ -61,7 +62,7 @@ export default function ClientLogos() {
           md: 7,
         },
 
-        bgcolor: "#f5f5f5",
+        bgcolor: "#fff", // CHANGED TO WHITE
 
         overflow: "hidden",
 
@@ -95,7 +96,7 @@ export default function ClientLogos() {
             zIndex: 5,
 
             background:
-              "linear-gradient(to right, #f5f5f5 0%, rgba(245,245,245,0) 100%)",
+              "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 100%)",
 
             pointerEvents: "none",
           }}
@@ -118,7 +119,7 @@ export default function ClientLogos() {
             zIndex: 5,
 
             background:
-              "linear-gradient(to left, #f5f5f5 0%, rgba(245,245,245,0) 100%)",
+              "linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%)",
 
             pointerEvents: "none",
           }}

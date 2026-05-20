@@ -72,7 +72,7 @@ export default function ProjectsSection() {
                   color: '#f47b14',
                   fontWeight: 700,
                   fontSize: '0.9rem',
-                  fontFamily: 'Georgia, serif',
+                  fontFamily:`"Georgia", "Times New Roman", serif`,
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   textDecoration: 'underline',
@@ -85,9 +85,9 @@ export default function ProjectsSection() {
 
             <Typography
               sx={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8rem' },
-                fontWeight: 700,
+                fontFamily: `"Georgia", "Times New Roman", serif`,
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '2rem' },
+                fontWeight: 800,
                 color: '#0d1e35',
                 lineHeight: 1.2,
               }}
@@ -205,7 +205,7 @@ export default function ProjectsSection() {
                       sx={{
                         fontSize: '0.95rem',
                         color: '#333',
-                        fontFamily: 'Georgia, serif',
+                        fontFamily:`"Georgia", "Times New Roman", serif`,
                         fontWeight: 500,
                       }}
                     >
@@ -229,7 +229,7 @@ export default function ProjectsSection() {
                   sx={{
                     fontSize: { xs: '0.92rem', md: '0.97rem' },
                     color: '#444',
-                    fontFamily: 'Georgia, serif',
+                    fontFamily: `"Georgia", "Times New Roman", serif`,
                     lineHeight: 1.6,
                     flex: 1,
                   }}
@@ -276,7 +276,7 @@ export default function ProjectsSection() {
               borderRadius: 0,
               letterSpacing: 2,
               textTransform: 'uppercase',
-              fontFamily: 'Georgia, serif',
+              fontFamily: `"Georgia", "Times New Roman", serif`,
               boxShadow: 'none',
               '&:hover': {
                 bgcolor: '#d86d10',
