@@ -48,7 +48,7 @@ const portImg =
   "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&q=80";
 
 const deliveryManImg =
-  "https://saishipping.com/images/delivery-man.png";
+  "https://saishipping.com/images/ab7.png";
 
 // ───────────────── SERVICES DATA ─────────────────
 
@@ -123,7 +123,7 @@ function ServiceCard({ item }) {
       onClick={() => navigate(item.path)}
       sx={{
         width: "100%",
-        maxWidth: 310,
+        maxWidth: 550,
         mx: "auto",
 
         borderRadius: 0,
@@ -169,7 +169,7 @@ function ServiceCard({ item }) {
           alt=""
           sx={{
             width: "100%",
-            height: { xs: 180, md: 200 },
+            height: { xs: 180, md: 400 },
             objectFit: "cover",
             display: "block",
           }}
@@ -421,13 +421,11 @@ export default function Services() {
           }}
         >
           {/* TITLE */}
-          <Box sx={{ textAlign: "center", mb: 6 }}>
+          <Box sx={{ textAlign: "center", mb: 1.5  }}>
             <Stack
               direction="row"
               spacing={0.7}
-              justifyContent="center"
               alignItems="center"
-              sx={{ mb: 1.5 }}
             >
               <BoltIcon
                 sx={{
@@ -446,6 +444,7 @@ export default function Services() {
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
                   fontFamily: `"Times New Roman", serif`,
+                  textAlign: "center",
                 }}
               >
                 TRUSTED TRANSPORT SERVICE
@@ -471,7 +470,7 @@ export default function Services() {
           {/* CARDS */}
           <Grid
             container
-            spacing={{ xs: 2, md: 2.5 }}
+            spacing={{ xs: 2, md: 3 }}
             justifyContent="center"
           >
             {services.map((item, index) => (
@@ -530,7 +529,7 @@ export default function Services() {
                     width: "100%",
                     height: {
                       xs: 320,
-                      md: 500,
+                      md: 800,
                     },
                     objectFit: "cover",
                     display: "block",
@@ -668,7 +667,7 @@ export default function Services() {
 
                     fontSize: {
                       xs: "14px",
-                      md: "14px",
+                      md: "20px",
                     },
 
                     textAlign: "justify",
@@ -676,11 +675,7 @@ export default function Services() {
                     fontFamily: `"Times New Roman", serif`,
                   }}
                 >
-                  A leading manufacturing company was struggling
-                  with inefficiencies in its global shipping
-                  operations. High transit costs, customs delays
-                  and lack of real-time tracking disrupted supply
-                  chain operations and increased delivery delays.
+                  A leading manufacturing company was struggling with inefficiencies in its global shipping operations. High transit costs, frequent customs delays, and a lack of real-time shipment tracking were causing disruptions in the supply chain. These challenges led to increased operational expenses and delays in deliveries, affecting overall business performance.
                 </Typography>
 
                 <Typography
@@ -691,7 +686,7 @@ export default function Services() {
 
                     fontSize: {
                       xs: "14px",
-                      md: "14px",
+                      md: "20px",
                     },
 
                     textAlign: "justify",
@@ -699,11 +694,14 @@ export default function Services() {
                     fontFamily: `"Times New Roman", serif`,
                   }}
                 >
-                  SSS Sai Shipping Services Pvt Ltd. developed
-                  customized logistics solutions improving shipment
-                  visibility, customs clearance and freight
-                  coordination across global supply chains with
-                  better efficiency and seamless transportation.
+                 To overcome these issues, SSS Sai Shipping Services Pvt Ltd. 
+                 developed a customized logistics solution. By optimizing freight 
+                 scheduling, streamlining customs clearance procedures, and integrating
+                  real-time shipment tracking, we improved visibility and efficiency in 
+                  their supply chain. Our expertise in global logistics ensured seamless 
+                  coordination between suppliers, carriers, and regulatory authorities.
+
+
                 </Typography>
               </Box>
             </Grid>
