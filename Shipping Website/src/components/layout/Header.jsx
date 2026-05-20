@@ -37,7 +37,6 @@ const servicesDropdown = [
   // Custom Clearance with submenu
   {
     label: "Custom Clearance",
-    path: "/custom-clearance",
     subMenu: [
       { label: "Import", path: "/import" },
       { label: "Export", path: "/export" },
@@ -51,7 +50,7 @@ const servicesDropdown = [
 const navItems = [
   { label: "Home", path: "/" },
   { label: "Company", path: "/about-us", dropdown: companyDropdown },
-  { label: "Services", path: "/services", dropdown: servicesDropdown },
+  { label: "Services", path: "/Services", dropdown: servicesDropdown },
   { label: "Projects", path: "/projects" },
   { label: "Contact", path: "/contact" },
 ];
@@ -153,10 +152,16 @@ function Navbar() {
                           cursor: "pointer",
                         }}
                       >
+                        {/* CLICKABLE TITLE */}
+  <Link
+    to={item.path}
+    style={{ textDecoration: "none" }}
+  >
                         <Typography
                           sx={{
                             position: "relative",
-                            color: isActive || isHovered ? "#ff7236" : "#eb7e27",
+                            color:
+                              isActive || isHovered ? "#ff7236" : "#eb7e27",
                             fontWeight: 700,
                             fontSize: { md: "18px", lg: "20px" },
                             fontFamily: '"Times New Roman", serif',
@@ -175,12 +180,15 @@ function Navbar() {
                         >
                           {item.label}
                         </Typography>
+                        </Link>
                         <KeyboardArrowDownIcon
                           sx={{
                             color: isHovered ? "#ff7236" : "#eb7e27",
                             fontSize: "20px",
                             transition: "0.3s",
-                            transform: isHovered ? "rotate(180deg)" : "rotate(0deg)",
+                            transform: isHovered
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
                           }}
                         />
                       </Box>
@@ -190,9 +198,9 @@ function Navbar() {
                         <Box
                           sx={{
                             position: "absolute",
-                            top: "100%",        // ← starts right at nav item, no gap
+                            top: "100%", // ← starts right at nav item, no gap
                             left: 0,
-                            pt: "14px",         // ← padding creates visual gap but mouse stays inside
+                            pt: "14px", // ← padding creates visual gap but mouse stays inside
                             zIndex: 9999,
                             minWidth: "220px",
                           }}
@@ -207,94 +215,96 @@ function Navbar() {
                             }}
                           >
                             {item.dropdown.map((drop) => (
-  <Box
-    key={drop.label}
-    sx={{
-      position: "relative",
-      "&:hover .submenu": {
-        display: "block",
-      },
-    }}
-  >
-    {/* Main Item */}
-    <Link
-      to={drop.path}
-      style={{ textDecoration: "none" }}
-      onClick={() => setHovered(false)}
-    >
-      <Typography
-        sx={{
-          px: 3,
-          py: 1.5,
-          fontSize: "16px",
-          fontWeight: 500,
-          color: "#333",
-          fontFamily: '"Times New Roman", serif',
-          transition: "0.2s",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+                              <Box
+                                key={drop.label}
+                                sx={{
+                                  position: "relative",
+                                  "&:hover .submenu": {
+                                    display: "block",
+                                  },
+                                }}
+                              >
+                                {/* Main Item */}
+                                <Link
+  to={drop.path}
+  style={{ textDecoration: "none" }}
+>
+                                  <Typography
+                                    sx={{
+                                      px: 3,
+                                      py: 1.5,
+                                      fontSize: "16px",
+                                      fontWeight: 500,
+                                      color: "#333",
+                                      fontFamily: '"Times New Roman", serif',
+                                      transition: "0.2s",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "space-between",
 
-          "&:hover": {
-            color: "#eb7e27",
-            backgroundColor: "#fff8f3",
-          },
-        }}
-      >
-        {drop.label}
+                                      "&:hover": {
+                                        color: "#eb7e27",
+                                        backgroundColor: "#fff8f3",
+                                      },
+                                    }}
+                                  >
+                                    {drop.label}
 
-        {drop.subMenu && (
-          <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
-        )}
-      </Typography>
-    </Link>
+                                    {drop.subMenu && (
+                                      <KeyboardArrowDownIcon
+                                        sx={{ fontSize: 18 }}
+                                      />
+                                    )}
+                                  </Typography>
+                                </Link>
 
-    {/* HOVER SUBMENU */}
-    {drop.subMenu && (
-      <Box
-        className="submenu"
-        sx={{
-          display: "none",
-          position: "absolute",
-          top: 0,
-          left: "100%",
-          minWidth: "180px",
-          backgroundColor: "#fff",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-          borderRadius: "6px",
-          py: 1,
-          zIndex: 999,
-        }}
-      >
-        {drop.subMenu.map((sub) => (
-          <Link
-            key={sub.label}
-            to={sub.path}
-            style={{ textDecoration: "none" }}
-            onClick={() => setHovered(false)}
-          >
-            <Typography
-              sx={{
-                px: 3,
-                py: 1.2,
-                fontSize: "15px",
-                color: "#333",
-                fontFamily: '"Times New Roman", serif',
+                                {/* HOVER SUBMENU */}
+                                {drop.subMenu && (
+                                  <Box
+                                    className="submenu"
+                                    sx={{
+                                      display: "none",
+                                      position: "absolute",
+                                      top: 0,
+                                      left: "100%",
+                                      minWidth: "180px",
+                                      backgroundColor: "#fff",
+                                      boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
+                                      borderRadius: "6px",
+                                      py: 1,
+                                      zIndex: 999,
+                                    }}
+                                  >
+                                    {drop.subMenu.map((sub) => (
+                                      <Link
+                                        key={sub.label}
+                                        to={sub.path}
+                                        style={{ textDecoration: "none" }}
+                                        onClick={() => setHovered(false)}
+                                      >
+                                        <Typography
+                                          sx={{
+                                            px: 3,
+                                            py: 1.2,
+                                            fontSize: "15px",
+                                            color: "#333",
+                                            fontFamily:
+                                              '"Times New Roman", serif',
 
-                "&:hover": {
-                  backgroundColor: "#fff8f3",
-                  color: "#eb7e27",
-                },
-              }}
-            >
-              {sub.label}
-            </Typography>
-          </Link>
-        ))}
-      </Box>
-    )}
-  </Box>
-))}
+                                            "&:hover": {
+                                              backgroundColor: "#fff8f3",
+                                              color: "#eb7e27",
+                                            },
+                                          }}
+                                        >
+                                          {sub.label}
+                                        </Typography>
+                                      </Link>
+                                    ))}
+                                  </Box>
+                                )}
+                              </Box>
+                            ))}
                           </Box>
                         </Box>
                       )}
@@ -362,7 +372,10 @@ function Navbar() {
                     display: "flex",
                     alignItems: "center",
                     gap: 2,
-                    "&:hover": { backgroundColor: "#d86f1f", boxShadow: "none" },
+                    "&:hover": {
+                      backgroundColor: "#d86f1f",
+                      boxShadow: "none",
+                    },
                   }}
                 >
                   Get A Quote
@@ -404,7 +417,10 @@ function Navbar() {
                   "&:hover": { backgroundColor: "#d86f1f" },
                 }}
               >
-                Get A<br />Free<br />Quote
+                Get A<br />
+                Free
+                <br />
+                Quote
               </Button>
             </Link>
           </Toolbar>
@@ -442,9 +458,13 @@ function Navbar() {
             {navItems.map((item) => {
               // ✅ Fixed — use pre-declared states instead of useState inside map
               const mobileOpen =
-                item.label === "Company" ? companyMobileOpen : servicesMobileOpen;
+                item.label === "Company"
+                  ? companyMobileOpen
+                  : servicesMobileOpen;
               const setMobileOpen =
-                item.label === "Company" ? setCompanyMobileOpen : setServicesMobileOpen;
+                item.label === "Company"
+                  ? setCompanyMobileOpen
+                  : setServicesMobileOpen;
 
               return (
                 <Box key={item.label}>
@@ -475,7 +495,9 @@ function Navbar() {
                           sx={{
                             color: "#fff",
                             transition: "0.3s",
-                            transform: mobileOpen ? "rotate(180deg)" : "rotate(0deg)",
+                            transform: mobileOpen
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
                           }}
                         />
                       </Box>
@@ -532,7 +554,12 @@ function Navbar() {
                   )}
 
                   {/* Divider */}
-                  <Box sx={{ borderBottom: "1px solid rgba(255,255,255,0.2)", mb: 1 }} />
+                  <Box
+                    sx={{
+                      borderBottom: "1px solid rgba(255,255,255,0.2)",
+                      mb: 1,
+                    }}
+                  />
                 </Box>
               );
             })}
