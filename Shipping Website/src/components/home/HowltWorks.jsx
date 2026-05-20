@@ -247,7 +247,7 @@ export default function HowItWorks() {
 
                     fontSize: {
                       xs: "16px",
-                      md: "15px",
+                      md: "20px",
                     },
 
                     lineHeight: 1.9,
