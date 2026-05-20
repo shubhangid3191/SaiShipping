@@ -3,9 +3,9 @@ import App from "../App";
 
 import Navbar from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import QuoteFrom from "../components/quote/QuoteFrom";
+import QuoteFrom from "../pages/quote/QuoteFrom";
 import Projects from "../pages/Projects";
-import Home from "../components/home/Home"
+import Home from "../pages/home/Home";
 import Contact from "../pages/Contact";
 import Warehouses from "../pages/Warehouses";
 import FreightForwarding from "../pages/FreightForwarding";
