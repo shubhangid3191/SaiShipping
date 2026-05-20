@@ -19,7 +19,8 @@ export default function AboutSection() {
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 8 },
+        pt: { xs: 8, md: 8 },
+        pb: 0,
         backgroundColor: "#f7f7f5",
         overflow: "hidden",
       }}
@@ -31,7 +32,7 @@ export default function AboutSection() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            alignItems: "center",
+            alignItems: { xs: "center", md: "flex-start" },  // ← CHANGED
             gap: { xs: 6, md: 4 },
           }}
         >
@@ -44,7 +45,7 @@ export default function AboutSection() {
               flex: "0 0 50%",
               width: { xs: "100%", md: "50%" },
               position: "relative",
-              height: { xs: 480, md: 640 },
+              height: { xs: 480, md: 560 },    // ← REDUCED from 640
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -80,7 +81,7 @@ export default function AboutSection() {
               alt="Shipping crane"
               sx={{
                 width: "80%",
-                height: { xs: 340, md: 540 },
+                height: { xs: 340, md: 460 },   // ← REDUCED from 540
                 objectFit: "contain",
                 position: "relative",
                 zIndex: 2,
@@ -325,8 +326,7 @@ export default function AboutSection() {
 
                 <Typography
                   sx={{
-                    fontFamily:
-                      "'Dancing Script', 'Brush Script MT', cursive",
+                    fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
                     fontSize: { xs: "1.6rem", md: "1.9rem" },
                     color: "#333",
                     lineHeight: 1,
@@ -340,16 +340,15 @@ export default function AboutSection() {
         </Box>
 
         {/* ═══════════════════════════════════
-            BOTTOM ROW — FIXED EXTRA SPACE
+            BOTTOM ROW — STAR + TRUCK
         ═══════════════════════════════════ */}
         <Box
           sx={{
-            mt: { xs: 2, md: 1 },
+            mt: 0,
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
             pointerEvents: "none",
-            minHeight: "auto",
             lineHeight: 0,
           }}
         >
@@ -361,9 +360,7 @@ export default function AboutSection() {
               lineHeight: 1,
               userSelect: "none",
               flexShrink: 0,
-
               animation: "starSpin 8s linear infinite",
-
               "@keyframes starSpin": {
                 "0%": { transform: "rotate(0deg)" },
                 "100%": { transform: "rotate(360deg)" },
@@ -383,10 +380,7 @@ export default function AboutSection() {
               objectFit: "contain",
               flexShrink: 0,
               display: "block",
-
-              animation:
-                "truckBounce 0.5s ease-in-out infinite alternate",
-
+              animation: "truckBounce 0.5s ease-in-out infinite alternate",
               "@keyframes truckBounce": {
                 "0%": { transform: "translateY(0px)" },
                 "100%": { transform: "translateY(-6px)" },

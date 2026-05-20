@@ -66,7 +66,7 @@ const services = [
     title: "CUSTOM CLEARANCE",
     image: serv2,
     icon: <DescriptionIcon sx={{ fontSize: 18 }} />,
-    path: "/custom-clearance-import",
+    path: "/import",
     desc:
       "Customs clearance is the process of preparing and submitting required documents to facilitate the import or export of goods across international borders including duties, taxes and shipment compliance regulations.",
   },
