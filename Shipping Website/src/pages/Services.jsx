@@ -230,6 +230,7 @@ function ServiceCard({ item }) {
               lineHeight: 1.4,
               transition: "0.35s",
               fontFamily: `"Playfair Display", serif`,
+
             }}
           >
             {item.title}

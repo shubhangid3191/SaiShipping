@@ -73,20 +73,20 @@ const branches = [
 ];
 
 const services = [
-  { label: "Freight Forwarding", href: "https://saishipping.com/freight-forwarding.php" },
-  { label: "Custom Clearance", href: "https://saishipping.com/custom-clearance-import.php" },
-  { label: "Warehouses", href: "https://saishipping.com/warehouses.php" },
-  { label: "Additional Services", href: "https://saishipping.com/additional.php" },
+  { label: "Freight Forwarding", href: "http://localhost:5173/freight-forwarding" },
+  { label: "Custom Clearance", href: "http://localhost:5173/import" },
+  { label: "Warehouses", href: "http://localhost:5173/warehouses" },
+  { label: "Additional Services", href: "http://localhost:5173/additional-services" },
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "https://saishipping.com/about-us.php" },
-  { label: "Industry We Offer", href: "https://saishipping.com/industry.php" },
-  { label: "Clients", href: "https://saishipping.com/clients.php" },
-  { label: "FAQ", href: "https://saishipping.com/faq.php" },
-  { label: "Achievements & Rewards", href: "https://saishipping.com/achievements-rewards.php" },
-  { label: "Projects", href: "https://saishipping.com/project.php" },
-  { label: "Contact Us", href: "https://saishipping.com/contact.php" },
+  { label: "About Us", href: "http://localhost:5173/about-us" },
+  { label: "Industry We Offer", href: "http://localhost:5173/industry" },
+  { label: "Clients", href: "http://localhost:5173/clients" },
+  { label: "FAQ", href: "http://localhost:5173/faq" },
+  { label: "Achievements & Rewards", href: "http://localhost:5173/achievements" },
+  { label: "Projects", href: "http://localhost:5173/projects" },
+  { label: "Contact Us", href: "http://localhost:5173/contact" },
 ];
 
 const socials = [
