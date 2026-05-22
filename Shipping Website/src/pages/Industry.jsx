@@ -179,8 +179,8 @@ function Industry() {
                 fontSize: { xs: 26, md: 40 },
                 fontWeight: 800,
                 color: "#0b1b3a",
-                textTransform: "uppercase", 
-                fontFamily: 'serif',
+                textTransform: "uppercase",
+                fontFamily: "serif",
                 mb: 3,
               }}
             >
@@ -289,7 +289,7 @@ function Industry() {
       </Container>
 
       {/* INDUSTRY CARDS */}
-      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 }, mb: 10, }}>
+      <Container maxWidth="xl" sx={{ pb: { xs: 4, md: 6 }, mb: 10 }}>
         <Box
           sx={{
             display: "grid",
@@ -314,7 +314,7 @@ function Industry() {
                 boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
                 display: "flex",
                 flexDirection: "column",
-                height: "100%", 
+                height: "100%",
                 transition: "all 0.3s ease",
 
                 "&:hover": {
@@ -332,7 +332,7 @@ function Industry() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center", 
+                    objectPosition: "center",
                     display: "block",
                     transition: "transform 0.4s ease",
 

@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-} from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
 
 import aboutBanner from "../assets/images/about-banner.jpg";
 
@@ -123,6 +116,8 @@ const awardData = [
 ];
 
 function AchievementsRewards() {
+  const [openImage, setOpenImage] = useState(null);
+
   return (
     <>
       {/* HERO SECTION */}
@@ -174,112 +169,141 @@ function AchievementsRewards() {
         </Box>
       </Box>
 
-      {/* CARDS GRID (STRICT 3 COLUMN LIKE INDUSTRY PAGE) */}
-      <Box sx={{ backgroundColor: "#f7f9fc", pb: 10 }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "1fr",
-                sm: "1fr 1fr",
-                md: "repeat(3, 400px)",
-              },
-              gap: "30px",
-              minHeight: 500,
-              alignItems: "stretch",
-              px: { xs: 2, md: 3 },
-            }}
-          >
-            {awardData.map((item, index) => (
+      {/* ✅ CARDS GRID — equal padding left & right, fully centered */}
+      <Box
+        sx={{
+          backgroundColor: "#f7f9fc",
+          py: 10,
+          px: { xs: 3, sm: 5, md: 8, lg: 12 }, // ✅ equal left & right padding
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "30px",
+            maxWidth: "1300px",
+            mx: "auto",
+          }}
+        >
+          {awardData.map((item, index) => (
+            <Box
+              key={index}
+              sx={{
+                width: { xs: "100%", sm: "calc(50% - 15px)", md: "360px" },
+                display: "flex",
+                flexDirection: "column",
+                borderRadius: 3,
+                overflow: "hidden",
+                backgroundColor: "#fff",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                transition: "0.3s",
+                "&:hover": {
+                  transform: "translateY(-6px)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                },
+              }}
+            >
+              {/* IMAGE */}
               <Box
-                key={index}
                 sx={{
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  borderRadius: 3,
+                  width: "100%",
+                  height: "400px",
                   overflow: "hidden",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-                  transition: "0.3s",
-                  "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                  },
+                  backgroundColor: "#c3bfbf",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: 3,
+                  boxSizing: "border-box",
+                  cursor: "pointer",
                 }}
+                onClick={() => setOpenImage(item.image)}
               >
-                {/* IMAGE */}
                 <Box
+                  component="img"
+                  src={item.image}
+                  alt={item.title}
                   sx={{
                     width: "100%",
-                    height: "500px",
-                    aspectRatio: "4 / 3",
-                    overflow: "hidden",
-                    backgroundColor: "#c3bfbf",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 3,
-                    boxSizing: "border-box",
-                    cursor: "pointer",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: 1,
                   }}
-                    onClick={() => setOpenImage(item.image)} 
-                >
-                  <Box
-                    component="img"
-                    src={item.image}
-                    alt={item.title}
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: 1,
-                    }}
-                  />
-                </Box>
-
-                {/* CONTENT */}
-                <Box
-                  sx={{
-                    p: 2.5,
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    justifyContent: "center",
-                    textAlign: "left",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 18, md: 22 },
-                      fontWeight: 700,
-                      color: "#222",
-                      fontFamily: "Times New Roman",
-                      lineHeight: 1.4,
-                      mb: 1,
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 16, md: 18 },
-                      color: "#555",
-                      fontFamily: "Times New Roman",
-                      lineHeight: 1.6,
-                      maxWidth: "90%",
-                    }}
-                  >
-                    {item.desc}
-                  </Typography>
-                </Box>
+                />
               </Box>
-            ))}
-          </Box>
-        </Container>
+
+              {/* CONTENT */}
+              <Box
+                sx={{
+                  p: 2.5,
+                  flexGrow: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  textAlign: "left",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { xs: 18, md: 22 },
+                    fontWeight: 700,
+                    color: "#222",
+                    fontFamily: "Times New Roman",
+                    lineHeight: 1.4,
+                    mb: 1,
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontSize: { xs: 16, md: 18 },
+                    color: "#555",
+                    fontFamily: "Times New Roman",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {item.desc}
+                </Typography>
+              </Box>
+            </Box>
+          ))}
+        </Box>
       </Box>
+
+      {/* ✅ IMAGE LIGHTBOX */}
+      {openImage && (
+        <Box
+          onClick={() => setOpenImage(null)}
+          sx={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.85)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+            cursor: "pointer",
+            p: 3,
+          }}
+        >
+          <Box
+            component="img"
+            src={openImage}
+            alt="Full view"
+            sx={{
+              maxWidth: "90vw",
+              maxHeight: "90vh",
+              objectFit: "contain",
+              borderRadius: 2,
+              boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+            }}
+          />
+        </Box>
+      )}
     </>
   );
 }

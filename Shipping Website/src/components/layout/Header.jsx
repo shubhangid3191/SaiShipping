@@ -146,7 +146,10 @@ function Navbar() {
                         setHovered(true);
                       }}
                       onMouseLeave={() => {
-                        timer.current = setTimeout(() => setHovered(false), 200);
+                        timer.current = setTimeout(
+                          () => setHovered(false),
+                          200,
+                        );
                       }}
                       sx={{ position: "relative" }}
                     >
@@ -162,7 +165,8 @@ function Navbar() {
                           <Typography
                             sx={{
                               position: "relative",
-                              color: isActive || isHovered ? "#ff7236" : "#eb7e27",
+                              color:
+                                isActive || isHovered ? "#ff7236" : "#eb7e27",
                               fontWeight: 700,
                               fontSize: { md: "18px", lg: "20px" },
                               fontFamily: '"Times New Roman", serif',
@@ -187,7 +191,9 @@ function Navbar() {
                             color: isHovered ? "#ff7236" : "#eb7e27",
                             fontSize: "20px",
                             transition: "0.3s",
-                            transform: isHovered ? "rotate(180deg)" : "rotate(0deg)",
+                            transform: isHovered
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
                           }}
                         />
                       </Box>
@@ -199,7 +205,10 @@ function Navbar() {
                             if (timer.current) clearTimeout(timer.current);
                           }}
                           onMouseLeave={() => {
-                            timer.current = setTimeout(() => setHovered(false), 200);
+                            timer.current = setTimeout(
+                              () => setHovered(false),
+                              200,
+                            );
                           }}
                           sx={{
                             position: "absolute",
@@ -251,7 +260,9 @@ function Navbar() {
                                     }}
                                   >
                                     {drop.label}
-                                    <KeyboardArrowDownIcon sx={{ fontSize: 18 }} />
+                                    <KeyboardArrowDownIcon
+                                      sx={{ fontSize: 18 }}
+                                    />
                                   </Typography>
                                 ) : (
                                   <Link
@@ -304,7 +315,8 @@ function Navbar() {
                                             py: 1.2,
                                             fontSize: "15px",
                                             color: "#555",
-                                            fontFamily: '"Times New Roman", serif',
+                                            fontFamily:
+                                              '"Times New Roman", serif',
                                             "&:hover": {
                                               backgroundColor: "#fff3eb",
                                               color: "#eb7e27",
@@ -472,9 +484,13 @@ function Navbar() {
           <List disablePadding>
             {navItems.map((item) => {
               const mobileOpen =
-                item.label === "Company" ? companyMobileOpen : servicesMobileOpen;
+                item.label === "Company"
+                  ? companyMobileOpen
+                  : servicesMobileOpen;
               const setMobileOpen =
-                item.label === "Company" ? setCompanyMobileOpen : setServicesMobileOpen;
+                item.label === "Company"
+                  ? setCompanyMobileOpen
+                  : setServicesMobileOpen;
 
               return (
                 <Box key={item.label}>
@@ -505,7 +521,9 @@ function Navbar() {
                           sx={{
                             color: "#fff",
                             transition: "0.3s",
-                            transform: mobileOpen ? "rotate(180deg)" : "rotate(0deg)",
+                            transform: mobileOpen
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
                           }}
                         />
                       </Box>

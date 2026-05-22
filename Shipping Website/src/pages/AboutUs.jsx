@@ -96,12 +96,7 @@ const stats = [
   },
 ];
 
-const certificates = [
-  certificate1,
-  certificate2,
-  certificate3,
-  certificate4,
-];
+const certificates = [certificate1, certificate2, certificate3, certificate4];
 
 function AboutUs() {
   return (
@@ -163,7 +158,7 @@ function AboutUs() {
                 fontSize: { xs: "40px", md: "80px" },
                 fontWeight: 900,
                 color: "#000",
-                fontFamily: "serif",
+                fontFamily: "Poppins, sans-serif",
                 lineHeight: 1.1,
                 mt: 1,
               }}
@@ -210,11 +205,18 @@ function AboutUs() {
                     color: "#fff",
                     fontWeight: 600,
                     fontSize: "16px",
+                    fontFamily: "Poppins, sans-serif",
                   }}
                 >
                   Founder - Mr. Haresh A Dhakan
                 </Typography>
-                <Typography sx={{ color: "#ffb347", fontSize: "13px" }}>
+                <Typography
+                  sx={{
+                    color: "#ffb347",
+                    fontSize: "13px",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
                   Customs & Logistics Expert
                 </Typography>
               </Box>
@@ -228,6 +230,7 @@ function AboutUs() {
                   fontWeight: 700,
                   letterSpacing: 1,
                   mb: 1,
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 ABOUT OUR COMPANY
@@ -238,9 +241,9 @@ function AboutUs() {
                   fontSize: { xs: "28px", md: "44px" },
                   fontWeight: 900,
                   color: "#0b1b3a",
-                  fontFamily: "serif",
                   lineHeight: 1.2,
                   mb: 3,
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 Trusted Logistics & Customs Clearance Partner Since 1988
@@ -252,6 +255,7 @@ function AboutUs() {
                   color: "#555",
                   lineHeight: 2,
                   mb: 2,
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 Founded by Mr. Haresh A Dhakan in 1988, our organization began
@@ -266,6 +270,7 @@ function AboutUs() {
                   color: "#555",
                   lineHeight: 2,
                   mb: 2,
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 With decades of experience, we have successfully handled over
@@ -279,6 +284,7 @@ function AboutUs() {
                   fontSize: "16px",
                   color: "#555",
                   lineHeight: 2,
+                  fontFamily: "Poppins, sans-serif",
                 }}
               >
                 Backed by 300+ skilled professionals and retired government
@@ -295,10 +301,23 @@ function AboutUs() {
                   borderRadius: 2,
                 }}
               >
-                <Typography sx={{ color: "#fff", fontWeight: 600 }}>
+                <Typography
+                  sx={{
+                    color: "#fff",
+                    fontWeight: 600,
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
                   ✔ 35+ Years Experience & Global Network
                 </Typography>
-                <Typography sx={{ color: "#ffb347", fontSize: "14px", mt: 1 }}>
+                <Typography
+                  sx={{
+                    color: "#ffb347",
+                    fontSize: "14px",
+                    mt: 1,
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                >
                   Efficient, secure & compliant logistics solutions worldwide
                 </Typography>
               </Box>
@@ -326,8 +345,6 @@ function AboutUs() {
           </Box>
         </Box>
       </Box>
-
-
 
       {/* STATS BOX */}
       <Box
@@ -366,7 +383,7 @@ function AboutUs() {
                     fontSize: { xs: "32px", md: "42px" },
                     fontWeight: 900,
                     color: "#fff",
-                    fontFamily: '"Times New Roman", Times, serif',
+                    fontFamily: "Poppins, sans-serif",
                     lineHeight: 1,
                     mb: 0.5,
                   }}
@@ -377,7 +394,7 @@ function AboutUs() {
                   sx={{
                     fontSize: { xs: "13px", md: "15px" },
                     color: "#fff",
-                    fontFamily: '"Times New Roman", Times, serif',
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 500,
                   }}
                 >
@@ -400,8 +417,6 @@ function AboutUs() {
           ))}
         </Box>
       </Box>
-
-
 
       {/* OUR VISION SECTION */}
       <Box
@@ -432,7 +447,7 @@ function AboutUs() {
                 textTransform: "uppercase",
                 textDecoration: "underline",
                 textUnderlineOffset: "3px",
-                fontFamily: '"Times New Roman", Times, serif',
+                fontFamily: "Poppins, sans-serif",
               }}
             >
               Our Vision
@@ -442,11 +457,11 @@ function AboutUs() {
           {/* Heading */}
           <Typography
             sx={{
-              fontSize: { xs: "28px", md: "60px" },
-              fontWeight: 900,
+              fontSize: { xs: "28px", md: "50px" },
+              fontWeight: 700,
               color: "#0b1b3a",
               textAlign: "center",
-              fontFamily: '"Times New Roman", Times, serif',
+              fontFamily: "Poppins, sans-serif",
               lineHeight: 1.2,
               mb: 2,
             }}
@@ -457,14 +472,14 @@ function AboutUs() {
           {/* Subtext */}
           <Typography
             sx={{
-              fontSize: "20px",
+              fontSize: "18px",
               color: "#505479",
               textAlign: "center",
-              fontWeight: 500,
+              fontWeight: 400,
               maxWidth: "1300px",
               mx: "auto",
               mb: 7,
-              fontFamily: '"Times New Roman", Times, serif',
+              fontFamily: "Poppins, sans-serif",
             }}
           >
             To provide all the logistic services under one roof and become the
@@ -501,6 +516,7 @@ function AboutUs() {
                   p: 4,
                   borderRadius: "8px",
                   cursor: "pointer",
+                  textAlign: "justify",
                   transition: "0.3s",
                   "&:hover": {
                     boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
@@ -528,10 +544,10 @@ function AboutUs() {
                 <Typography
                   className="card-title"
                   sx={{
-                    fontSize: "25px",
-                    fontWeight: 800,
+                    fontSize: "24px",
+                    fontWeight: 600,
                     color: "#0b1b3a",
-                    fontFamily: '"Times New Roman", Times, serif',
+                    fontFamily: "Poppins, sans-serif",
                     mb: 2,
                     transition: "color 0.3s",
                     textAlign: "center", // ← add this
@@ -543,10 +559,9 @@ function AboutUs() {
                 {/* Text */}
                 <Typography
                   sx={{
-                    fontSize: "20px",
+                    fontSize: "18px",
                     color: "#666",
-                    fontFamily: '"Times New Roman", Times, serif',
-                    textAlign: "center", // ← add this
+                    fontFamily: "Poppins, sans-serif",
                   }}
                 >
                   {card.text}
@@ -556,8 +571,6 @@ function AboutUs() {
           </Box>
         </Box>
       </Box>
-
-
 
       {/* IMAGE + TEXT SIDE BY SIDE SECTION */}
       <Box
@@ -652,7 +665,7 @@ function AboutUs() {
                 textTransform: "uppercase",
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
-                fontFamily: '"Times New Roman", Times, serif',
+                fontFamily: "Poppins, sans-serif",
               }}
             >
               Our Mission
@@ -671,7 +684,7 @@ function AboutUs() {
               fontWeight: 700,
               color: "#071c4d",
 
-              fontFamily: '"Times New Roman", Times, serif',
+              fontFamily: "Poppins, sans-serif",
               fontStyle: "italic",
 
               lineHeight: 1.15,
@@ -698,11 +711,11 @@ function AboutUs() {
               sx={{
                 fontSize: {
                   xs: "16px",
-                  md: "20px",
+                  md: "18px",
                 },
 
                 color: "#042127",
-                fontFamily: '"Cormorant Garamond",serif',
+                fontFamily: "Poppins, sans-serif",
                 fontStyle: "italic",
                 lineHeight: 2,
                 maxWidth: "900px",
@@ -751,13 +764,11 @@ function AboutUs() {
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
-
               }}
             />
           ))}
         </Box>
       </Container>
-
 
       <Container maxWidth="xl" sx={{ py: 8 }}>
         <Swiper
@@ -866,7 +877,7 @@ function AboutUs() {
                 fontSize: { xs: "24px", sm: "32px", md: "46px" },
                 fontWeight: 700,
                 color: "#000",
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: "Poppins, sans-serif",
                 lineHeight: 1,
                 mb: 1,
               }}
@@ -878,7 +889,7 @@ function AboutUs() {
               sx={{
                 fontSize: { xs: "16px", md: "20px" },
                 color: "#444",
-                fontFamily: '"Times New Roman", serif',
+                fontFamily: "Poppins, sans-serif",
                 maxWidth: "1000px",
                 mx: "auto",
                 lineHeight: 2.7,
@@ -958,7 +969,6 @@ function AboutUs() {
           ))}
         </Box>
       </Box>
-
     </>
   );
 }

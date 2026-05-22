@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  TextField,
-  Button,
-} from "@mui/material";
+import { Box, Typography, Container, Button } from "@mui/material";
 
 import aboutBanner from "../assets/images/about-banner.jpg";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import BoltIcon from "@mui/icons-material/Bolt";
-import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
-
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import MemoryIcon from "@mui/icons-material/Memory";
-
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const faqs = [
@@ -53,7 +42,7 @@ const faqs = [
     • Duty deferment and exemption on re-exported goods, promoting export-led growth
     • Consolidation and deconsolidation of cargo, optimizing logistics and reducing costs
     • Efficient customs clearance and reduced documentation requirements
-    • Centralized storage and distribution facilities, improving inventory managemet
+    • Centralized storage and distribution facilities, improving inventory management
     • Integration with global supply chains, increasing India's competitiveness
     • Attracting foreign investment and boosting economic growth
   `,
@@ -136,10 +125,7 @@ function FAQ() {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
@@ -165,13 +151,8 @@ function FAQ() {
           component="img"
           src={aboutBanner}
           alt="Banner"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          sx={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
-
         <Box
           sx={{
             position: "absolute",
@@ -194,7 +175,6 @@ function FAQ() {
           >
             International Logistics
           </Typography>
-
           <Typography
             sx={{
               fontSize: { xs: 40, md: 90 },
@@ -208,278 +188,262 @@ function FAQ() {
         </Box>
       </Box>
 
+      {/* ✅ FAQ SECTION — equal padding both sides */}
       <Box
         sx={{
           py: { xs: 6, md: 12 },
           mt: { xs: 4, md: 10 },
           backgroundColor: "#fff",
+          px: { xs: 3, sm: 5, md: 8, lg: 12 }, // ✅ same left & right padding
         }}
       >
-        <Container maxWidth="xl">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", lg: "row" },
+            gap: { xs: 6, md: 10 },
+            alignItems: "flex-start",
+            maxWidth: "1400px",
+            mx: "auto", // ✅ center the whole block
+          }}
+        >
+          {/* ✅ LEFT SIDE — same padding as right */}
           <Box
             sx={{
-              display: "flex",
-              flexDirection: { xs: "column", lg: "row" },
-              gap: { xs: 6, md: 10 },
-              alignItems: "flex-start",
+              width: { xs: "100%", lg: "520px" },
+              flexShrink: 0,
             }}
           >
-            {/* LEFT SIDE CONTENT */}
+            {/* SMALL TITLE */}
             <Box
+              sx={{ display: "flex", alignItems: "center", gap: "6px", mb: 2 }}
+            >
+              <BoltIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
+              <Typography
+                sx={{
+                  color: "#FF7236",
+                  fontWeight: 700,
+                  fontSize: { xs: "16px", md: "20px" },
+                  lineHeight: "30px",
+                  letterSpacing: "1.2px",
+                  fontFamily: "serif",
+                  textTransform: "uppercase",
+                  textDecoration: "underline",
+                  display: "inline-block",
+                }}
+              >
+                FAQs
+              </Typography>
+            </Box>
+
+            {/* HEADING */}
+            <Typography
               sx={{
-                width: { xs: "100%", lg: "520px" },
-                flexShrink: 0,
+                fontSize: { xs: "32px", sm: "38px", md: "46px" },
+                lineHeight: 1.08,
+                fontWeight: 800,
+                color: "#111827",
+                fontFamily: '"Times New Roman", serif',
+                mb: 3,
               }}
             >
-              {/* SMALL TITLE */}
+              Have Questions?
+              <br />
+              We've Got Answers!
+            </Typography>
+
+            {/* DESCRIPTION */}
+            <Typography
+              sx={{
+                color: "#6B7280",
+                fontSize: { xs: "16px", md: "20px" },
+                lineHeight: 1.9,
+                mb: 5,
+                fontFamily: '"Times New Roman", serif',
+              }}
+            >
+              Let's Find the answers to the basics of Shipping and logistics
+            </Typography>
+
+            <Box sx={{ mb: 4 }}>
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: "10px",
                   mb: 2,
                 }}
               >
-                <BoltIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
+                <AccountTreeIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
                 <Typography
                   sx={{
-                    color: "#FF7236",
-                    fontWeight: 700,
-                    fontSize: { xs: "16px", md: "20px" },
-                    lineHeight: "30px",
+                    color: "#6B7280",
+                    fontSize: { xs: "15px", md: "18px" },
+                    fontWeight: 400,
                     letterSpacing: "1.2px",
-                    fontFamily: "serif",
-                    textTransform: "uppercase",
-                    textDecoration: "underline",
-                    display: "inline-block",
+                    fontFamily: "'Times New Roman', serif",
                   }}
                 >
-                  FAQs
+                  We provide customer support around the clock
                 </Typography>
               </Box>
-
-              {/* HEADING */}
-              <Typography
-                sx={{
-                  fontSize: { xs: "32px", sm: "38px", md: "46px" },
-                  lineHeight: 1.08,
-                  fontWeight: 800,
-                  color: "#111827",
-                  fontFamily: '"Times New Roman", serif',
-                  mb: 3,
-                }}
-              >
-                Have Questions?
-                <br />
-                We've Got Answers!
-              </Typography>
-
-              {/* DESCRIPTION */}
-              <Typography
-                sx={{
-                  color: "#6B7280",
-                  fontSize: { xs: "16px", md: "20px" },
-                  lineHeight: 1.9,
-                  mb: 5,
-                  fontFamily: '"Times New Roman", serif',
-                }}
-              >
-                Let's Find the answers to the basics of Shipping and logistics
-              </Typography>
-
-              <Box sx={{ mb: 4 }}>
-                <Box
+              <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <AccountTreeIcon sx={{ color: "#FF7236", fontSize: "20px" }} />
+                <Typography
                   sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    mb: 2,
+                    color: "#6B7280",
+                    fontSize: { xs: "15px", md: "18px" },
+                    fontWeight: 400,
+                    letterSpacing: "1.2px",
+                    fontFamily: "'Times New Roman', serif",
                   }}
                 >
-                  <AccountTreeIcon
-                    sx={{ color: "#FF7236", fontSize: "20px" }}
-                  />
-                  <Typography
-                    sx={{
-                      color: "#6B7280",
-                      fontSize: { xs: "15px", md: "18px" },
-                      fontWeight: 400,
-                      letterSpacing: "1.2px",
-                      fontFamily: "'Times New Roman', serif",
-                    }}
-                  >
-                    We provide customer support around the clock
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{ display: "flex", alignItems: "center", gap: "10px" }}
-                >
-                  <AccountTreeIcon
-                    sx={{ color: "#FF7236", fontSize: "20px" }}
-                  />
-                  <Typography
-                    sx={{
-                      color: "#6B7280",
-                      fontSize: { xs: "15px", md: "18px" },
-                      fontWeight: 400,
-                      letterSpacing: "1.2px",
-                      fontFamily: "'Times New Roman', serif",
-                    }}
-                  >
-                    Coverage protecting goods during transport
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: { xs: 2, md: 4 },
-                  flexWrap: "wrap",
-                  mt: 4,
-                }}
-              >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <MemoryIcon sx={{ color: "#FF7236", fontSize: "36px" }} />
-                  <Typography
-                    sx={{
-                      color: "#111827",
-                      fontSize: { xs: "18px", md: "22px" },
-                      fontWeight: 700,
-                      fontFamily: "'Times New Roman', serif",
-                    }}
-                  >
-                    Domestic & Service
-                  </Typography>
-                </Box>
-
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                  <MemoryIcon sx={{ color: "#FF7236", fontSize: "36px" }} />
-                  <Typography
-                    sx={{
-                      color: "#111827",
-                      fontSize: { xs: "18px", md: "22px" },
-                      fontWeight: 700,
-                      fontFamily: "'Times New Roman', serif",
-                    }}
-                  >
-                    Intermodal Shipping
-                  </Typography>
-                </Box>
+                  Coverage protecting goods during transport
+                </Typography>
               </Box>
             </Box>
 
-            {/* RIGHT SIDE FAQ */}
-            <Box sx={{ flex: 1, width: "100%", maxWidth: "850px" }}>
-              {faqs.map((faq, index) => (
-                <Box
-                  key={index}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: { xs: 2, md: 4 },
+                flexWrap: "wrap",
+                mt: 4,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <MemoryIcon sx={{ color: "#FF7236", fontSize: "36px" }} />
+                <Typography
                   sx={{
-                    border: "1px solid #ececec",
-                    borderRadius: "10px",
-                    mb: 2.5,
-                    overflow: "hidden",
-                    backgroundColor: "#fff",
+                    color: "#111827",
+                    fontSize: { xs: "18px", md: "22px" },
+                    fontWeight: 700,
+                    fontFamily: "'Times New Roman', serif",
                   }}
                 >
-                  <Box
-                    onClick={() => toggleFAQ(index)}
+                  Domestic & Service
+                </Typography>
+              </Box>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <MemoryIcon sx={{ color: "#FF7236", fontSize: "36px" }} />
+                <Typography
+                  sx={{
+                    color: "#111827",
+                    fontSize: { xs: "18px", md: "22px" },
+                    fontWeight: 700,
+                    fontFamily: "'Times New Roman', serif",
+                  }}
+                >
+                  Intermodal Shipping
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* ✅ RIGHT SIDE FAQ — naturally fills remaining space */}
+          <Box sx={{ flex: 1, width: "100%" }}>
+            {faqs.map((faq, index) => (
+              <Box
+                key={index}
+                sx={{
+                  border: "1px solid #ececec",
+                  borderRadius: "10px",
+                  mb: 2.5,
+                  overflow: "hidden",
+                  backgroundColor: "#fff",
+                }}
+              >
+                <Box
+                  onClick={() => toggleFAQ(index)}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    px: { xs: 2.5, md: 4 },
+                    py: { xs: 2.5, md: 3.5 },
+                    cursor: "pointer",
+                  }}
+                >
+                  <Typography
                     sx={{
+                      fontSize: { xs: "14px", sm: "16px", md: "20px" },
+                      fontWeight: 700,
+                      color: "#111827",
+                      fontFamily: '"Times New Roman", serif',
+                      lineHeight: 1.5,
+                      pr: 2,
+                    }}
+                  >
+                    {faq.question}
+                  </Typography>
+                  <Box
+                    sx={{
+                      width: { xs: 36, md: 48 },
+                      height: { xs: 36, md: 48 },
+                      minWidth: { xs: 36, md: 48 },
+                      borderRadius: "8px",
+                      backgroundColor:
+                        openIndex === index ? "#ED6637" : "#0B2D3B",
                       display: "flex",
-                      justifyContent: "space-between",
                       alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                    }}
+                  >
+                    {openIndex === index ? (
+                      <ExpandLessIcon />
+                    ) : (
+                      <ExpandMoreIcon />
+                    )}
+                  </Box>
+                </Box>
+
+                {openIndex === index && (
+                  <Box
+                    sx={{
                       px: { xs: 2.5, md: 4 },
-                      py: { xs: 2.5, md: 3.5 },
-                      cursor: "pointer",
+                      pb: 4,
+                      borderTop: "1px solid #f3f4f6",
                     }}
                   >
                     <Typography
                       sx={{
-                        fontSize: { xs: "14px", sm: "16px", md: "20px" },
-                        fontWeight: 700,
-                        color: "#111827",
+                        mt: 3,
+                        color: "#6B7280",
+                        lineHeight: 1.9,
+                        fontSize: { xs: "14px", sm: "15px", md: "18px" },
                         fontFamily: '"Times New Roman", serif',
-                        lineHeight: 1.5,
-                        pr: 2,
+                        whiteSpace: "pre-line",
                       }}
                     >
-                      {faq.question}
+                      {faq.answer}
                     </Typography>
-
-                    <Box
-                      sx={{
-                        width: { xs: 36, md: 48 },
-                        height: { xs: 36, md: 48 },
-                        minWidth: { xs: 36, md: 48 },
-                        borderRadius: "8px",
-                        backgroundColor:
-                          openIndex === index ? "#ED6637" : "#0B2D3B",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "#fff",
-                      }}
-                    >
-                      {openIndex === index ? (
-                        <ExpandLessIcon />
-                      ) : (
-                        <ExpandMoreIcon />
-                      )}
-                    </Box>
                   </Box>
-
-                  {openIndex === index && (
-                    <Box
-                      sx={{
-                        px: { xs: 2.5, md: 4 },
-                        pb: 4,
-                        borderTop: "1px solid #f3f4f6",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          mt: 3,
-                          color: "#6B7280",
-                          lineHeight: 1.9,
-                          fontSize: { xs: "14px", sm: "15px", md: "18px" },
-                          fontFamily: '"Times New Roman", serif',
-                          whiteSpace: "pre-line",
-                        }}
-                      >
-                        {faq.answer}
-                      </Typography>
-                    </Box>
-                  )}
-                </Box>
-              ))}
-            </Box>
+                )}
+              </Box>
+            ))}
           </Box>
-        </Container>
+        </Box>
       </Box>
 
-      {/* FORM SECTION */}
-      <div
-        style={{
+      {/* FORM SECTION — ✅ same px as FAQ section */}
+      <Box
+        sx={{
           backgroundColor: "#fff",
-          padding: isMobile
-            ? "40px 20px"
-            : isTablet
-              ? "50px 40px"
-              : "60px 160px",
-          fontFamily: "serif",
-          boxSizing: "border-box",
+          px: { xs: 3, sm: 5, md: 8, lg: 12 }, // ✅ matches FAQ section
+          py: { xs: 5, md: 8 },
+          maxWidth: "1400px",
+          mx: "auto",
         }}
-        className="faq-form-wrapper"
       >
         {/* Row 1 */}
-        <div
-          style={{
+        <Box
+          sx={{
             display: "flex",
             gap: "20px",
-            marginBottom: "26px",
-            flexDirection: isMobile ? "column" : "row",
+            mb: "26px",
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <input
@@ -498,15 +462,15 @@ function FAQ() {
             onChange={handleChange}
             style={inputStyle}
           />
-        </div>
+        </Box>
 
         {/* Row 2 */}
-        <div
-          style={{
+        <Box
+          sx={{
             display: "flex",
             gap: "20px",
-            marginBottom: "26px",
-            flexDirection: isMobile ? "column" : "row",
+            mb: "26px",
+            flexDirection: { xs: "column", sm: "row" },
           }}
         >
           <input
@@ -525,10 +489,10 @@ function FAQ() {
             onChange={handleChange}
             style={inputStyle}
           />
-        </div>
+        </Box>
 
         {/* Message */}
-        <div style={{ marginBottom: "28px" }}>
+        <Box sx={{ mb: "28px" }}>
           <textarea
             name="message"
             placeholder="Write Message"
@@ -542,20 +506,11 @@ function FAQ() {
               width: "100%",
             }}
           />
-        </div>
+        </Box>
 
-        {/* Button */}
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "30px",
-          }}
-        >
+        {/* Submit Button */}
+        <Box sx={{ display: "flex", justifyContent: "center", mt: "30px" }}>
           <Button
-            type="submit"
             onClick={handleSubmit}
             sx={{
               backgroundColor: "#0D3944",
@@ -568,9 +523,7 @@ function FAQ() {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              "&:hover": {
-                backgroundColor: "#FF7236",
-              },
+              "&:hover": { backgroundColor: "#FF7236" },
             }}
           >
             Send Us Message
@@ -578,9 +531,8 @@ function FAQ() {
               sx={{ fontSize: { xs: "14px", md: "18px" } }}
             />
           </Button>
-        </div>
-      </div>
-      
+        </Box>
+      </Box>
     </>
   );
 }
