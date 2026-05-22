@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // ✅ React Router Link
+import { Link } from "react-router-dom";
 import {
   Box,
   Container,
@@ -14,7 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 
 /* ─────────────────────────────────────────────
-   DATA  —  paths match Navbar exactly
+   DATA
 ───────────────────────────────────────────── */
 
 const branches = [
@@ -72,7 +72,6 @@ const branches = [
   },
 ];
 
-// ✅ Paths taken directly from Navbar servicesDropdown
 const services = [
   { label: "Freight Forwarding", path: "/freight-forwarding" },
   { label: "Custom Clearance (Import)", path: "/import" },
@@ -81,7 +80,6 @@ const services = [
   { label: "Additional Services", path: "/additional-services" },
 ];
 
-// ✅ Paths taken directly from Navbar companyDropdown + navItems
 const companyLinks = [
   { label: "About Us", path: "/about-us" },
   { label: "Industry We Offer", path: "/industry" },
@@ -93,9 +91,18 @@ const companyLinks = [
 ];
 
 const socials = [
-  { icon: <FacebookIcon sx={{ fontSize: 20 }} />, link: "https://www.facebook.com/profile.php?id=61574220553833" },
-  { icon: <XIcon sx={{ fontSize: 20 }} />, link: "https://x.com/sss_shipping" },
-  { icon: <InstagramIcon sx={{ fontSize: 20 }} />, link: "https://www.instagram.com/sss.saishipping/" },
+  {
+    icon: <FacebookIcon sx={{ fontSize: 20 }} />,
+    link: "https://www.facebook.com/profile.php?id=61574220553833",
+  },
+  {
+    icon: <XIcon sx={{ fontSize: 20 }} />,
+    link: "https://x.com/sss_shipping",
+  },
+  {
+    icon: <InstagramIcon sx={{ fontSize: 20 }} />,
+    link: "https://www.instagram.com/sss.saishipping/",
+  },
 ];
 
 /* ─────────────────────────────────────────────
@@ -106,17 +113,8 @@ export default function Footer() {
   return (
     <>
       {/* ───────────────── CTA CARD ───────────────── */}
-      <Box
-        sx={{
-          position: "relative",
-          zIndex: 20,
-          mb: { xs: "-70px", md: "-90px" },
-        }}
-      >
-        <Container
-          maxWidth={false}
-          sx={{ maxWidth: "1220px", mx: "auto", px: { xs: 2, md: 3 } }}
-        >
+      <Box sx={{ position: "relative", zIndex: 20, mb: { xs: "-70px", md: "-90px" } }}>
+        <Container maxWidth={false} sx={{ maxWidth: "1220px", mx: "auto", px: { xs: 2, md: 3 } }}>
           <Box
             sx={{
               position: "relative",
@@ -142,13 +140,7 @@ export default function Footer() {
               boxShadow: "0 18px 50px rgba(0,0,0,0.25)",
             }}
           >
-            <Box
-              sx={{
-                position: "relative",
-                zIndex: 5,
-                maxWidth: { xs: "100%", md: "520px" },
-              }}
-            >
+            <Box sx={{ position: "relative", zIndex: 5, maxWidth: { xs: "100%", md: "520px" } }}>
               <Typography
                 sx={{
                   color: "#ff7b2f",
@@ -176,7 +168,6 @@ export default function Footer() {
                 Transport & Logistics Projects That We Provide
               </Typography>
 
-              {/* ✅ Using React Router Link for internal navigation */}
               <Link to="/contact" style={{ textDecoration: "none" }}>
                 <Button
                   variant="contained"
@@ -314,12 +305,7 @@ export default function Footer() {
                 </Typography>
                 <Stack spacing={2.5}>
                   {services.map((item) => (
-                    // ✅ React Router Link — same path as Navbar servicesDropdown
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      style={{ textDecoration: "none" }}
-                    >
+                    <Link key={item.label} to={item.path} style={{ textDecoration: "none" }}>
                       <Typography
                         sx={{
                           color: "#fff",
@@ -352,12 +338,7 @@ export default function Footer() {
                 </Typography>
                 <Stack spacing={2.5}>
                   {companyLinks.map((item) => (
-                    // ✅ React Router Link — same path as Navbar companyDropdown
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      style={{ textDecoration: "none" }}
-                    >
+                    <Link key={item.label} to={item.path} style={{ textDecoration: "none" }}>
                       <Typography
                         sx={{
                           color: "#fff",
@@ -459,9 +440,39 @@ export default function Footer() {
                   display: { xs: "none", md: "block" },
                 }}
               >
-                <Box sx={{ position: "absolute", left: 0, top: 0, width: "10px", height: "120px", bgcolor: "#fff", transform: "skew(-30deg)" }} />
-                <Box sx={{ position: "absolute", left: 20, top: 0, width: "32px", height: "60px", bgcolor: "#ff7b2f", transform: "skew(-30deg)" }} />
-                <Box sx={{ position: "absolute", left: 28, bottom: 0, width: "42px", height: "70px", bgcolor: "#0f5d73", transform: "skew(-30deg)" }} />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    width: "10px",
+                    height: "120px",
+                    bgcolor: "#fff",
+                    transform: "skew(-30deg)",
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    left: 20,
+                    top: 0,
+                    width: "32px",
+                    height: "60px",
+                    bgcolor: "#ff7b2f",
+                    transform: "skew(-30deg)",
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: "absolute",
+                    left: 28,
+                    bottom: 0,
+                    width: "42px",
+                    height: "70px",
+                    bgcolor: "#0f5d73",
+                    transform: "skew(-30deg)",
+                  }}
+                />
               </Box>
 
               <Box
