@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom"; // ✅ React Router Link
 import {
   Box,
   Container,
   Typography,
-  Link,
   Stack,
   IconButton,
   Button,
@@ -14,7 +14,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 
 /* ─────────────────────────────────────────────
-   DATA
+   DATA  —  paths match Navbar exactly
 ───────────────────────────────────────────── */
 
 const branches = [
@@ -72,21 +72,24 @@ const branches = [
   },
 ];
 
+// ✅ Paths taken directly from Navbar servicesDropdown
 const services = [
-  { label: "Freight Forwarding", href: "http://localhost:5173/freight-forwarding" },
-  { label: "Custom Clearance", href: "http://localhost:5173/import" },
-  { label: "Warehouses", href: "http://localhost:5173/warehouses" },
-  { label: "Additional Services", href: "http://localhost:5173/additional-services" },
+  { label: "Freight Forwarding", path: "/freight-forwarding" },
+  { label: "Custom Clearance (Import)", path: "/import" },
+  { label: "Custom Clearance (Export)", path: "/export" },
+  { label: "Warehouses", path: "/warehouses" },
+  { label: "Additional Services", path: "/additional-services" },
 ];
 
+// ✅ Paths taken directly from Navbar companyDropdown + navItems
 const companyLinks = [
-  { label: "About Us", href: "http://localhost:5173/about-us" },
-  { label: "Industry We Offer", href: "http://localhost:5173/industry" },
-  { label: "Clients", href: "http://localhost:5173/clients" },
-  { label: "FAQ", href: "http://localhost:5173/faq" },
-  { label: "Achievements & Rewards", href: "http://localhost:5173/achievements" },
-  { label: "Projects", href: "http://localhost:5173/projects" },
-  { label: "Contact Us", href: "http://localhost:5173/contact" },
+  { label: "About Us", path: "/about-us" },
+  { label: "Industry We Offer", path: "/industry" },
+  { label: "Clients", path: "/clients" },
+  { label: "FAQ", path: "/faq" },
+  { label: "Achievements & Rewards", path: "/achievements" },
+  { label: "Projects", path: "/projects" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
 const socials = [
@@ -173,27 +176,27 @@ export default function Footer() {
                 Transport & Logistics Projects That We Provide
               </Typography>
 
-              <Button
-                variant="contained"
-                href="https://saishipping.com/contact.php"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  bgcolor: "#ff7b2f",
-                  color: "#fff",
-                  px: { xs: 3, md: 4 },
-                  py: { xs: 1.2, md: 1.4 },
-                  borderRadius: "8px",
-                  fontSize: { xs: "13px", md: "14px" },
-                  fontWeight: 700,
-                  fontFamily: "Georgia, serif",
-                  textTransform: "uppercase",
-                  boxShadow: "none",
-                  "&:hover": { bgcolor: "#ff8f45", boxShadow: "none" },
-                }}
-              >
-                Contact Support
-              </Button>
+              {/* ✅ Using React Router Link for internal navigation */}
+              <Link to="/contact" style={{ textDecoration: "none" }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    bgcolor: "#ff7b2f",
+                    color: "#fff",
+                    px: { xs: 3, md: 4 },
+                    py: { xs: 1.2, md: 1.4 },
+                    borderRadius: "8px",
+                    fontSize: { xs: "13px", md: "14px" },
+                    fontWeight: 700,
+                    fontFamily: "Georgia, serif",
+                    textTransform: "uppercase",
+                    boxShadow: "none",
+                    "&:hover": { bgcolor: "#ff8f45", boxShadow: "none" },
+                  }}
+                >
+                  Contact Support
+                </Button>
+              </Link>
             </Box>
           </Box>
         </Container>
@@ -311,23 +314,25 @@ export default function Footer() {
                 </Typography>
                 <Stack spacing={2.5}>
                   {services.map((item) => (
+                    // ✅ React Router Link — same path as Navbar servicesDropdown
                     <Link
                       key={item.label}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="none"
-                      sx={{
-                        color: "#fff",
-                        fontSize: { xs: "17px", md: "18px" },
-                        fontFamily: "Georgia, serif",
-                        transition: "0.3s",
-                        width: "fit-content",
-                        lineHeight: 1.6,
-                        "&:hover": { color: "#ff7b2f", transform: "translateX(5px)" },
-                      }}
+                      to={item.path}
+                      style={{ textDecoration: "none" }}
                     >
-                      {item.label}
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          fontSize: { xs: "17px", md: "18px" },
+                          fontFamily: "Georgia, serif",
+                          transition: "0.3s",
+                          width: "fit-content",
+                          lineHeight: 1.6,
+                          "&:hover": { color: "#ff7b2f", transform: "translateX(5px)" },
+                        }}
+                      >
+                        {item.label}
+                      </Typography>
                     </Link>
                   ))}
                 </Stack>
@@ -347,23 +352,25 @@ export default function Footer() {
                 </Typography>
                 <Stack spacing={2.5}>
                   {companyLinks.map((item) => (
+                    // ✅ React Router Link — same path as Navbar companyDropdown
                     <Link
                       key={item.label}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="none"
-                      sx={{
-                        color: "#fff",
-                        fontSize: { xs: "17px", md: "18px" },
-                        fontFamily: "Georgia, serif",
-                        transition: "0.3s",
-                        width: "fit-content",
-                        lineHeight: 1.6,
-                        "&:hover": { color: "#ff7b2f", transform: "translateX(5px)" },
-                      }}
+                      to={item.path}
+                      style={{ textDecoration: "none" }}
                     >
-                      {item.label}
+                      <Typography
+                        sx={{
+                          color: "#fff",
+                          fontSize: { xs: "17px", md: "18px" },
+                          fontFamily: "Georgia, serif",
+                          transition: "0.3s",
+                          width: "fit-content",
+                          lineHeight: 1.6,
+                          "&:hover": { color: "#ff7b2f", transform: "translateX(5px)" },
+                        }}
+                      >
+                        {item.label}
+                      </Typography>
                     </Link>
                   ))}
                 </Stack>
@@ -452,39 +459,9 @@ export default function Footer() {
                   display: { xs: "none", md: "block" },
                 }}
               >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    width: "10px",
-                    height: "120px",
-                    bgcolor: "#fff",
-                    transform: "skew(-30deg)",
-                  }}
-                />
-                <Box
-                  sx={{
-                    position: "absolute",
-                    left: 20,
-                    top: 0,
-                    width: "32px",
-                    height: "60px",
-                    bgcolor: "#ff7b2f",
-                    transform: "skew(-30deg)",
-                  }}
-                />
-                <Box
-                  sx={{
-                    position: "absolute",
-                    left: 28,
-                    bottom: 0,
-                    width: "42px",
-                    height: "70px",
-                    bgcolor: "#0f5d73",
-                    transform: "skew(-30deg)",
-                  }}
-                />
+                <Box sx={{ position: "absolute", left: 0, top: 0, width: "10px", height: "120px", bgcolor: "#fff", transform: "skew(-30deg)" }} />
+                <Box sx={{ position: "absolute", left: 20, top: 0, width: "32px", height: "60px", bgcolor: "#ff7b2f", transform: "skew(-30deg)" }} />
+                <Box sx={{ position: "absolute", left: 28, bottom: 0, width: "42px", height: "70px", bgcolor: "#0f5d73", transform: "skew(-30deg)" }} />
               </Box>
 
               <Box
