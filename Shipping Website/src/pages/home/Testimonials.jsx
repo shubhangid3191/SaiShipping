@@ -12,6 +12,8 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import StarIcon from '@mui/icons-material/Star';
+import test1 from "../../assets/images/test1.jpg";
+import test2 from "../../assets/images/test2.jpg";
 
 const testimonials = [
   {
@@ -19,7 +21,7 @@ const testimonials = [
     enjoy the air, and behold the. Climb it see the world, not so the world can see you.
     This is due to their excellent service competitive pricing`,
     image:
-      'https://saishipping.com/images/3.jpg',
+      test1,
     name: 'Robert G. Haver',
     role: 'Freight Manager',
   },
@@ -28,7 +30,7 @@ const testimonials = [
     text: `SAI Shipping provided outstanding logistics support and timely delivery.
     Their professional team made our transport process smooth and stress free.`,
     image:
-      'https://saishipping.com/images/4.jpg',
+      test2,
     name: 'David Wilson',
     role: 'Transport Head',
   },

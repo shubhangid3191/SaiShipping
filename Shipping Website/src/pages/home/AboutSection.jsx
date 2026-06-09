@@ -8,11 +8,16 @@ import {
 
 import BoltIcon from "@mui/icons-material/Bolt";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import about1 from "../../assets/images/about1.png";
+import about2 from "../../assets/images/about2.png";
+import about3 from "../../assets/images/about3.png";
+import about4 from "../../assets/images/about4.png";
 
-const mainImage = "https://saishipping.com/images/shipping.png";
-const smallImage = "https://saishipping.com/images/shipping-1.png";
-const founderPhoto = "https://saishipping.com/images/home-02-author.png";
-const truckImage = "https://saishipping.com/images/t.png";
+
+const mainImage = about1;
+const smallImage = about2;
+const founderPhoto = about3;
+const truckImage = about4;
 
 export default function AboutSection() {
   return (

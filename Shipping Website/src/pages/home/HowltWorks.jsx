@@ -1,26 +1,30 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
+import Hiw1 from "../../assets/images/Hiw1.png";
+import Hiw2 from "../../assets/images/Hiw2.png";
+import Hiw3 from "../../assets/images/Hiw3.png";
+import Hiw4 from "../../assets/images/Hiw4.jpg";
 
 const steps = [
   {
-    image: "https://saishipping.com/images/serv-step-1.png",
+    image: Hiw1,
     tag: "Request A Quote",
     title: "Get A Customized Shipping Quote",
     desc: "Provide us with your shipment details, and we’ll offer you a competitive, tailored quote within minutes. Our team ensures transparency and affordability for all your shipping needs.",
   },
   {
-    image: "https://saishipping.com/images/serv-step-2.png",
+    image: Hiw2,
     tag: "Schedule Your Shipment",
     title: "Plan Your Logistics With Ease",
     desc: "Choose a convenient pickup date and time. Our reliable team will handle the rest, ensuring your goods are collected and transported safely and on time.",
   },
   {
-    image: "https://saishipping.com/images/serv-step-3.png",
+    image: Hiw3,
     tag: "Track Your Cargo",
     title: "Real-Time Shipment Updates",
     desc: "Stay updated on your shipment’s progress with our advanced tracking system. Monitor your cargo’s journey from pickup to delivery, anytime, anywhere.",
   },
   {
-    image: "https://saishipping.com/images/serv-step-4.jpg",
+    image: Hiw4,
     tag: "Delivery & Support",
     title: "On-Time Delivery & Dedicated Support",
     desc: "Experience seamless delivery with our professional team. We provide end-to-end support to ensure your goods reach their destination safely and efficiently.",

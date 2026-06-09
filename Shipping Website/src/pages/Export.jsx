@@ -4,13 +4,27 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import aboutBanner from "../assets/images/about-banner.jpg";
+import export1 from "../assets/images/export1.jpg";
+import export2 from "../assets/images/export2.jpg";
+import export3 from "../assets/images/export3.jpg";
+import export4 from "../assets/images/export4.jpg";
+import export5 from "../assets/images/export5.jpg";
+import export6 from "../assets/images/export6.jpg";
+import export7 from "../assets/images/export7.jpg";
+import export8 from "../assets/images/export8.jpg";
+import export9 from "../assets/images/export9.jpg";
+import export10 from "../assets/images/export10.jpg";
+import export11 from "../assets/images/export11.jpg";
+import export12 from "../assets/images/export12.jpg";
+
 
 const tabs = ["Air & Sea", "FSSAI", "CDSCO", "Jewellery & Stone Clearance"];
 
 const exportData = {
   "Air & Sea": {
     heroTitle: "Air & Sea – SSS Sai Shipping Services Pvt Ltd.",
-    heroImg: "https://saishipping.com/images/air-export-1.jpg",
+    heroImg: export1,
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide seamless Air & Sea solutions to ensure your cargo reaches its destination efficiently, securely, and on time. With our global logistics network and expertise, we manage every aspect of your supply chain, from documentation to final delivery.\n\nAir & Sea is more than just transportation—it's about optimizing logistics, reducing costs, and ensuring timely deliveries. Our team of experts handles everything from cargo booking to customs clearance, offering tailored solutions for businesses across industries. Whether you need air, sea, road, or multimodal transport, we have the right solution for your needs.",
     bottomTitle: "A Reliable Logistics Partner",
@@ -22,8 +36,8 @@ const exportData = {
       "Innovative Solutions for Complex Logistics",
       "Dedicated Support Every Step of the Way",
     ],
-    bottomImg1: "https://saishipping.com/images/air-export-2.jpg",
-    bottomImg2: "https://saishipping.com/images/air-export-3.jpg",
+    bottomImg1: export2,
+    bottomImg2: export3,
     faqTitle: "Helping You Understand Air & Sea Services",
     faqs: [
       { q: "What types of transport services do you offer?", a: "We provide a full range of transport solutions, including road, rail, sea, and air freight, ensuring flexible and efficient cargo movement based on your business needs." },
@@ -35,7 +49,7 @@ const exportData = {
 
   FSSAI: {
     heroTitle: "FSSAI Export Clearance – SSS Sai Shipping Services Pvt Ltd.",
-    heroImg: "https://saishipping.com/images/fssai-export-1.jpg",
+    heroImg: export4,
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide seamless FSSAI export clearance solutions to ensure your food products meet international safety standards and regulations. With our expertise in food compliance and global trade, we manage every aspect of the export process, from documentation to final customs approval.\n\nExporting food products is more than just shipping—it's about ensuring compliance, maintaining quality, and meeting global standards. Our team of specialists handles everything from obtaining FSSAI approvals to coordinating with regulatory authorities, offering tailored solutions for businesses involved in food exports. Whether you're exporting processed foods, organic products, or specialty items like saffron, we ensure a hassle-free clearance process.",
     bottomTitle: "A Trusted Compliance Partner",
@@ -47,8 +61,8 @@ const exportData = {
       "Specialized Solutions for Food & Agricultural Exports",
       "Dedicated Support for Hassle-free Clearance",
     ],
-    bottomImg1: "https://saishipping.com/images/fssai-export-2.jpg",
-    bottomImg2: "https://saishipping.com/images/fssai-export-3.jpg",
+    bottomImg1: export5,
+    bottomImg2: export6,
     faqTitle: "Helping You Understand FSSAI Services",
     faqs: [
       { q: "What are the FSSAI requirements for food exports?", a: "We manage all necessary FSSAI approvals, health certificates, and compliance documentation to ensure seamless export clearance for food products." },
@@ -60,7 +74,7 @@ const exportData = {
 
   CDSCO: {
     heroTitle: "CDSCO Export Clearance – SSS Sai Shipping Services Pvt Ltd.",
-    heroImg: "https://saishipping.com/images/cdsco-export-1.jpg",
+    heroImg: export7,
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide seamless CDSCO export clearance solutions to ensure that your pharmaceutical and medical products meet regulatory requirements efficiently and securely. With our expertise in handling Central Drugs Standard Control Organization (CDSCO) compliance, we manage every aspect of the export process, from documentation to final approval.\n\nCDSCO clearance is more than just regulatory compliance—it's about ensuring product safety, reducing risks, and facilitating smooth international trade. Our team of experts handles licensing, registration, and regulatory approvals, offering tailored solutions for pharmaceutical, biotechnology, and medical device manufacturers. Whether you require assistance with drug exports, medical equipment clearance, or compliance documentation, we provide the right solution to meet your needs.",
     bottomTitle: "A Reliable Regulatory Partner",
@@ -72,8 +86,8 @@ const exportData = {
       "Innovative Solutions for Regulatory Approvals",
       "Dedicated Support Every Step of the Way",
     ],
-    bottomImg1: "https://saishipping.com/images/cdsco-export-2.jpg",
-    bottomImg2: "https://saishipping.com/images/cdsco-export-3.jpg",
+    bottomImg1: export8,
+    bottomImg2: export9,
     faqTitle: "Helping You Understand CDSCO Services",
     faqs: [
       { q: "What are the CDSCO requirements for pharmaceutical exports?", a: "We handle licensing, regulatory documentation, and product registration to ensure compliance with CDSCO guidelines for international trade." },
@@ -85,7 +99,7 @@ const exportData = {
 
   "Jewellery & Stone Clearance": {
     heroTitle: "Jewellery & Stone Clearance – SSS Sai Shipping Services Pvt Ltd.",
-    heroImg: "https://saishipping.com/images/saffron-export-1.jpg",
+    heroImg: export10,
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we specialize in seamless clearance solutions for jewellery, gemstones, and saffron exports, ensuring hassle-free international trade. Our team manages all customs regulations, compliance documentation, and quality certifications to ensure a smooth export process.\n\nExporting high-value items like jewellery, precious stones, and saffron requires meticulous handling, strict security measures, and adherence to international trade laws. We provide end-to-end support, from valuation assessments to export licensing and clearance, helping businesses navigate complex regulatory frameworks with ease.",
     bottomTitle: "Trusted Export Clearance Partner",
@@ -97,8 +111,8 @@ const exportData = {
       "Expertise in High-Value Goods Export",
       "Real-Time Tracking & Dedicated Support",
     ],
-    bottomImg1: "https://saishipping.com/images/saffron-export-2.jpg",
-    bottomImg2: "https://saishipping.com/images/saffron-export-3.jpg",
+    bottomImg1: export11,
+    bottomImg2: export12,
     faqTitle: "Helping You Understand Jewellery & Stone Clearance Services",
     faqs: [
       { q: "What are the export requirements for jewellery and gemstones?", a: "We handle valuation, hallmark certification, export licenses, and customs clearance to comply with international trade regulations." },
@@ -127,7 +141,7 @@ function CheckGrid({ points }) {
 function PageBanner({ activeTab }) {
   return (
     <Box sx={{ position: "relative", height: { xs: "300px", sm: "420px", md: "520px" }, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", bgcolor: "#f7f7f7" }}>
-      <Box component="img" src="https://saishipping.com/images/about-banner.jpg" alt="" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+      <Box component="img" src={aboutBanner} alt="" sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
       <Box component="img" src="https://saishipping.com/images/plane-bg.png" alt="" sx={{ position: "absolute", left: 0, bottom: 0, width: { xs: "60%", md: "36%" }, objectFit: "contain" }} />
       <Box component="img" src="https://saishipping.com/images/ship-bg.png" alt="" sx={{ position: "absolute", right: 0, bottom: 0, width: { xs: "60%", md: "36%" }, objectFit: "contain" }} />
       <Box sx={{ position: "relative", zIndex: 2, textAlign: "center" }}>

@@ -1,13 +1,25 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import aboutBanner from "../assets/images/about-banner.jpg";
+import FrightForwarding1 from "../assets/images/FrightForwarding1.jpg";
+import FrightForwarding2 from "../assets/images/FrightForwarding2.jpg";
+import FrightForwarding3 from "../assets/images/FrightForwarding3.jpg";
+import FrightForwarding4 from "../assets/images/FrightForwarding4.jpg";
+import FrightForwarding5 from "../assets/images/FrightForwarding5.jpg";
+import FrightForwarding6 from "../assets/images/FrightForwarding6.jpg";
+import FrightForwarding7 from "../assets/images/FrightForwarding7.jpg";
+import FrightForwarding8 from "../assets/images/FrightForwarding8.jpg";
+import FrightForwarding9 from "../assets/images/FrightForwarding9.jpg";
+import FrightForwarding10 from "../assets/images/FrightForwarding10.jpg";
+import FrightForwarding11 from "../assets/images/FrightForwarding11.jpg";
+import FrightForwarding12 from "../assets/images/FrightForwarding12.jpg";
 const services = [
   {
     id: "sea-air",
     label: "Sea And Air-FCL-LCL",
-    img1: "https://saishipping.com/images/jcl-lcl-1.jpg",
-    img2: "https://saishipping.com/images/jcl-lcl-2.jpg",
-    img3: "https://saishipping.com/images/jcl-lcl-3.jpg",
+    img1: FrightForwarding1 ,
+    img2: FrightForwarding2,
+    img3: FrightForwarding3,
 
     heading:
       "Sea and Air/FCL/LCL Services – SSS Sai Shipping Services Pvt Ltd.",
@@ -55,9 +67,9 @@ const services = [
   {
     id: "odc",
     label: "ODC",
-    img1: "https://saishipping.com/images/ODC-1.jpg",
-    img2: "https://saishipping.com/images/ODC-2.jpg",
-    img3: "https://saishipping.com/images/ODC-3.jpg",
+    img1: FrightForwarding4,
+    img2: FrightForwarding5,
+    img3: FrightForwarding6,
 
     heading: "ODC Services – SSS Sai Shipping Services Pvt Ltd.",
 
@@ -104,9 +116,9 @@ const services = [
   {
     id: "break-bulk",
     label: "Break Bulk",
-    img1: "https://saishipping.com/images/break-bulk-1.jpg",
-    img2: "https://saishipping.com/images/break-bulk-2.jpg",
-    img3: "https://saishipping.com/images/break-bulk-3.jpg",
+    img1: FrightForwarding7,
+    img2: FrightForwarding8,
+    img3: FrightForwarding9,
 
     heading: "Break Bulk Shipping Services",
 
@@ -153,9 +165,9 @@ const services = [
   {
     id: "hazardous",
     label: "Hazardous",
-    img1: "https://saishipping.com/images/hazardous-1.jpg",
-    img2: "https://saishipping.com/images/hazardous-2.jpg",
-    img3: "https://saishipping.com/images/hazardous-3.jpg",
+    img1: FrightForwarding10,
+    img2: FrightForwarding11,
+    img3: FrightForwarding12,
 
     heading: "Hazardous Cargo Shipping – SSS Sai Shipping Services Pvt Ltd.",
 
@@ -329,7 +341,7 @@ export default function FreightForwarding() {
         text-align:center;
         padding:70px 200px;
 
-        background-image:url("https://saishipping.com/images/about-banner.jpg");
+        background-image:url(${aboutBanner});
         background-size:cover;
         background-position:center;
       }

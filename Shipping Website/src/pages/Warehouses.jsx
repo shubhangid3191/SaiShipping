@@ -10,6 +10,16 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import aboutBanner from "../assets/images/about-banner.jpg";
+import warehouse1 from "../assets/images/warehouse1.jpg";
+import warehouse2 from "../assets/images/warehouse2.jpg";
+import warehouse3 from "../assets/images/warehouse3.jpg";
+import warehouse4 from "../assets/images/warehouse4.jpg";
+import warehouse5 from "../assets/images/warehouse5.jpg";
+import warehouse6 from "../assets/images/warehouse6.jpg";
+import warehouse7 from "../assets/images/warehouse7.jpg";
+import warehouse8 from "../assets/images/warehouse8.jpg";
+import warehouse9 from "../assets/images/warehouse9.jpg";
 
 /* =========================================================
    TABS
@@ -27,7 +37,7 @@ const warehouseData = {
       "Bonded Warehouses – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/bonded-1.jpg",
+      warehouse1,
 
     heroText:
       "Customs Bonded Warehouse is a facility where imported goods can be stored and further manufacturing as well as associated activities like packing, re-packing, labelling, etc. can be carried out. The customs duty is deferred at the time of import of goods and is payable at a later stage only upon clearance of manufactured goods for home consumption. If goods are exported directly from the warehouse, no Customs duty is payable. The warehouse can be used to store locally procured domestic goods for processing.",
@@ -126,10 +136,10 @@ const warehouseData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/bonded-2.jpg",
+      warehouse2,
 
     bottomImg2:
-      "https://saishipping.com/images/bonded-3.jpg",
+      warehouse3,
 
     faqTitle:
       "Helping You Understand Bonded Warehouses Services",
@@ -161,7 +171,7 @@ const warehouseData = {
       "General Warehousing – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/general-1.jpg",
+      warehouse4,
 
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we offer reliable and efficient general warehousing solutions to keep your inventory secure, organized, and readily accessible. Our strategically located warehouses are designed to support businesses with optimized storage, seamless inventory management, and cost-effective distribution.General warehousing is not just about storage—it’s about maintaining supply chain efficiency, minimizing handling costs, and ensuring smooth inventory flow. Our facilities are equipped to handle diverse goods with precision, whether you require short-term storage, long-term solutions, or specialized handling. We provide a scalable approach tailored to your unique business needs.",
@@ -182,10 +192,10 @@ const warehouseData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/general-2.jpg",
+      warehouse5,
 
     bottomImg2:
-      "https://saishipping.com/images/general-3.jpg",
+      warehouse6,
 
     faqTitle:
       "Helping You Understand General Services",
@@ -215,7 +225,7 @@ const warehouseData = {
       "FTWZ Services – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/FTWZ-1.jpg",
+      warehouse7,
 
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide specialized Free Trade Warehousing Zone (FTWZ) solutions to streamline global trade operations efficiently, securely, and on time. With our strategic locations and logistics expertise, we manage every aspect of your supply chain, from customs clearance to inventory management.FTWZs are more than just storage facilities—they optimize trade, reduce costs, and improve supply chain efficiency. Our team of experts handles everything from duty-free storage to value-added services, offering customized solutions for businesses across industries. Whether you need warehousing, re-export, or inventory consolidation, we have the right solution for your needs.",
@@ -237,10 +247,10 @@ const warehouseData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/FTWZ-2.jpg",
+      warehouse8,
 
     bottomImg2:
-      "https://saishipping.com/images/FTWZ-3.jpg",
+      warehouse9,
 
     faqTitle:
       "Helping You Understand FTWZ Services",
@@ -358,7 +368,7 @@ function PageBanner({ activeTab }) {
     >
       <Box
         component="img"
-        src="https://saishipping.com/images/about-banner.jpg"
+        src={aboutBanner}
         alt=""
         sx={{
           position: "absolute",

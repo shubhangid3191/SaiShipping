@@ -1,34 +1,49 @@
 import { Box } from "@mui/material";
 import { keyframes } from "@mui/system";
-
+import logo1 from "../../assets/images/cl-logo-1.png";
+import logo2 from "../../assets/images/cl-logo-2.png";
+import logo3 from "../../assets/images/cl-logo-3.png";
+import logo4 from "../../assets/images/cl-logo-4.png";
+import logo5 from "../../assets/images/cl-logo-5.png";
+import logo6 from "../../assets/images/cl-logo-6.png";
+import logo7 from "../../assets/images/cl-logo-7.png";
+import logo8 from "../../assets/images/cl-logo-8.png";
+import logo9 from "../../assets/images/cl-logo-9.png";
+import logo10 from "../../assets/images/cl-logo-10.png";
+import logo11 from "../../assets/images/cl-logo-11.png";
+import logo12 from "../../assets/images/cl-logo-12.png";
+import logo13 from "../../assets/images/cl-logo-13.png";
+import logo14 from "../../assets/images/cl-logo-14.png";
+import logo15 from "../../assets/images/cl-logo-15.png";
+import logo16 from "../../assets/images/cl-logo-16.png";
+import logo17 from "../../assets/images/cl-logo-17.png";
+import logo18 from "../../assets/images/cl-logo-18.png";
+import logo19 from "../../assets/images/cl-logo-19.png";
+import logo20 from "../../assets/images/cl-logo-12.png";
 // ─────────────────────────────────────────────
 // CLIENT LOGOS
 // ─────────────────────────────────────────────
 
 const logos = [
-  "https://saishipping.com/images/cl-logo-2.png",
-  "https://saishipping.com/images/cl-logo-1.png",
-  "https://saishipping.com/images/cl-logo-3.png",
-  "https://saishipping.com/images/cl-logo-5.png",
-  "https://saishipping.com/images/cl-logo-6.png",
-  "https://saishipping.com/images/cl-logo-7.png",
-  "https://saishipping.com/images/cl-logo-8.png",
-  "https://saishipping.com/images/cl-logo-9.png",
-  "https://saishipping.com/images/cl-logo-10.png",
-  "https://saishipping.com/images/cl-logo-11.png",
-  "https://saishipping.com/images/cl-logo-12.png",
-  "https://saishipping.com/images/cl-logo-13.png",
-  "https://saishipping.com/images/cl-logo-14.png",
-  "https://saishipping.com/images/cl-logo-16.png",
-  "https://saishipping.com/images/cl-logo-17.png",
-  "https://saishipping.com/images/cl-logo-18.png",
-  "https://saishipping.com/images/cl-logo-19.png",
-  "https://saishipping.com/images/cl-logo-20.png",
-  "https://saishipping.com/images/cl-logo-21.png",
-  "https://saishipping.com/images/cl-logo-22.png",
-  "https://saishipping.com/images/cl-logo-23.png",
-  "https://saishipping.com/images/cl-logo-24.png",
-  "https://saishipping.com/images/cl-logo-25.png",
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
+  logo9,
+  logo10,
+  logo12,
+  logo13,
+  logo14,
+  logo15,
+  logo16,
+  logo17,
+  logo18,
+  logo19,
+  logo20,
 ];
 
 // ─────────────────────────────────────────────

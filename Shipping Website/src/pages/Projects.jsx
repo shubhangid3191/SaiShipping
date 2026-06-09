@@ -10,6 +10,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import aboutBanner from "../assets/images/about-banner.jpg";
 
 // ─────────────────────────────────────────────
 // PROJECT IMAGES
@@ -35,7 +36,7 @@ function PageBanner() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundImage: "url(https://saishipping.com/images/about-banner.jpg)",
+        backgroundImage: `url(${aboutBanner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

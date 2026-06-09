@@ -12,6 +12,9 @@ import {
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
+import footer1 from "../../assets/images/footer1.jpg";
+import footer2 from "../../assets/images/footer2.png";
+import footer3 from "../../assets/images/footer3.jpg";
 
 /* ─────────────────────────────────────────────
    DATA
@@ -132,7 +135,7 @@ export default function Footer() {
                   rgba(0,18,42,0.92) 34%,
                   rgba(0,18,42,0.18) 100%
                 ),
-                url("https://saishipping.com/images/cta-bg.jpg")
+                url(${footer1})
               `,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -209,7 +212,7 @@ export default function Footer() {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url(https://saishipping.com/images/footer-bg-s2.jpg)",
+            backgroundImage: `url(${footer3})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.08,
@@ -477,7 +480,7 @@ export default function Footer() {
 
               <Box
                 component="img"
-                src="https://saishipping.com/images/logo.png"
+                src={footer2}
                 alt="SSS Sai Shipping"
                 sx={{ width: { xs: "180px", md: "250px" }, objectFit: "contain" }}
               />

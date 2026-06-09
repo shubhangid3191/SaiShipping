@@ -10,7 +10,16 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-
+import aboutBanner from "../assets/images/about-banner.jpg";
+import Aservice1 from "../assets/images/Aservice1.jpg";
+import Aservice2 from "../assets/images/Aservice2.jpg";
+import Aservice3 from "../assets/images/Aservice3.jpg";
+import Aservice4 from "../assets/images/Aservice4.jpg";
+import Aservice5 from "../assets/images/Aservice5.jpg";
+import Aservice6 from "../assets/images/Aservice6.jpg";
+import Aservice7 from "../assets/images/Aservice7.jpg";
+import Aservice8 from "../assets/images/Aservice8.jpg";
+import Aservice9 from "../assets/images/Aservice9.jpg";
 /* =========================================================
    TABS
 ========================================================= */
@@ -31,7 +40,7 @@ const additionalServicesData = {
       "Insurance Services – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/insurance-1.jpg",
+      Aservice1,
 
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide comprehensive cargo insurance solutions to safeguard your shipments against unforeseen risks. With our extensive industry knowledge and reliable coverage options, we ensure financial protection and peace of mind for businesses across industries.Cargo insurance is more than just a safeguard—it’s about mitigating risks, preventing losses, and ensuring business continuity. Our team of experts offers tailored policies, covering damages, theft, and other liabilities during transit. Whether you need coverage for air, sea, road, or multimodal shipments, we have the right insurance solution for your cargo.",
@@ -58,10 +67,10 @@ const additionalServicesData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/insurance-2.jpg",
+       Aservice2,
 
     bottomImg2:
-      "https://saishipping.com/images/insurance-3.jpg",
+       Aservice3,
 
     faqTitle:
       "Helping You Understand Insurance Services",
@@ -92,7 +101,7 @@ const additionalServicesData = {
       "Transport Services – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/transport-1.jpg",
+       Aservice4,
 
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we provide reliable transport solutions to ensure seamless cargo movement across domestic and international routes. With our extensive logistics network and expertise, we handle every aspect of transportation, from scheduling to final delivery, ensuring efficiency and security.Transportation is more than just moving goods—it’s about optimizing supply chains, reducing transit times, and ensuring cost-effective solutions. Our expert team manages everything from freight scheduling to real-time tracking, offering tailored services for businesses across industries. Whether you need road, rail, air, or sea transport, we have the right solution to meet your needs.",
@@ -120,10 +129,10 @@ const additionalServicesData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/transport-2.jpg",
+       Aservice5,
 
     bottomImg2:
-      "https://saishipping.com/images/transport-3.jpg",
+       Aservice6,
 
     faqTitle:
       "Helping You Understand Transport Services",
@@ -153,7 +162,7 @@ const additionalServicesData = {
       "Consultant Services – SSS Sai Shipping Services Pvt Ltd.",
 
     heroImg:
-      "https://saishipping.com/images/consultant-1.jpg",
+       Aservice7,
 
     heroText:
       "At SSS Sai Shipping Services Pvt Ltd., we offer expert consultancy services to streamline your logistics and supply chain operations. Our team of seasoned professionals provides strategic guidance, ensuring efficiency, cost savings, and compliance with global trade regulations.Effective logistics management requires more than just transportation—it demands insight, planning, and adaptability. We analyze your shipping needs, optimize routes, and recommend best practices to enhance operational efficiency. Whether you need assistance with regulatory compliance, customs procedures, or supply chain optimization, our tailored solutions help you navigate complex logistics challenges with ease.",
@@ -183,10 +192,10 @@ const additionalServicesData = {
     ],
 
     bottomImg1:
-      "https://saishipping.com/images/consultant-2.jpg",
+       Aservice8,
 
     bottomImg2:
-      "https://saishipping.com/images/consultant-3.jpg",
+       Aservice9,
 
     faqTitle:
       "Helping You Understand Consultant Services",
@@ -271,7 +280,7 @@ function PageBanner({ activeTab }) {
     >
       <Box
         component="img"
-        src="https://saishipping.com/images/about-banner.jpg"
+        src={aboutBanner}
         alt=""
         sx={{
           position: "absolute",

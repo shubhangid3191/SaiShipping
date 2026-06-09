@@ -13,12 +13,16 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ser1 from "../../assets/images/ser1.png";
+import ser2 from "../../assets/images/ser2.png";
+import ser3 from "../../assets/images/ser3.png";
+import ser4 from "../../assets/images/ser4.png";
 
 // IMAGES
-const serv1 = "https://saishipping.com/images/serv-1.png";
-const serv2 = "https://saishipping.com/images/serv-2.png";
-const serv3 = "https://saishipping.com/images/serv-3.png";
-const serv4 = "https://saishipping.com/images/serv-4.png";
+const serv1 = ser1;
+const serv2 = ser2;
+const serv3 = ser3;
+const serv4 = ser4;
 
 const services = [
   {

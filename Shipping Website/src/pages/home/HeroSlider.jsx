@@ -10,14 +10,16 @@ import {
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-
+import hero1 from "../../assets/images/hero1.png";
+import hero2 from "../../assets/images/hero2.png";
+import hero3 from "../../assets/images/hero3.png";
 // ─────────────────────────────────────────────
 // IMAGES
 // ─────────────────────────────────────────────
 
-const slide1 = "https://saishipping.com/images/slide-1.png";
-const slide2 = "https://saishipping.com/images/slide-2.png";
-const slide3 = "https://saishipping.com/images/slide-3.png";
+const slide1 = hero1;
+const slide2 = hero2;
+const slide3 = hero3;
 
 // ─────────────────────────────────────────────
 // SLIDES DATA
