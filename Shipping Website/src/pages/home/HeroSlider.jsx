@@ -6,7 +6,7 @@ import {
   Stack,
   IconButton,
 } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -85,6 +85,8 @@ const keyframes = `
 // ─────────────────────────────────────────────
 
 export default function HeroSlider() {
+
+  const navigate = useNavigate();
   const [active, setActive]   = useState(0);
   const [animKey, setAnimKey] = useState(0);
   const timerRef              = useRef(null);
@@ -248,6 +250,7 @@ export default function HeroSlider() {
             >
               <Button
                 variant="contained"
+                onClick={() => navigate("/contact")}
                 sx={{
                   bgcolor: "#ff6b2c",
                   px: { xs: 4, md: 5 },
