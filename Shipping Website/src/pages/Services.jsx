@@ -20,11 +20,19 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import HomeRepairServiceIcon from "@mui/icons-material/HomeRepairService";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import SecurityIcon from "@mui/icons-material/Security";
+import aboutBanner from "../assets/images/about-banner.jpg";
+import ser1 from "../assets/images/ser1.png";
+import ser2 from "../assets/images/ser2.png";
+import ser3 from "../assets/images/ser3.png";
+import ser4 from "../assets/images/ser4.png";
+import postman from "../assets/images/postman.png";
+import portserv from "../assets/images/portserv.jpg";
+import servbg from "../assets/images/servbg.jpg";
 
 // ───────────────── IMAGES ─────────────────
 
 const heroBg =
-  "https://saishipping.com/images/about-banner.jpg";
+  aboutBanner;
 
 const airplaneImg =
   "https://saishipping.com/images/airoplane.png";
@@ -33,22 +41,22 @@ const shipImg =
   "https://saishipping.com/images/ship.png";
 
 const serv1 =
-  "https://saishipping.com/images/serv-1.png";
+  ser1;
 
 const serv2 =
-  "https://saishipping.com/images/serv-2.png";
+  ser2;
 
 const serv3 =
-  "https://saishipping.com/images/serv-3.png";
+  ser3;
 
 const serv4 =
-  "https://saishipping.com/images/serv-4.png";
+  ser4;
 
 const portImg =
-  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&q=80";
+  portserv;
 
 const deliveryManImg =
-  "https://saishipping.com/images/ab7.png";
+  postman;
 
 // ───────────────── SERVICES DATA ─────────────────
 
@@ -427,6 +435,8 @@ export default function Services() {
               direction="row"
               spacing={0.7}
               alignItems="center"
+              justifyContent="center"
+              sx={{ mb: 1 }}
             >
               <BoltIcon
                 sx={{
@@ -746,7 +756,7 @@ export default function Services() {
             overflow: "hidden",
 
             backgroundImage:
-              "url(https://saishipping.com/images/features-bg.jpg)",
+              `url(${servbg})`,
 
             backgroundSize: "cover",
             backgroundPosition: "center",

@@ -250,7 +250,7 @@ export default function HeroSlider() {
             >
               <Button
                 variant="contained"
-                onClick={() => navigate("/contact")}
+                onClick={() => navigate("/services")}
                 sx={{
                   bgcolor: "#ff6b2c",
                   px: { xs: 4, md: 5 },
