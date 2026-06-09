@@ -20,6 +20,7 @@ import warehouse6 from "../assets/images/warehouse6.jpg";
 import warehouse7 from "../assets/images/warehouse7.jpg";
 import warehouse8 from "../assets/images/warehouse8.jpg";
 import warehouse9 from "../assets/images/warehouse9.jpg";
+import { Link } from "react-router-dom";
 
 /* =========================================================
    TABS
@@ -659,8 +660,8 @@ function Sidebar({
         </Typography>
 
         <Box
-          component="a"
-          href="/contact"
+          component={Link}
+          to="/contact"
           sx={{
             display:
               "inline-flex",

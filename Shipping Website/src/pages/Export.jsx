@@ -17,6 +17,7 @@ import export9 from "../assets/images/export9.jpg";
 import export10 from "../assets/images/export10.jpg";
 import export11 from "../assets/images/export11.jpg";
 import export12 from "../assets/images/export12.jpg";
+import { Link } from "react-router-dom";
 
 
 const tabs = ["Air & Sea", "FSSAI", "CDSCO", "Jewellery & Stone Clearance"];
@@ -196,7 +197,7 @@ function Sidebar({ activeTab, setActiveTab }) {
         <Typography sx={{ color: "rgba(255,255,255,0.95)", lineHeight: 1.9, fontSize: "0.95rem", mb: 3 }}>
           Schedule your initial consultation today and start your journey towards seamless, stress-free Export / Custom Clearance. Let us handle your logistics with expertise and efficiency. Contact us now!
         </Typography>
-        <Box component="a" href="/contact" sx={{ display: "inline-flex", alignItems: "center", justifyContent: "center", px: 4, py: 1.2, borderRadius: "50px", bgcolor: "#fff", color: "#eb7a12", textDecoration: "none", fontWeight: 700, transition: "0.3s", "&:hover": { bgcolor: "#111827", color: "#fff" } }}>
+        <Box component={Link} to="/contact" sx={{ display: "inline-flex", alignItems: "center", justifyContent: "center", px: 4, py: 1.2, borderRadius: "50px", bgcolor: "#fff", color: "#eb7a12", textDecoration: "none", fontWeight: 700, transition: "0.3s", "&:hover": { bgcolor: "#111827", color: "#fff" } }}>
           Contact Us
         </Box>
       </Box>

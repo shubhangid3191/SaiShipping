@@ -356,6 +356,7 @@ export default function FreightForwarding() {
       .ff-hero-inner{
         position:relative;
         z-index:2;
+        margin-top:120px;
       }
 
       .ff-hero-tag{

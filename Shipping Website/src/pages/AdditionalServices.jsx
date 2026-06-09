@@ -20,6 +20,7 @@ import Aservice6 from "../assets/images/Aservice6.jpg";
 import Aservice7 from "../assets/images/Aservice7.jpg";
 import Aservice8 from "../assets/images/Aservice8.jpg";
 import Aservice9 from "../assets/images/Aservice9.jpg";
+import { Link } from "react-router-dom";
 /* =========================================================
    TABS
 ========================================================= */
@@ -568,8 +569,8 @@ function Sidebar({
         </Typography>
 
         <Box
-          component="a"
-          href="/contact"
+          component={Link}
+          to="/contact"
           sx={{
             display:
               "inline-flex",
