@@ -13,13 +13,99 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import aboutBanner from "../assets/images/about-banner.jpg";
 
 // ─────────────────────────────────────────────
-// PROJECT IMAGES
+// IMPORT YOUR PROJECT IMAGES HERE
 // ─────────────────────────────────────────────
+import img1 from "../assets/images/project1.jpg";
+import img2 from "../assets/images/project2.jpg";
+import img3 from "../assets/images/project3.jpg";
+import img4 from "../assets/images/project4.jpg";
+import img5 from "../assets/images/project5.jpg";
+import img6 from "../assets/images/project6.jpg";
+import img7 from "../assets/images/project7.jpg";
+import img8 from "../assets/images/project8.jpg";
+import img9 from "../assets/images/project9.jpg";
+import img10 from "../assets/images/project10.jpg";
+import img11 from "../assets/images/project11.jpg";
+import img12 from "../assets/images/project12.jpg";
+import img13 from "../assets/images/project13.jpg";
+import img14 from "../assets/images/project14.jpg";
+import img15 from "../assets/images/project15.jpg";
+import img16 from "../assets/images/project16.jpg";
+import img17 from "../assets/images/project17.jpg";
+import img18 from "../assets/images/project18.jpg";
+import img19 from "../assets/images/project19.jpg";
+import img20 from "../assets/images/project20.jpg";
+import img21 from "../assets/images/project21.jpg";
+import img22 from "../assets/images/project22.jpg";
+import img23 from "../assets/images/project23.jpg";
+import img24 from "../assets/images/project24.jpg";
+import img25 from "../assets/images/project25.jpg";
+import img26 from "../assets/images/project26.jpg";
+import img27 from "../assets/images/project27.jpg";
+import img28 from "../assets/images/project28.jpg";
+import img29 from "../assets/images/project29.jpg";
+import img30 from "../assets/images/project30.jpg";
+import img31 from "../assets/images/project31.jpg";
+import img32 from "../assets/images/project32.jpg";
+import img33 from "../assets/images/project33.jpg";
+import img34 from "../assets/images/project34.jpg";
+import img35 from "../assets/images/project35.jpg";
+import img36 from "../assets/images/project36.jpg";
+import img37 from "../assets/images/project37.jpg";
+import img38 from "../assets/images/project38.jpg";
+import img39 from "../assets/images/project39.jpg";
+import img40 from "../assets/images/project40.jpg";
+import img41 from "../assets/images/project41.jpg";
+import img42 from "../assets/images/project42.jpg";
+// ... add as many as you need
 
-const projects = Array.from({ length: 42 }, (_, i) => ({
-  id: i + 1,
-  src: `https://saishipping.com/images/project${i + 1}.jpg`,
-}));
+// ─────────────────────────────────────────────
+// PROJECT LIST — add/remove entries to match your imports
+// ─────────────────────────────────────────────
+const projects = [
+  { id: 1, src: img1 },
+  { id: 2, src: img2 },
+  { id: 3, src: img3 },
+  { id: 4, src: img4 },
+  { id: 5, src: img5 },
+  { id: 6, src: img6 },
+  { id: 7, src: img7 },
+  { id: 8, src: img8 },
+  { id: 9, src: img9 },
+  { id: 10, src: img10 },
+  { id: 11, src: img11 },
+  { id: 12, src: img12 },
+  { id: 13, src: img13 },
+  { id: 14, src: img14 },
+  { id: 15, src: img15 },
+  { id: 16, src: img16 },
+  { id: 17, src: img17 },
+  { id: 18, src: img18 },
+  { id: 19, src: img19 },
+  { id: 20, src: img20 },
+  { id: 21, src: img21 },
+  { id: 22, src: img22 },
+  { id: 23, src: img23 },
+  { id: 24, src: img24 },
+  { id: 25, src: img25 },
+  { id: 26, src: img26 },
+  { id: 27, src: img27 },
+  { id: 28, src: img28 },
+  { id: 29, src: img29 },
+  { id: 30, src: img30 },
+  { id: 31, src: img31 },
+  { id: 32, src: img32 },
+  { id: 33, src: img33 },
+  { id: 34, src: img34 },
+  { id: 35, src: img35 },
+  { id: 36, src: img36 },
+  { id: 37, src: img37 },
+  { id: 38, src: img38 },
+  { id: 39, src: img39 },
+  { id: 40, src: img40 },
+  { id: 41, src: img41 },
+  { id: 42, src: img42 },
+];
 
 // ─────────────────────────────────────────────
 // PAGE BANNER
@@ -43,10 +129,7 @@ function PageBanner() {
         backgroundColor: "#fff",
       }}
     >
-      {/* NO dark overlay — screenshot has light/white background */}
-
       <Box sx={{ position: "relative", zIndex: 2, textAlign: "center", px: 2 }}>
-        {/* "International Logistics" — orange */}
         <Box
           sx={{
             color: "#e8730d",
@@ -58,8 +141,6 @@ function PageBanner() {
         >
           International Logistics
         </Box>
-
-        {/* "Projects" — dark black */}
         <Box
           sx={{
             color: "#111",

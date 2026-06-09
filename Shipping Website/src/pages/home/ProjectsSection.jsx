@@ -6,23 +6,96 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import AddIcon from '@mui/icons-material/Add';
 import BoltIcon from '@mui/icons-material/Bolt';
 
-// ── Real project images from saishipping.com ──
-const allProjects = Array.from({ length: 42 }, (_, i) => ({
-  id: i + 1,
-  src: `https://saishipping.com/images/project${i + 1}.jpg`,
-  desc: [
-    'Heavy-duty transformer secured for transit.',
-    'Safe transport of large mining/construction vehicles.',
-    'Properly lashed for damage-free delivery.',
-    'Secure transit of industrial screening equipment.',
-    'Oversized cargo loaded for international shipping.',
-    'Specialized Equipment Handling.',
-    'Project cargo secured with precision rigging.',
-    'Heavy machinery transport across borders.',
-    'Port-to-destination reliable freight solutions.',
-    'Industrial equipment ready for dispatch.',
-  ][i % 10],
-}));
+// ── Import your project images ──
+import img1 from "../../assets/images/project1.jpg";
+import img2 from "../../assets/images/project2.jpg";
+import img3 from "../../assets/images/project3.jpg";
+import img4 from "../../assets/images/project4.jpg";
+import img5 from "../../assets/images/project5.jpg";
+import img6 from "../../assets/images/project6.jpg";
+import img7 from "../../assets/images/project7.jpg";
+import img8 from "../../assets/images/project8.jpg";
+import img9 from "../../assets/images/project9.jpg";
+import img10 from "../../assets/images/project10.jpg";
+import img11 from "../../assets/images/project11.jpg";
+import img12 from "../../assets/images/project12.jpg";
+import img13 from "../../assets/images/project13.jpg";
+import img14 from "../../assets/images/project14.jpg";
+import img15 from "../../assets/images/project15.jpg";
+import img16 from "../../assets/images/project16.jpg";
+import img17 from "../../assets/images/project17.jpg";
+import img18 from "../../assets/images/project18.jpg";
+import img19 from "../../assets/images/project19.jpg";
+import img20 from "../../assets/images/project20.jpg";
+import img21 from "../../assets/images/project21.jpg";
+import img22 from "../../assets/images/project22.jpg";
+import img23 from "../../assets/images/project23.jpg";
+import img24 from "../../assets/images/project24.jpg";
+import img25 from "../../assets/images/project25.jpg";
+import img26 from "../../assets/images/project26.jpg";
+import img27 from "../../assets/images/project27.jpg";
+import img28 from "../../assets/images/project28.jpg";
+import img29 from "../../assets/images/project29.jpg";
+import img30 from "../../assets/images/project30.jpg";
+import img31 from "../../assets/images/project31.jpg";
+import img32 from "../../assets/images/project32.jpg";
+import img33 from "../../assets/images/project33.jpg";
+import img34 from "../../assets/images/project34.jpg";
+import img35 from "../../assets/images/project35.jpg";
+import img36 from "../../assets/images/project36.jpg";
+import img37 from "../../assets/images/project37.jpg";
+import img38 from "../../assets/images/project38.jpg";
+import img39 from "../../assets/images/project39.jpg";
+import img40 from "../../assets/images/project40.jpg";
+import img41 from "../../assets/images/project41.jpg";
+import img42 from "../../assets/images/project42.jpg";
+// ... add more as needed
+
+// ── Project data — update desc per image as needed ──
+const allProjects = [
+  { id: 1, src: img1, desc: 'Heavy-duty transformer secured for transit.' },
+  { id: 2, src: img2, desc: 'Safe transport of large mining/construction vehicles.' },
+  { id: 3, src: img3, desc: 'Properly lashed for damage-free delivery.' },
+  { id: 4, src: img4, desc: 'Secure transit of industrial screening equipment.' },
+  { id: 5, src: img5, desc: 'Oversized cargo loaded for international shipping.' },
+  { id: 6, src: img6, desc: 'Specialized Equipment Handling.' },
+  { id: 7, src: img7, desc: 'Project cargo secured with precision rigging.' },
+  { id: 8, src: img8, desc: 'Heavy machinery transport across borders.' },
+  { id: 9, src: img9, desc: 'Your description here.' },
+    { id: 10, src: img10, desc: 'Port-to-destination reliable freight solutions.'},
+    { id: 11, src: img11 ,desc:'Industrial equipment ready for dispatch.' },
+    { id: 12, src: img12, desc :'Heavy-duty transformer secured for transit.' },
+    { id: 13, src: img13, desc: 'Safe transport of large mining/construction vehicles.'},
+    { id: 14, src: img14, desc :"Properly lashed for damage-free delivery." },
+    { id: 15, src: img15 ,desc :'Secure transit of industrial screening equipment.'},
+    { id: 16, src: img16 ,desc:'Oversized cargo loaded for international shipping.' },
+    { id: 17, src: img17 , desc :'Specialized Equipment Handling.'},
+    { id: 18, src: img18 , desc:'Project cargo secured with precision rigging.'},
+    { id: 19, src: img19 ,desc :'Heavy machinery transport across borders.'},
+    { id: 20, src: img20 ,desc:'Port-to-destination reliable freight solutions.'},
+    { id: 21, src: img21 , desc:'Industrial equipment ready for dispatch.'},
+    { id: 22, src: img22 , desc :'Heavy-duty transformer secured for transit' },
+    { id: 23, src: img23, desc :'Safe transport of large mining/construction vehicles.' },
+    { id: 24, src: img24 , desc:'Properly lashed for damage-free delivery.'},
+    { id: 25, src: img25 , desc :'Secure transit of industrial screening equipment.' },
+    { id: 26, src: img26 , desc :'Oversized cargo loaded for international shipping.'},
+    { id: 27, src: img27 , desc:'Specialized Equipment Handling.'},
+    { id: 28, src: img28 , desc :"Project cargo secured with precision rigging."},
+    { id: 29, src: img29 , desc :'Heavy machinery transport across borders.'},
+    { id: 30, src: img30 , desc :'Port-to-destination reliable freight solutions.'},
+    { id: 31, src: img31 , desc :'Industrial equipment ready for dispatch.'},
+    { id: 32, src: img32 , desc :'Heavy-duty transformer secured for transit.'},
+    { id: 33, src: img33 , desc : 'Safe transport of large mining/construction vehicles.'},
+    { id: 34, src: img34 ,desc :'Properly lashed for damage-free delivery.'},
+    { id: 35, src: img35 , desc:'Secure transit of industrial screening equipment.'},
+    { id: 36, src: img36 , desc:'Oversized cargo loaded for international shipping.'},
+    { id: 37, src: img37 , desc :'Specialized Equipment Handling.'},
+    { id: 38, src: img38 , desc :'Project cargo secured with precision rigging.'},
+    { id: 39, src: img39 ,desc:'Heavy machinery transport across borders.'},
+    { id: 40, src: img40 , desc :'Port-to-destination reliable freight solutions.'},
+    { id: 41, src: img41 , desc:"Industrial equipment ready for dispatch."},
+    { id: 42, src: img42 , desc :'Heavy-duty transformer secured for transit.'},
+];
 
 const VISIBLE = 4;
 
@@ -63,7 +136,6 @@ export default function ProjectsSection() {
             gap: 3,
           }}
         >
-          {/* Left — title */}
           <Box sx={{ maxWidth: 520 }}>
             <Stack direction="row" alignItems="center" spacing={0.5} sx={{ mb: 1.5 }}>
               <BoltIcon sx={{ color: '#f47b14', fontSize: 18 }} />
@@ -72,7 +144,7 @@ export default function ProjectsSection() {
                   color: '#f47b14',
                   fontWeight: 700,
                   fontSize: '0.9rem',
-                  fontFamily:`"Georgia", "Times New Roman", serif`,
+                  fontFamily: `"Georgia", "Times New Roman", serif`,
                   textTransform: 'uppercase',
                   letterSpacing: 1,
                   textDecoration: 'underline',
@@ -100,7 +172,6 @@ export default function ProjectsSection() {
             </Typography>
           </Box>
 
-          {/* Right — prev/next arrows */}
           <Stack
             direction="row"
             spacing={1.5}
@@ -160,7 +231,6 @@ export default function ProjectsSection() {
               sx={{ cursor: 'pointer' }}
               onClick={() => navigate('/projects')}
             >
-              {/* Image */}
               <Box
                 sx={{
                   position: 'relative',
@@ -185,7 +255,6 @@ export default function ProjectsSection() {
                   }}
                 />
 
-                {/* Hover overlay card */}
                 {hovered === proj.id && (
                   <Box
                     sx={{
@@ -205,7 +274,7 @@ export default function ProjectsSection() {
                       sx={{
                         fontSize: '0.95rem',
                         color: '#333',
-                        fontFamily:`"Georgia", "Times New Roman", serif`,
+                        fontFamily: `"Georgia", "Times New Roman", serif`,
                         fontWeight: 500,
                       }}
                     >
@@ -215,7 +284,6 @@ export default function ProjectsSection() {
                 )}
               </Box>
 
-              {/* Description + plus button */}
               <Box
                 sx={{
                   display: 'flex',
