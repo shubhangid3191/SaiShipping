@@ -13,6 +13,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import WarehouseIcon from "@mui/icons-material/Warehouse";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useNavigate } from "react-router-dom";
 import ser1 from "../../assets/images/ser1.png";
 import ser2 from "../../assets/images/ser2.png";
 import ser3 from "../../assets/images/ser3.png";
@@ -30,28 +31,33 @@ const services = [
     desc: "Comprehensive Freight Forwarding Solutions for Seamless Global Logistics.",
     image: serv1,
     icon: <LocalShippingIcon sx={{ fontSize: 22 }} />,
+    path: "/freight-forwarding",
   },
   {
     title: "CUSTOM CLEARANCE",
     desc: "Hassle-free import and export clearance with expert compliance handling.",
     image: serv2,
     icon: <DescriptionIcon sx={{ fontSize: 22 }} />,
+    path: "/import",
   },
   {
     title: "WAREHOUSES",
     desc: "Secure & Efficient Warehousing Solutions for Streamlined Supply Chain Management.",
     image: serv3,
     icon: <WarehouseIcon sx={{ fontSize: 22 }} />,
+    path: "/warehouses",
   },
   {
     title: "ADDITIONAL SERVICES",
     desc: "Value-added logistics support including packaging and consulting.",
     image: serv4,
     icon: <SettingsIcon sx={{ fontSize: 22 }} />,
+     path: "/additional-services",
   },
 ];
 
 export default function ServicesSection() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -351,6 +357,7 @@ export default function ServicesSection() {
                     >
                       <Typography
                         className="read-more"
+                        onClick={() => navigate(item.path)}
                         sx={{
                           fontSize: {
                             xs: "15px",
@@ -373,6 +380,7 @@ export default function ServicesSection() {
 
                       <IconButton
                         className="arrow-btn"
+                        onClick={() => navigate(item.path)}
                         sx={{
                           width: 34,
                           height: 34,
